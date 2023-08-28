@@ -1,0 +1,46 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+  color: #5b4a58;
+  a,
+  p {
+    color: #5b4a58;
+  }
+
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #d5cad3;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #5b4a58ec;
+    border-radius: 6px;
+  }
+}
+
+header {
+  background-color: #5b4a58;
+  width: 100%;
+  /* flex: 1 1 auto; */
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+/* footer {
+    flex: 0 1 auto;
+  } */
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

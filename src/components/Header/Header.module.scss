@@ -1,0 +1,124 @@
+.contacts {
+  a,
+  p {
+    color: white !important;
+  }
+
+  > div {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .location {
+    &::before {
+      content: url(src/assets/image/Position.svg);
+      position: absolute;
+    }
+
+    span {
+      color: #6aae55;
+      padding-right: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+  }
+  .number {
+    position: relative;
+    display: flex;
+    align-items: end;
+    padding: 0 10px 0 35px;
+    height: 100%;
+    column-gap: 13px;
+
+    &::before {
+      content: url(src/assets/image/phone.svg);
+      position: absolute;
+      top: calc(40px - calc(50% - -8px));
+      left: 5px;
+    }
+
+    &::after {
+      content: "whatsapp";
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 35px;
+    }
+  }
+}
+
+.nav {
+  background-color: white;
+  height: 110px;
+  display: flex;
+  align-items: center;
+
+  .container,
+  ul,
+  div {
+    display: inherit;
+    align-items: inherit;
+    text-transform: uppercase;
+    column-gap: 40px;
+    user-select: none;
+  }
+
+  li {
+    transition: 0.2s ease-in-out;
+    opacity: 1;
+    transform: scale(1);
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+      transform: scale(1.07);
+    }
+  }
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 25px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: url(src/assets/image/cart.svg) no-repeat center;
+    width: 18px;
+    height: 22px;
+    left: 0;
+  }
+}
+
+.logotype {
+  display: flex;
+  justify-content: center;
+  flex: 1 1;
+}
+
+.inform {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    background: url(src/assets/image/arrow.svg) no-repeat;
+    transform: rotate(-90deg);
+    right: -20px;
+    top: 1px;
+    width: 15px;
+    height: 10px;
+    transition: 0.2s ease-in-out;
+  }
+
+  &:hover::after {
+    transform: rotate(0deg);
+    top: 3px;
+  }
+}

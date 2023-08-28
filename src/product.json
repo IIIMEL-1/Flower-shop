@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Букет из разноцветных роз",
+    "id": "el1",
+    "price": 1000,
+    "image": "Flowers-png 2.png"
+  },
+  {
+    "title": "Букет из разноцветных роз",
+    "id": "el2",
+    "price": 1400,
+    "imgSrc": "Flowers-png 1.png"
+  },
+  {
+    "title": "Букет из разноцветных роз",
+    "id": "el3",
+    "price": 1400,
+    "imgSrc": "Flowers-png 3.png"
+  },
+  {
+    "title": "Букет из разноцветных роз",
+    "id": "el4",
+    "price": 1500,
+    "imgSrc": "Flowers-png 5.png"
+  },
+  {
+    "title": "Букет из разноцветных роз",
+    "id": "el5",
+    "price": 1200,
+    "imgSrc": "Flowers-png 4.png"
+  },
+  {
+    "title": "Букет из разноцветных роз",
+    "id": "el6",
+    "price": 2000,
+    "imgSrc": "Flowers-png 8.png"
+  },
+  {
+    "title": "Букет из разноцветных роз",
+    "id": "el7",
+    "price": 1700,
+    "imgSrc": "Flowers-png 6.png"
+  },
+  {
+    "title": "Букет из разноцветных роз",
+    "id": "el8",
+    "price": 1800,
+    "imgSrc": "Flowers-png 7.png"
+  },
+  {
+    "title": "Букет из разноцветных роз",
+    "id": "el9",
+    "price": 1600,
+    "imgSrc": "Flowers-png 5.png"
+  }
+]
