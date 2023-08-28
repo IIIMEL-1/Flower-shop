@@ -7,6 +7,7 @@ import "./assets/style/global.scss";
 function App() {
   return (
     <>
+      1
       <Header />
       <Main />
     </>
