@@ -6,10 +6,10 @@ export default function Index() {
     <section id="advantages">
       <div className="container">
         <div className={style.advantages}>
-          <img src="src/assets/image/delivery.svg" alt="#!" />
-          <img src="src/assets/image/present.svg" alt="#!" />
-          <img src="src/assets/image/clock.svg" alt="#!" />
-          <img src="src/assets/image/discount.svg" alt="#!" />
+          <img src="public/delivery.svg" alt="#!" />
+          <img src="public/present.svg" alt="#!" />
+          <img src="public/clock.svg" alt="#!" />
+          <img src="public/discount.svg" alt="#!" />
         </div>
       </div>
     </section>

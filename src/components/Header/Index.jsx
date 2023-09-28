@@ -38,7 +38,7 @@ export default function index() {
           </ul>
           <div className={style.logotype}>
             <a href="">
-              <img src="src/assets/image/logo.svg" alt="#" />
+              <img src="public/logo.svg" alt="#" />
             </a>
           </div>
           <ul>
@@ -50,7 +50,7 @@ export default function index() {
             </li>
             <li>
               <a href="">
-                <img src="src/assets/image/List-man.svg" alt="" />
+                <img src="public/Profile-icon.svg" alt="" />
               </a>
             </li>
           </ul>

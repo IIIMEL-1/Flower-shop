@@ -36,7 +36,7 @@
     column-gap: 13px;
 
     &::before {
-      content: url(src/assets/image/phone.svg);
+      content: url(public/phone.svg);
       position: absolute;
       top: calc(40px - calc(50% - -8px));
       left: 5px;
@@ -90,7 +90,7 @@
   &::before {
     content: "";
     position: absolute;
-    background: url(src/assets/image/cart.svg) no-repeat center;
+    background: url(public/cart.svg) no-repeat center;
     width: 18px;
     height: 22px;
     left: 0;
@@ -108,7 +108,7 @@
   &::after {
     content: "";
     position: absolute;
-    background: url(src/assets/image/arrow.svg) no-repeat;
+    background: url(public/arrow.svg) no-repeat;
     transform: rotate(-90deg);
     right: -20px;
     top: 1px;
