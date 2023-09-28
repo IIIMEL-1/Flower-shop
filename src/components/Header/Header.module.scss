@@ -16,7 +16,7 @@
 
   .location {
     &::before {
-      content: url(src/assets/image/Position.svg);
+      content: url(public/Position.svg);
       position: absolute;
     }
 
