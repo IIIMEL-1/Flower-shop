@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Card from "./Card/Index.jsx";
+import Skeleton from "./Card/Skeleton.jsx";
 import style from "./Products.module.scss";
 
 export default function Index() {
-  const [products, setProducts] = React.useState([]);
+  const [products, setProducts] = React.useState([1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     fetch("https://64ebe102e51e1e82c577b25b.mockapi.io/products")
@@ -12,11 +14,12 @@ export default function Index() {
       })
       .then((data) => {
         setProducts(data);
+        setIsLoading(false);
       });
   }, []);
 
   return (
-    <div className={style.productBlock}>
+    <div className={style.productBlock} id="catalog">
       <div className={style.sort}>
         <p>Сортировать по:</p>
         <button>Новизне</button>
@@ -26,12 +29,13 @@ export default function Index() {
       </div>
       <div id={style.productsContainer}>
         {products.map((el) => (
-          <Card
+          <Skeleton />
+          /*           <Card
             key={el.id}
             title={el.title}
             price={el.price}
             image={el.image}
-          />
+          /> */
         ))}
       </div>
       <button className={style.showMore}>Показать ещё</button>

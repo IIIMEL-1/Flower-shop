@@ -1,0 +1,143 @@
+.navFooter {
+  font-family: "Montserrat", sans-serif;
+  background-color: #746471;
+  border: 1px solid #746471;
+  width: 100%;
+  display: flex;
+}
+
+.navRowFooter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navItemFooter {
+  display: block;
+  font-size: 18px;
+  line-height: 22px;
+  color: white;
+  padding: 2em;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #948a92;
+    transform: scale(1.1);
+    border-radius: 10px;
+  }
+}
+
+.footer {
+  padding: 35px 0;
+  background: #5b4a58;
+  border: 1px solid;
+  border-left: 0px;
+  border-right: 0px;
+  border-color: #a29bb4;
+  color: #ffffff !important;
+
+  a {
+    color: inherit;
+  }
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+  opacity: 0.8;
+
+  > div > ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  h5 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 24px;
+    color: #8edc77;
+    opacity: 1;
+  }
+}
+
+.contactUs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 0;
+  font-size: 18px;
+  line-height: 19px;
+  color: #f2f2f2;
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    color: inherit;
+    margin-bottom: 5px;
+  }
+
+  input {
+    width: 220px;
+    height: 35px;
+    padding-left: 10px;
+  }
+}
+
+.footerQuestions {
+  max-width: 450px;
+
+  textarea {
+    padding-top: 6px;
+    resize: none;
+    width: 450px;
+    height: 75px;
+  }
+
+  input,
+  textarea {
+    padding-left: 7px;
+    color: #5b4a58;
+    outline: none;
+    background-color: #ffffff;
+    border-radius: 3px;
+  }
+}
+
+.askAQuestion {
+  position: relative;
+
+  .counter {
+    right: 0;
+    position: absolute;
+    color: rgb(164, 157, 157);
+    font-weight: 400;
+  }
+}
+
+.sendForm {
+  text-align: center;
+  border: 1px solid #6aae55;
+  border-radius: 5px;
+  background: #6aae55;
+  width: 222px;
+  height: 40px;
+  opacity: 1;
+}
+
+.copyright {
+  background-color: #5b4a58;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-size: 16px;
+    line-height: 100%;
+    color: #a69ba4;
+  }
+}

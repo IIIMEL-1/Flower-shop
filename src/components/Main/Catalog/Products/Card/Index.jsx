@@ -2,8 +2,6 @@ import React from "react";
 import style from "./Card.module.scss";
 
 export default function Index(props) {
-  console.log(props);
-
   return (
     <div className={style.product} id={props.id}>
       <img src={props.image} alt={props.title} />

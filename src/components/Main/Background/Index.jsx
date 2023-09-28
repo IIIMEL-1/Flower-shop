@@ -11,7 +11,7 @@ export default function Index() {
           </p>
           <p>ВЛАДИВОСТОК</p>
         </div>
-        <button href="#catalog">КАТАЛОГ</button>
+        <button>КАТАЛОГ</button>
       </div>
     </section>
   );
