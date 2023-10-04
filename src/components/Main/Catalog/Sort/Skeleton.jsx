@@ -8,7 +8,7 @@ const border = {
   borderStyle: "solid",
 };
 
-const MyLoader = (props) => (
+const Skeleton = (props) => (
   <ContentLoader
     style={border}
     speed={1.7}
@@ -55,4 +55,4 @@ const MyLoader = (props) => (
   </ContentLoader>
 );
 
-export default MyLoader;
+export default Skeleton;
