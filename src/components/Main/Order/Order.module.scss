@@ -3,9 +3,9 @@
   font-size: 24px;
   font-family: "Bubblegum Sans", cursive;
   color: #5b4a58;
-  margin-top: 152px;
-  display: flex;
-  justify-content: center;
+
+  margin-top: 150px;
+  text-align: center;
 
   span {
     color: #6aae55;
@@ -16,7 +16,6 @@
   display: flex;
   margin: 70px 0;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .orderItem {
@@ -33,5 +32,18 @@
     font-weight: 600;
     color: #6aae55;
     margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 1145px) {
+  .orderBlock {
+    flex-direction: column;
+    text-align: center;
+    gap: 60px;
+  }
+
+  .orderItem {
+    flex-direction: column;
+    gap: 20px;
   }
 }

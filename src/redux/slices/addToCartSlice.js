@@ -1,0 +1,50 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  totalPrice: 0,
+  items: [],
+};
+
+export const addToCartSlice = createSlice({
+  name: "addToCartSlice",
+  initialState,
+  reducers: {
+    addItem(state, action) {
+      const findItem = state.items.find((el) => el.id === action.payload.id);
+
+      if (findItem) {
+        findItem.count++;
+      } else {
+        state.items.push({ ...action.payload, count: 1 });
+      }
+
+      state.totalPrice = state.items.reduce((sum, obj) => {
+        return obj.price * obj.count + sum;
+      }, 0);
+    },
+
+    minusItem(state, action) {
+      const findItem = state.items.find((el) => el.id === action.payload);
+
+      if (findItem) {
+        findItem.count--;
+      }
+
+      state.totalPrice = state.items.reduce((sum, obj) => {
+        return obj.price * obj.count + sum;
+      }, 0);
+    },
+
+    removeItem(state, action) {
+      state.items = state.items.filter((el) => el.id != action.payload);
+
+      state.totalPrice = state.items.reduce((sum, obj) => {
+        return obj.price * obj.count + sum;
+      }, 0);
+    },
+  },
+});
+
+export const { addItem, minusItem, removeItem } = addToCartSlice.actions;
+
+export default addToCartSlice.reducer;

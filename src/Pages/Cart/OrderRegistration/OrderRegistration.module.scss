@@ -1,0 +1,97 @@
+.makingOrder {
+  width: 675px;
+
+  h4 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 30px 0;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+  margin-bottom: 40px;
+
+  > div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 30px;
+
+    h5 {
+      font-size: 18px;
+      font-weight: bold;
+
+      margin-bottom: 13px;
+    }
+  }
+}
+
+.blockRadioInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+  transition: 0.2s ease-in-out !important;
+
+  > div {
+    display: flex;
+  }
+}
+
+.blockInput {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 25px;
+
+  .inputItem {
+    display: flex;
+    flex-direction: column;
+    gap: 11px 0;
+
+    p {
+      font-weight: bold;
+    }
+  }
+}
+
+.dateAndTime {
+  > div {
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+  }
+}
+
+.recipient {
+  .inputItem {
+    width: 280px;
+  }
+
+  textarea {
+    width: clamp(290px, 53vw, 615px) !important;
+    height: 90px !important;
+  }
+}
+
+.yourContacts {
+  .inputItem {
+    width: 180px;
+  }
+}
+
+.paymentMethod {
+  > div {
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

@@ -6,6 +6,7 @@ const border = {
   borderRadius: 16,
   borderColor: "#6aae55",
   borderStyle: "solid",
+  backgroundColor: "white",
 };
 
 const Skeleton = (props) => (

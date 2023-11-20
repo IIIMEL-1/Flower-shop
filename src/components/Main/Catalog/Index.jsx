@@ -5,7 +5,7 @@ import style from "./Catalog.module.scss";
 
 export default function Index() {
   return (
-    <section id={style.catalog}>
+    <section className="sectionBack" id={style.catalog}>
       <div className="container">
         <Products />
         <Sort />

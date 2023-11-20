@@ -1,5 +1,9 @@
-#catalog > div {
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+#catalog {
+  padding: 100px 0;
+
+  > div {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
 }

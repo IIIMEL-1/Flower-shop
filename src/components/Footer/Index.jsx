@@ -1,44 +1,44 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import style from "./Footer.module.scss";
-import { Logger, Value } from "sass";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const [letter, setLetter] = useState(0);
 
   return (
-    <footer>
+    <>
       <section className={style.navFooter}>
         <div className="container">
           <ul className={style.navRowFooter}>
             <li>
-              <a className={style.navItemFooter} href="#catalog">
+              <Link to={"/"} className={style.navItemFooter}>
                 Каталог
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={style.navItemFooter} href="#!">
+              <Link to={"/"} className={style.navItemFooter}>
                 Скидки
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={style.navItemFooter} href="#!">
+              <Link to={"/"} className={style.navItemFooter}>
                 Отзывы
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={style.navItemFooter} href="#!">
+              <Link to={"/Contacts"} className={style.navItemFooter}>
                 Контакты
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={style.navItemFooter} href="#!">
+              <Link to={"/"} className={style.navItemFooter}>
                 Оферта
-              </a>
+              </Link>
             </li>
             <li>
-              <a className={style.navItemFooter} href="#!">
+              <Link to={"/"} className={style.navItemFooter}>
                 Информация для клиента
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -68,22 +68,26 @@ export default function Footer() {
               <h5>Для посетителей</h5>
               <ul>
                 <li>
-                  <a href="#!">Оформление заказа</a>
+                  <Link to={"/"}>Оформление заказа</Link>
                 </li>
                 <li>
-                  <a href="#!">Вопросы и ответы</a>
+                  <Link to={"/Questions"}>Вопросы и ответы</Link>
                 </li>
                 <li>
-                  <a href="#!">Изменение или отмена заказа</a>
+                  <Link to={"/"}>Изменение или отмена заказа</Link>
                 </li>
                 <li>
-                  <a href="#!">Способы доставки и оплаты</a>
+                  <Link to={"/"}>Способы доставки и оплаты</Link>
                 </li>
               </ul>
             </div>
             <div className={style.footerQuestions}>
               <h5>Возникли вопросы? Свяжитесь с нами</h5>
-              <form action="" className={style.contactUs}>
+              <form
+                action=""
+                className={style.contactUs}
+                onClick={(el) => el.preventDefault()}
+              >
                 <div>
                   <p>Ваше имя</p>
                   <input type="text" />
@@ -99,7 +103,7 @@ export default function Footer() {
                   />
                   <div className={style.counter}>{letter}/300</div>
                 </div>
-                <button className={style.sendForm}>Отправить</button>
+                <button className="sendForm">Отправить</button>
               </form>
             </div>
           </div>
@@ -110,6 +114,6 @@ export default function Footer() {
           <p>© 2019 Цветочная лавка.</p>
         </div>
       </section>
-    </footer>
+    </>
   );
 }

@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Background.module.scss";
 
 export default function Index() {

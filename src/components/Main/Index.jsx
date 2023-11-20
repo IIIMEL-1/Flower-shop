@@ -1,19 +1,19 @@
 import React from "react";
-import Background from "./Background/Index.jsx";
-import Advantages from "./Advantages/Index.jsx";
-import Catalog from "./Catalog/Index.jsx";
-import Order from "./Order/Index.jsx";
-import Description from "./Description/Index.jsx";
+import Background from "./Background/";
+import Advantages from "./Advantages/";
+import Catalog from "./Catalog/";
+import Order from "./Order/";
+import Description from "./Description/";
 import style from "./Main.module.scss";
 
 export default function Index() {
   return (
-    <main>
+    <>
       <Background />
       <Advantages />
       <Catalog />
       <Order />
       <Description />
-    </main>
+    </>
   );
 }
