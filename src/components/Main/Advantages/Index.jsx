@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Advantages.module.scss";
 
-export default function Index() {
+export default function Advantages() {
   return (
     <section id="advantages">
       <div className="container">

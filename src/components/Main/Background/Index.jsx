@@ -1,6 +1,6 @@
 import style from "./Background.module.scss";
 
-export default function Index() {
+export default function Background() {
   return (
     <section className={style.background}>
       <div className="container">
