@@ -1,14 +1,14 @@
 import React from "react";
 import "./reset.css";
-import Header from "./components/Header/";
-import Footer from "./components/Footer/";
-import Main from "./components/Main/";
+import Header from "./components/Header/Index";
+import Footer from "./components/Footer/Index";
+import Main from "./components/Main/Index";
 
-import PageError from "./Pages/Error/";
+import PageError from "./Pages/Error/Index";
 import PageCart from "./Pages/Cart/Index";
-import PageQuestion from "./Pages/Questions/";
-import PageLogin from "./Pages/Login/";
-import PageContacts from "./Pages/Contacts/";
+import PageQuestion from "./Pages/Questions/Index";
+import PageLogin from "./Pages/Login/Index";
+import PageContacts from "./Pages/Contacts/Index";
 import PageCardProduct from "./Pages/CardProduct/Index";
 
 import { Outlet, createBrowserRouter, useLocation } from "react-router-dom";
