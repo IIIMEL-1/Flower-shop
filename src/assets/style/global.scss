@@ -133,11 +133,11 @@ input[type="radio"] {
     }
 
     &::before {
-      content: url(public/point.svg);
+      content: url(/public/static/images/point.svg);
       opacity: 1;
     }
     &::after {
-      content: url(public/pointDis.svg);
+      content: url(/public/static/images/pointDis.svg);
       opacity: 1;
     }
   }
@@ -194,11 +194,11 @@ input[type="checkbox"] {
     }
 
     &::before {
-      content: url(public/check.svg);
+      content: url(/public/static/images/check.svg);
       opacity: 1;
     }
     &::after {
-      content: url(public/notChecked.svg);
+      content: url(/public/static/images/notChecked.svg);
       opacity: 1;
     }
   }

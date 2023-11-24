@@ -7,7 +7,7 @@ export default function Login() {
       <div className="container">
         <div className={style.loginBlock}>
           <div className={style.loginBack}>
-            <img src="public/loginBack.png" alt="" />
+            <img src="/public/static/images/loginBack.png" alt="" />
           </div>
           <div className={style.login}></div>
         </div>

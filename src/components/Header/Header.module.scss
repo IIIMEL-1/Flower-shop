@@ -21,7 +21,7 @@
     }
 
     &::before {
-      content: url(public/Position.svg);
+      content: url(/public/static/images/Position.svg);
       position: absolute;
     }
 
@@ -41,7 +41,7 @@
     column-gap: 13px;
 
     &::before {
-      content: url(public/phone.svg);
+      content: url(/public/static/images/phone.svg);
       position: absolute;
       top: calc(40px - calc(50% - -8px));
       left: 5px;
@@ -111,7 +111,7 @@
   &::before {
     content: "";
     position: absolute;
-    background: url(public/cart.svg) no-repeat center;
+    background: url(/public/static/images/cart.svg) no-repeat center;
     width: 18px;
     height: 22px;
     left: 0;
@@ -129,7 +129,7 @@
   &::after {
     content: "";
     position: absolute;
-    background: url(public/arrow.svg) no-repeat;
+    background: url(/public/static/images/arrow.svg) no-repeat;
     transform: rotate(-90deg);
     right: -17px;
     top: 3px;
@@ -146,7 +146,7 @@
 
 @media (max-width: 1080px) {
   .nav {
-    background-image: url(public/logo.svg);
+    background-image: url(/public/static/images/logo.svg);
 
     > div {
       width: 100%;

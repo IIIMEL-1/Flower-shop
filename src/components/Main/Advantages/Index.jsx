@@ -6,10 +6,10 @@ export default function Advantages() {
     <section id="advantages">
       <div className="container">
         <div className={style.advantages}>
-          {/* <img src="public/delivery.svg" alt="#!" /> */}
-          <img src="public/present.svg" alt="#!" />
-          <img src="public/clock.svg" alt="#!" />
-          <img src="public/discount.svg" alt="#!" />
+          {/* <img src="/public/static/images/delivery.svg" alt="#!" /> */}
+          <img src="/public/static/images/present.svg" alt="#!" />
+          <img src="/public/static/images/clock.svg" alt="#!" />
+          <img src="/public/static/images/discount.svg" alt="#!" />
         </div>
       </div>
     </section>
