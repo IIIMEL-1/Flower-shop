@@ -38,7 +38,7 @@ export default function Contacts() {
             </div>
           </div>
           <div>
-            <img src="/public/static/images/map.png" alt="" />
+            <img src={"/public/static/images/map.png"} alt="" />
           </div>
           <div className={style.contactsForm}>
             <h4>Остались вопросы? Свяжитесь с нами.</h4>
