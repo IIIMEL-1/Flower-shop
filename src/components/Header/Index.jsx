@@ -26,7 +26,7 @@ export default function Header() {
           ))}
           <li className={style.logotype}>
             <Link to={"/"}>
-              <img src="./static/logo.svg" alt="#" />
+              <img src="static/images/logo.svg" alt="#" />
             </Link>
           </li>
           <li className={style.inform}>информация для клиента</li>
