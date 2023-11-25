@@ -7,7 +7,7 @@ export default function G() {
     <section className="sectionBack">
       <div className="container">
         <div className={style.wrapper}>
-          <img src="/public/static/images/Error.png" alt="" srcset="" />
+          <img src="static/images/Error.png" alt="" srcset="" />
           <h3>Упс... Что-то пошло не так.</h3>
           <p>Перейдите на главную, а мы пока все починим.</p>
           <Link to={"/"}>главная</Link>

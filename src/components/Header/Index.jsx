@@ -32,7 +32,7 @@ export default function Header() {
           <li className={style.inform}>информация для клиента</li>
           <li className={style.profile}>
             <Link to={"/Login"}>
-              <img src="/public/static/images/Profile-icon.svg" alt="" />
+              <img src="static/images/Profile-icon.svg" alt="" />
             </Link>
           </li>
         </ul>

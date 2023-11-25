@@ -7,9 +7,9 @@ export default function Advantages() {
       <div className="container">
         <div className={style.advantages}>
           {/* <img src="/public/static/images/delivery.svg" alt="#!" /> */}
-          <img src="/public/static/images/present.svg" alt="#!" />
-          <img src="/public/static/images/clock.svg" alt="#!" />
-          <img src="/public/static/images/discount.svg" alt="#!" />
+          <img src="static/images/present.svg" alt="#!" />
+          <img src="static/images/clock.svg" alt="#!" />
+          <img src="static/images/discount.svg" alt="#!" />
         </div>
       </div>
     </section>
