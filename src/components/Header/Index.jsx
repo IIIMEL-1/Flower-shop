@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import style from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -26,7 +26,7 @@ export default function Header() {
           ))}
           <li className={style.logotype}>
             <Link to={"/"}>
-              <img src="/public/static/images/logo.svg" alt="#" />
+              <img src="public/static/images/logo.svg" alt="#" />
             </Link>
           </li>
           <li className={style.inform}>информация для клиента</li>
