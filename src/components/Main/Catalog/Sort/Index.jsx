@@ -6,7 +6,7 @@ import Skeleton from "./Skeleton.jsx";
   /* <Skeleton /> */
 }
 
-export default function Sort() {
+export default function Sort({ setSearch }) {
   const sortList = {
     bouquet: [
       { title: "Розами", sortBy: "Rose" },
@@ -34,7 +34,11 @@ export default function Sort() {
   return (
     <section id={style.sort}>
       <div className={style.searchBlock}>
-        <input type="text" placeholder="Поиск" />
+        <input
+          type="text"
+          placeholder="Поиск"
+          onInput={(el) => setSearch(el.target.value)}
+        />
       </div>
       {/* <div className={style.cost}>
         <h3>Стоимость:</h3>

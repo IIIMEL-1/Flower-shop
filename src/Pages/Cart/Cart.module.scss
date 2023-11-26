@@ -111,5 +111,12 @@
       background-color: rgba(86, 188, 55, 0.7);
       transform: scale(1.02);
     }
+
+    &.active {
+      cursor: default;
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.6;
+    }
   }
 }

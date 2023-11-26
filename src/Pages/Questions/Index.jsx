@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Questions.module.scss";
+import { Link } from "react-router-dom";
 
 export default function Question() {
   const questions = [
@@ -67,7 +68,10 @@ export default function Question() {
     <section className="sectionBack">
       <div className="container">
         <div className="pageName">
-          <p>Главная {">"} Вопрос ответ</p>
+        <div>
+            <Link to={"/"}>Главная</Link> {">"}{" "}
+            <Link to={"/Questions"}>Вопрос ответ</Link>
+          </div>
           <h3>Ответы на популярные вопросы</h3>
         </div>
         <section className={style.QuestionsList}>

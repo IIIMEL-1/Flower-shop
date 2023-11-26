@@ -1,3 +1,85 @@
 .loginBlock {
-  padding: 60px 0;
+  width: 500px;
+  max-height: 100%;
+
+  margin: 0 auto;
+
+  border-radius: 10px;
+  background-color: white;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px 0;
+
+    padding: 30px;
+
+    h3 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      height: 50px;
+
+      margin-top: 10px;
+    }
+
+    > button {
+      width: 100%;
+      height: 50px;
+
+      margin-top: 20px;
+
+      font-size: 20px;
+      font-weight: bold;
+
+      &:disabled {
+        pointer-events: none;
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .loginOrRegistration {
+    display: flex;
+    justify-content: center;
+
+    height: 80px;
+
+    border-bottom: 1px solid #e0e0e0;
+
+    > button {
+      width: 100%;
+
+      font-size: 19px;
+      font-weight: bolder;
+
+      opacity: 0.6;
+
+      border-right: 1px solid #e0e0e0;
+
+      transition: 0.2s ease-in-out;
+
+      &:first-child {
+        border-top-left-radius: 10px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 10px;
+        border: none;
+      }
+
+      &.active {
+        opacity: 1;
+        background-color: #e0e0e0;
+      }
+
+      &:hover {
+        opacity: 0.8;
+        background-color: #e0e0e0;
+      }
+    }
+  }
 }

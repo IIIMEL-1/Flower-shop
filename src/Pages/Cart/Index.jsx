@@ -51,7 +51,14 @@ export default function Cart() {
                 вашу СКИДКУ!
               </div>
             </div>
-            <Link to={"/PlaceAnOrder"} className={style.placeAnOrder}>
+            <Link
+              to={"/PlaceAnOrder"}
+              className={
+                !cardList.length
+                  ? style.placeAnOrder + " " + style.active
+                  : style.placeAnOrder
+              }
+            >
               Оформить заказ
             </Link>
           </section>

@@ -4,7 +4,7 @@ import Skeleton from "./Card/Skeleton.jsx";
 import style from "./Products.module.scss";
 import axios from "axios";
 
-export default function Index() {
+export default function Index({ search }) {
   const [products, setProducts] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -17,20 +17,10 @@ export default function Index() {
 
   const list = [
     { title: "Новизне", sortBy: "title" },
-    { title: "Цена по возрастанию", sortBy: "price", order: "asc" },
-    { title: "Цена по убыванию", sortBy: "price", order: "desc" },
+    { title: "Цена по возрастанию", sortBy: "price" },
+    { title: "Цена по убыванию", sortBy: "-price" },
     { title: "Популярности", sortBy: "rating" },
   ];
-
-  useEffect(() => {
-    fetch("https://64ebe102e51e1e82c577b25b.mockapi.io/products")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setTotalPages(data.length);
-      });
-  }, []);
 
   useEffect(() => {
     setIsLoading(true);
@@ -38,21 +28,22 @@ export default function Index() {
     async function fetchProducts() {
       try {
         const res = await axios.get(
-          `https://64ebe102e51e1e82c577b25b.mockapi.io/products?limit=6&page=${page}&sortBy=${sortBy}&order=${order}`
+          `https://b6c487f79077af26.mokky.dev/items?limit=6&page=${page}&sortBy=${sortBy}` /* &search=${search} */
         );
 
-        setProducts(res.data);
+        setProducts(res.data.items);
+        setTotalPages(res.data.meta.total_pages);
         setIsLoading(false);
       } catch (error) {}
     }
 
     fetchProducts();
-  }, [sortBy, order, page]);
+  }, [sortBy, order, page, search]);
 
   const pages = [];
 
   function setCount() {
-    let count = Math.ceil(totalPages / 6);
+    let count = totalPages;
 
     for (let i = 1; i < count + 1; i++) {
       pages.push(i);
@@ -60,7 +51,7 @@ export default function Index() {
   }
 
   setCount();
-
+  console.log(pages);
   return (
     <div className={style.productBlock} id="catalog">
       <div className={style.sort}>

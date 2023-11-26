@@ -14,10 +14,11 @@
   align-items: center;
   justify-content: center;
   column-gap: 15px;
+
   font-size: 17px;
   font-weight: 600;
   width: 830px;
-  height: 3em;
+
   background-color: #ffffff;
   border: 1px solid #76ab665e;
   border-radius: 10px;
@@ -25,25 +26,35 @@
   color: #b3adad;
 
   p {
-    color: #828282;
+    color: #525252;
+
+    padding: 1em 10px 1em 0;
     border-right: 1px solid #76ab665e;
   }
 
   :global {
     button {
+      padding: 1em 0;
       color: rgb(0, 0, 0);
-      opacity: 0.3;
+      opacity: 0.4;
       transition: 0.15s ease-in-out;
-      font-weight: inherit;
+      font-weight: bold;
 
       &:hover {
-        opacity: 0.5;
+        opacity: 0.7;
+        transform: scale(1.01);
+      }
+
+      &:focus {
+        opacity: 0.7;
+        transform: scale(1.01);
       }
 
       &.active {
-        color: rgba(0, 0, 0, 0.546);
+        color: rgba(0, 0, 0, 0.684);
         opacity: 1;
         transform: scale(1.02);
+        text-decoration: underline;
       }
     }
   }
