@@ -6,7 +6,7 @@ export default function Advantages() {
       <div className="container">
         <div className={style.advantages}>
           <div>
-            <img src="/public/static/images/delivery.webp" alt="#!" />
+            <img src="/static/images/delivery.webp" alt="#!" />
             <p>
               <span>Бесплатная</span> доставка по городу
             </p>
