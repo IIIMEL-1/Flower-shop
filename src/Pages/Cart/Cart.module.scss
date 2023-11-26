@@ -11,9 +11,18 @@
     .productsContainer {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       gap: 20px;
 
       padding: 30px 0;
+
+      > h2 {
+        margin-top: 130px;
+
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+      }
     }
   }
 }

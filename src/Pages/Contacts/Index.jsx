@@ -1,12 +1,15 @@
-import React from "react";
 import style from "./Contacts.module.scss";
+import { Link } from "react-router-dom";
 
 export default function Contacts() {
   return (
     <section className="sectionBack">
       <div className="container">
         <div className="pageName">
-          <p>Главная {">"} Контакты</p>
+          <div>
+            <Link to={"/"}>Главная</Link> {">"}{" "}
+            <Link to={"/Contacts"}>Контакты</Link>
+          </div>
           <h3>контактная информация</h3>
         </div>
 
@@ -38,7 +41,7 @@ export default function Contacts() {
             </div>
           </div>
           <div>
-            <img src="static/images/map.png" alt="" />
+            <img src="static/image/Map.png" alt="" />
           </div>
           <div className={style.contactsForm}>
             <h4>Остались вопросы? Свяжитесь с нами.</h4>

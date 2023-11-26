@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Order.module.scss";
 
 export default function Order() {
@@ -13,7 +12,7 @@ export default function Order() {
         <div className={style.orderBlock}>
           <div>
             <div className={style.orderItem}>
-              <img src="static/images/1.svg" alt="" />
+              <img src="static/images/1.webp" alt="" />
               <div>
                 <h4>Выберите букет;</h4>
                 <p>
@@ -23,7 +22,7 @@ export default function Order() {
               </div>
             </div>
             <div className={style.orderItem}>
-              <img src="static/images/2.svg" alt="" />
+              <img src="static/images/2.webp" alt="" />
               <div>
                 <h4>Выберите размер и дополнение;</h4>
                 <p>
@@ -40,7 +39,7 @@ export default function Order() {
           </div>
           <div>
             <div className={style.orderItem}>
-              <img src="static/images/3.svg" alt="" />
+              <img src="static/images/3.webp" alt="" />
               <div>
                 <h4>Укажите данные для доставки;</h4>
                 <p>
@@ -51,7 +50,7 @@ export default function Order() {
               </div>
             </div>
             <div className={style.orderItem}>
-              <img src="static/images/4.svg" alt="" />
+              <img src="static/images/4.webp" alt="" />
               <div>
                 <h4>Букет готов!</h4>
                 <p>

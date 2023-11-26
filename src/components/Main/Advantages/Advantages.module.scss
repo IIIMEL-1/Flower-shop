@@ -4,4 +4,28 @@
   justify-content: space-between;
   margin: 100px 0 120px 0;
   flex-wrap: wrap;
+
+  div {
+    width: 215px;
+
+    img {
+      width: 155px;
+      height: 155px;
+    }
+
+    p {
+      margin-top: 10px;
+
+      text-align: center;
+
+      color: #5b4a58;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+
+      span {
+        color: #6aae55;
+      }
+    }
+  }
 }

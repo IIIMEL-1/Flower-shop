@@ -23,17 +23,21 @@ export default function Cart() {
               <h3>Корзина</h3>
             </div>
             <div className={style.productsContainer}>
-              {cardList.map((el, i) => (
-                <CartItem
-                  key={i}
-                  id={el.id}
-                  title={el.title}
-                  image={el.image}
-                  price={el.price}
-                  description={el.description}
-                  count={el.count}
-                />
-              ))}
+              {!cardList.length ? (
+                <h2>Корзина пуста...</h2>
+              ) : (
+                cardList.map((el, i) => (
+                  <CartItem
+                    key={i}
+                    id={el.id}
+                    title={el.title}
+                    image={el.image}
+                    price={el.price}
+                    description={el.description}
+                    count={el.count}
+                  />
+                ))
+              )}
             </div>
           </section>
           <section className={style.totalPriceBlock}>

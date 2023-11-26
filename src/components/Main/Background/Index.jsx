@@ -10,7 +10,7 @@ export default function Background() {
           </p>
           <p>ВЛАДИВОСТОК</p>
         </div>
-        <button>КАТАЛОГ</button>
+        {/* <button>КАТАЛОГ</button> */}
       </div>
     </section>
   );

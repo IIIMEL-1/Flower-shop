@@ -8,7 +8,8 @@
   padding: 30px 0;
 
   img {
-    max-width: clamp(290px, 71vw, 825px);
+    width: clamp(290px, 71vw, 825px);
+    height: 400px;
     background-color: white;
     border-radius: 10px;
   }
