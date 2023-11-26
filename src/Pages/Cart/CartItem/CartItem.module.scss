@@ -1,38 +1,58 @@
 .cartItem {
+  position: relative;
+
   background: #fff;
   border-radius: 10px;
-  max-width: 380px;
   padding: 25px;
+
+  transform: translateY(0);
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 7px 12px 1px rgba(106, 174, 85, 0.7);
+  }
 
   .description {
     position: relative;
 
     display: flex;
-    justify-content: space-between;
+    gap: 0 40px;
     align-items: center;
 
     padding-bottom: 20px;
-    border-bottom: 1px solid #5b4a58;
+    border-bottom: 1px solid #5b4a5884;
 
     img {
-      width: 119px;
-      height: 119px;
+      width: 130px;
+      height: 130px;
       border: 1px solid #5b4a58;
       border-radius: 10px;
       background: #c4c4c4;
     }
 
     .title {
-      max-width: 190px;
+      display: flex;
+      flex-direction: column;
 
-      p {
-        font-size: 16px;
+      a {
+        font-size: 20px;
         font-weight: 700;
         color: #5b4a58;
         margin-bottom: 10px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
       }
 
       span {
+        font-size: 16px;
         font-weight: 400;
         color: #4f4f4f;
       }
@@ -73,18 +93,53 @@
     display: flex;
     justify-content: space-between;
 
+    margin-top: 15px;
+
     .counter {
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      width: 110px;
+      width: 130px;
+
+      font-size: 16px;
+      font-weight: bold;
 
       button {
-        width: 21px;
-        height: 21px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 33px;
+        height: 33px;
+
         background-color: #e0e0e0;
         border-radius: 4px;
+
+        font-size: 22px;
+        line-height: 1px;
+
+        transition: 0.1s ease-in-out;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        &:active {
+          transition: 0s ease-in-out;
+          opacity: 1;
+        }
+
+        &:disabled {
+          cursor: default;
+          pointer-events: none;
+          opacity: 0.3;
+        }
+      }
+
+      .plus {
+        background-color: #6aae55;
+        color: white;
       }
     }
 
@@ -92,13 +147,13 @@
       text-align: end;
 
       span {
-        font-size: 12px;
+        font-size: 14px;
         color: #828282;
       }
 
       p {
         color: #5b4a58;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
       }
     }

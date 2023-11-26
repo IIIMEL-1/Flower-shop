@@ -9,34 +9,47 @@ export const addToCartSlice = createSlice({
   name: "addToCartSlice",
   initialState,
   reducers: {
-    addItem(state, action) {
-      const findItem = state.items.find((el) => el.id === action.payload.id);
+    addItem(state, { payload }) {
+      const findItem = state.items.find((obj) => {
+        return (
+          obj.id === payload.id &&
+          obj.description.size === payload.description.size
+        );
+      });
 
-      if (findItem) {
-        findItem.count++;
-      } else {
-        state.items.push({ ...action.payload, count: 1 });
-      }
+      findItem
+        ? payload.count === 1
+          ? findItem.count++
+          : (findItem.count += payload.count)
+        : state.items.push({
+            ...payload,
+            count: payload.count,
+          });
 
       state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.price * obj.count + sum;
+        return obj.description.price * obj.count + sum;
       }, 0);
     },
 
-    minusItem(state, action) {
-      const findItem = state.items.find((el) => el.id === action.payload);
+    minusItem(state, { payload }) {
+      const findItem = state.items.find((obj) => {
+        return (
+          obj.id === payload.id &&
+          obj.description.size === payload.description.size
+        );
+      });
 
-      if (findItem) {
-        findItem.count--;
-      }
-
-      state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.price * obj.count + sum;
-      }, 0);
+      findItem.count < 2 ? "" : findItem.count--;
+      state.totalPrice -= findItem.price;
     },
 
-    removeItem(state, action) {
-      state.items = state.items.filter((el) => el.id != action.payload);
+    removeItem(state, { payload }) {
+      state.items = state.items.filter((obj) => {
+        return (
+          obj.id !== payload.id ||
+          obj.description.size !== payload.description.size
+        );
+      });
 
       state.totalPrice = state.items.reduce((sum, obj) => {
         return obj.price * obj.count + sum;

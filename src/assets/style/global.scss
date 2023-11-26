@@ -27,6 +27,10 @@ body {
   }
 }
 
+:root {
+  --background-nav: #4d414b;
+}
+
 .container {
   max-width: 1170px;
   margin: 0 auto;
@@ -34,11 +38,21 @@ body {
 }
 
 .pageName {
-  p {
+  div {
+    user-select: none;
     padding-top: 33px;
 
     font-size: 16px;
-    color: #828282;
+    color: #00000069;
+
+    > a {
+      color: #00000069;
+
+      transition: 0.3s ease-in-out;
+      &:hover {
+        color: #000000;
+      }
+    }
   }
 
   h3 {
@@ -75,7 +89,7 @@ body {
 }
 
 .sectionBack {
-  background-color: #f5f4f7;
+  background-color: #f1f0f3;
 }
 
 input[type="text"],

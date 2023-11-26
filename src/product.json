@@ -27,7 +27,7 @@
     "packing": "paper"
   },
   {
-    "title": "'Дора'",
+    "title": "«Дора»",
     "id": "el2",
     "price": 4550,
     "image": "https://i.ibb.co/MPm2XNR/IMG-9434-2-min.jpg",
@@ -37,7 +37,7 @@
         "price": 3450,
         "size": "Малый",
         "content": [
-          "Хризанема одноголовая - 1 шт.",
+          "Хризантема одноголовая - 1 шт.",
           "Роза Эквадор премиум - 3 шт.",
           "Альстромерия - 2 шт.",
           "Эустома - 1 шт."
@@ -47,7 +47,7 @@
         "price": 4550,
         "size": "Стандартный",
         "content": [
-          "Хризанема одноголовая - 1 шт.",
+          "Хризантема одноголовая - 1 шт.",
           "Роза Эквадор премиум - 5 шт.",
           "Альстромерия - 3 шт.",
           "Эустома - 2 шт."
@@ -57,7 +57,7 @@
         "price": 7200,
         "size": "Большой",
         "content": [
-          "Хризанема одноголовая - 3 шт.",
+          "Хризантема одноголовая - 3 шт.",
           "Роза Эквадор премиум - 6 шт.",
           "Альстромерия - 4 шт.",
           "Эустома - 4 шт."
@@ -69,7 +69,7 @@
     "packing": "paper"
   },
   {
-    "title": "'Barbie Land'",
+    "title": "«Barbie Land»",
     "id": "el3",
     "price": 28550,
     "image": "https://i.ibb.co/J3yjz8K/IMG-9654-min.jpg",
@@ -136,7 +136,7 @@
     "packing": "paper"
   },
   {
-    "title": "'Букет ромашек MAXI'",
+    "title": "«Букет ромашек MAXI»",
     "id": "el5",
     "price": 4300,
     "image": "https://i.ibb.co/xGHrZSP/2-AD98-F84-645-F-4075-A314-B3042006870-E.jpg",
@@ -163,7 +163,7 @@
     "packing": "paper"
   },
   {
-    "title": "'Crème'",
+    "title": "«Crème»",
     "id": "el6",
     "price": 8900,
     "image": "https://i.ibb.co/VJw7zVz/IMG-9345-2-min.jpg",
@@ -208,7 +208,7 @@
     "packing": "paper"
   },
   {
-    "title": "'Flowerbomb'",
+    "title": "«Flowerbomb»",
     "id": "el7",
     "price": 8650,
     "image": "https://i.ibb.co/R2PJrc8/IMG-0297-min.jpg",
@@ -253,7 +253,7 @@
     "packing": "paper"
   },
   {
-    "title": "'LITCHI'",
+    "title": "«LITCHI»",
     "id": "el8",
     "price": 6800,
     "image": "https://i.ibb.co/JWL86XR/IMG-9405-min.jpg",
@@ -325,7 +325,7 @@
     "packing": "paper"
   },
   {
-    "title": "101 роза 'Candleight' Эквадор",
+    "title": "101 роза «Candleight» Эквадор",
     "id": "el10",
     "price": 33500,
     "image": "https://i.ibb.co/Gtb0zhF/IMG-9157.jpg",
@@ -386,7 +386,7 @@
     "packing": "paper"
   },
   {
-    "title": "'Дейнерис'",
+    "title": "«Дейнерис»",
     "id": "el13",
     "price": 19500,
     "image": "https://i.ibb.co/qCt4RRv/IMG-6868.jpg",
@@ -459,7 +459,7 @@
     "packing": "box"
   },
   {
-    "title": "'Черри'",
+    "title": "«Черри»",
     "id": "el16",
     "price": 8650,
     "image": "https://i.ibb.co/82PFNQs/IMG-5759.jpg",
@@ -563,7 +563,7 @@
     "packing": "basket"
   },
   {
-    "title": "'Femme fatale'",
+    "title": "«Femme fatale»",
     "id": "el19",
     "price": 25000,
     "image": "https://i.ibb.co/9r8NHp5/IMG-0429-min.jpg",
@@ -613,7 +613,7 @@
     "packing": "basket"
   },
   {
-    "title": "'Селена'",
+    "title": "«Селена»",
     "id": "el21",
     "price": 12500,
     "image": "https://i.ibb.co/r7YsHsv/IMG-5401.jpg",
@@ -658,7 +658,7 @@
     "packing": "basket"
   },
   {
-    "title": "'Фемида'",
+    "title": "«Фемида»",
     "id": "el22",
     "price": 15000,
     "image": "https://i.ibb.co/0f7rVDK/IMG-5391.jpg",
@@ -675,7 +675,7 @@
     "packing": "basket"
   },
   {
-    "title": "Набор 'I love you'",
+    "title": "Набор «I love you»",
     "id": "el23",
     "price": 13500,
     "image": "https://i.ibb.co/GFNGQHr/IMG-7736.jpg",
@@ -696,7 +696,7 @@
     "packing": "basket"
   },
   {
-    "title": "'Milkshake'",
+    "title": "«Milkshake»",
     "id": "el24",
     "price": 8000,
     "image": "https://i.ibb.co/Ns0CMJp/IMG-0280-2-min.jpg",

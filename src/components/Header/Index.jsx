@@ -26,13 +26,13 @@ export default function Header() {
           ))}
           <li className={style.logotype}>
             <Link to={"/"}>
-              <img src="static/images/logo.svg" alt="#" />
+              <img src="../static/images/logo.svg" alt="#" />
             </Link>
           </li>
           <li className={style.inform}>информация для клиента</li>
           <li className={style.profile}>
             <Link to={"/Login"}>
-              <img src="static/images/Profile-icon.svg" alt="" />
+              <img src="/static/images/Profile-icon.svg" alt="" />
             </Link>
           </li>
         </ul>

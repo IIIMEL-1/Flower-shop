@@ -1,14 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./CardProduct.module.scss";
 import { useParams } from "react-router";
 import axios from "axios";
 import Skeleton from "./Skeleton.jsx";
 import { addItem } from "../../redux/slices/addToCartSlice.js";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function CardProduct() {
   const [product, setProduct] = useState();
-  const [isChecked, setIsChecked] = useState(0);
+  const [size, setSize] = useState(0);
+
+  const [count, setCount] = useState(1);
 
   const { id } = useParams();
 
@@ -20,8 +23,13 @@ export default function CardProduct() {
         const { data } = await axios.get(
           "https://64ebe102e51e1e82c577b25b.mockapi.io/products/" + id
         );
-        setProduct(data);
-      } catch (error) {}
+        setProduct({ ...data, count: 1 });
+        data.description.forEach((el, i) => {
+          el.size === "Стандартный" ? setSize(i) : "";
+        });
+      } catch (error) {
+        return <h2>Упс кажется что-то пошло не так...</h2>;
+      }
     }
 
     fetchFlowers();
@@ -35,11 +43,27 @@ export default function CardProduct() {
     );
   }
 
+  const onClickAdd = () => {
+    const item = {
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      price: product.price,
+      description: product.description[size],
+      count,
+    };
+
+    dispatch(addItem(item));
+  };
+
   return (
     <section className="sectionBack">
       <div className="container">
         <div className="pageName">
-          <p>Главная {">"} Карточка товара</p>
+          <div>
+            <Link to={"/"}>Главная</Link> {">"}{" "}
+            <Link to={"/Cart"}>Карточка товара</Link>
+          </div>
         </div>
         <div className={style.productCard}>
           <div className={style.imgBlock}>
@@ -56,8 +80,8 @@ export default function CardProduct() {
                       type="radio"
                       name="changeSize"
                       id={el.size}
-                      defaultChecked={product.price === el.price ? true : false}
-                      onClick={() => setIsChecked(i)}
+                      defaultChecked={el.size === "Стандартный" ? true : false}
+                      onClick={() => setSize(i)}
                     />
                     <label htmlFor={el.size}>
                       {el.size} <br />
@@ -69,16 +93,24 @@ export default function CardProduct() {
             </div>
             <div className={style.description}>
               <ul className={style.compositionList}>
-                {product.description[isChecked].content.map((el, i) => (
+                {product.description[size].content.map((el, i) => (
                   <li key={i} className={style.compositionItem}>
                     {el}
                   </li>
                 ))}
+                <li>
+                  Цветовая гамма букета и его оформление может отличаться исходя
+                  из наличия в магазине.
+                </li>
               </ul>
             </div>
             <div className={style.addToCartBlock}>
               <div className={style.counter}>
-                <button className={style.minus}>
+                <button
+                  className={style.minus}
+                  onClick={() => (count < 2 ? "" : setCount(count - 1))}
+                  disabled={count < 2 ? true : false}
+                >
                   <svg
                     width="9"
                     height="2"
@@ -95,8 +127,11 @@ export default function CardProduct() {
                     />
                   </svg>
                 </button>
-                <p> 1 шт.</p>
-                <button className={style.plus}>
+                <p>{count} шт.</p>
+                <button
+                  className={style.plus}
+                  onClick={() => setCount(count + 1)}
+                >
                   <svg
                     width="9"
                     height="9"
@@ -115,12 +150,9 @@ export default function CardProduct() {
               </div>
               <div className={style.addToCart}>
                 <div className={style.price}>
-                  <p>{product.price} руб.</p>
+                  <p>{product.description[size].price * count} руб.</p>
                 </div>
-                <button
-                  className="sendForm"
-                  onClick={() => dispatch(addItem(product))}
-                >
+                <button className="sendForm" onClick={() => onClickAdd()}>
                   В корзину
                 </button>
               </div>

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Card from "./Card/Index.jsx";
 import Skeleton from "./Card/Skeleton.jsx";
 import style from "./Products.module.scss";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function Index() {
@@ -41,6 +40,7 @@ export default function Index() {
         const res = await axios.get(
           `https://64ebe102e51e1e82c577b25b.mockapi.io/products?limit=6&page=${page}&sortBy=${sortBy}&order=${order}`
         );
+
         setProducts(res.data);
         setIsLoading(false);
       } catch (error) {}
@@ -55,7 +55,7 @@ export default function Index() {
     let count = Math.ceil(totalPages / 6);
 
     for (let i = 1; i < count + 1; i++) {
-      const el = pages.push(i);
+      pages.push(i);
     }
   }
 
@@ -68,9 +68,7 @@ export default function Index() {
         {list.map((el, i) => (
           <button
             key={i}
-            className={
-              isActive === i ? "active" : ""
-            } /* (так же как if else) условие ? true : false. */
+            className={isActive === i ? "active" : ""}
             onClick={() => (
               setSortBy(el.sortBy),
               setOrder(el.order),
@@ -91,6 +89,7 @@ export default function Index() {
                 id={el.id}
                 title={el.title}
                 price={el.price}
+                description={el.description}
                 image={el.image}
               />
             ))}

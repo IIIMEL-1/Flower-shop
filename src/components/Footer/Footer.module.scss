@@ -3,8 +3,7 @@
   width: 100%;
 
   font-family: "Montserrat", sans-serif;
-  background-color: #746471;
-  border: 1px solid #746471;
+  background-color: var(--background-nav);
 }
 
 .navRowFooter {
@@ -26,19 +25,17 @@
 
   &:hover {
     background-color: #675864;
-    border-radius: 5px;
   }
 }
 
 .footer {
   padding: 35px 0;
-  background: #5b4a58;
+  background-color: #3e343d;
   color: #ffffff !important;
 
-  border: 1px solid;
-  border-left: 0px;
-  border-right: 0px;
-  border-color: #a29bb4;
+  border: 1px solid rgba(167, 167, 167, 0.282);
+  border-left: none;
+  border-right: none;
 
   a {
     color: inherit;
@@ -147,7 +144,7 @@
 }
 
 .copyright {
-  background-color: #5b4a58;
+  background-color: var(--background-nav);
   width: 100%;
   height: 60px;
   display: flex;

@@ -6,6 +6,7 @@ import Main from "./components/Main/Index";
 
 import PageError from "./Pages/Error/Index";
 import PageCart from "./Pages/Cart/Index";
+import PagePlaceAnOrder from "./Pages/PlaceAnOrder/Index";
 import PageQuestion from "./Pages/Questions/Index";
 import PageLogin from "./Pages/Login/Index";
 import PageContacts from "./Pages/Contacts/Index";
@@ -49,6 +50,7 @@ export const router = createBrowserRouter([
       { path: "*", element: <PageError /> },
       { path: "/Questions", element: <PageQuestion /> },
       { path: "/Cart", element: <PageCart /> },
+      { path: "/PlaceAnOrder", element: <PagePlaceAnOrder /> },
       { path: "/Login", element: <PageLogin /> },
       { path: "/Contacts", element: <PageContacts /> },
     ],
