@@ -82,7 +82,7 @@ export default function CartItem({ id, title, image, description, count }) {
         </div>
         <div className={style.price}>
           <span>Сумма</span>
-          <p>{description.price * count} руб.</p>
+          <p>{(description.price * count).toLocaleString()} руб.</p>
         </div>
       </div>
     </div>

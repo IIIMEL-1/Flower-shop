@@ -2,18 +2,19 @@ import { useState, useEffect } from "react";
 import Card from "./Card/Index.jsx";
 import Skeleton from "./Card/Skeleton.jsx";
 import style from "./Products.module.scss";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchFlowers } from "../../../../redux/slices/flowerSlice.js";
 
 export default function Index({ search }) {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const { status, products, totalPages } = useSelector(
+    (state) => state.flowerSlice
+  );
 
-  const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState("");
-  const [order, setOrder] = useState("");
 
   const [isActive, setIsActive] = useState();
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState();
 
   const list = [
     { title: "Новизне", sortBy: "title" },
@@ -23,22 +24,12 @@ export default function Index({ search }) {
   ];
 
   useEffect(() => {
-    setIsLoading(true);
-
-    async function fetchProducts() {
-      try {
-        const res = await axios.get(
-          `https://b6c487f79077af26.mokky.dev/items?limit=6&page=${page}&sortBy=${sortBy}` /* &search=${search} */
-        );
-
-        setProducts(res.data.items);
-        setTotalPages(res.data.meta.total_pages);
-        setIsLoading(false);
-      } catch (error) {}
-    }
+    const fetchProducts = async () => {
+      dispatch(fetchFlowers({ sortBy, page }));
+    };
 
     fetchProducts();
-  }, [sortBy, order, page, search]);
+  }, [sortBy, page, search]);
 
   const pages = [];
 
@@ -71,18 +62,22 @@ export default function Index({ search }) {
         ))}
       </div>
       <div id={style.productsContainer}>
-        {isLoading
-          ? [...new Array(6)].map((_, i) => <Skeleton key={i} />)
-          : products.map((el) => (
-              <Card
-                key={el.id}
-                id={el.id}
-                title={el.title}
-                price={el.price}
-                description={el.description}
-                image={el.image}
-              />
-            ))}
+        {status === "error" ? (
+          <div>Error</div>
+        ) : status === "loading" ? (
+          [...new Array(6)].map((_, i) => <Skeleton key={i} />)
+        ) : (
+          products.map((el) => (
+            <Card
+              key={el.id}
+              id={el.id}
+              title={el.title}
+              price={el.price}
+              description={el.description}
+              image={el.image}
+            />
+          ))
+        )}
       </div>
       <div className={style.pageList}>
         {pages.map((el, i) => (

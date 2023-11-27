@@ -24,7 +24,12 @@ export default function Cart() {
             </div>
             <div className={style.productsContainer}>
               {!cardList.length ? (
-                <h2>Корзина пуста...</h2>
+                <div className={style.cartEmpty}>
+                  <h2>Корзина пуста...</h2>
+                  <Link to={"/"} className="sendForm">
+                    Перейти в каталог товаров
+                  </Link>
+                </div>
               ) : (
                 cardList.map((el, i) => (
                   <CartItem
@@ -44,7 +49,7 @@ export default function Cart() {
             <div className={style.totalCostBlock}>
               <div className={style.totalPrice}>
                 <h4>Итоговая стоимость:</h4>
-                <p>{totalPrice} руб.</p>
+                <p>{totalPrice.toLocaleString()} руб.</p>
               </div>
               <div className={style.discount}>
                 Зайдите в <Link to={"/"}>личный кабинет</Link> чтобы проверить

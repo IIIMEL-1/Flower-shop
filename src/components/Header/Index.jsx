@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Header() {
-  const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
+  const items = useSelector((state) => state.addToCartSlice.items);
+
+  const totalCount = items.reduce((sum, obj) => sum + obj.count, 0);
 
   const [isOpen, setIsOpen] = useState();
 
@@ -31,7 +33,7 @@ export default function Header() {
           </li>
           <li className={style.inform}>информация для клиента</li>
           <li className={style.profile}>
-            <Link to={"/Login"}>
+            <Link to={"/PersonalAccount/Profile"}>
               <img src="/static/images/Profile-icon.svg" alt="" />
             </Link>
           </li>
@@ -45,7 +47,7 @@ export default function Header() {
           <p>меню</p>
         </div>
         <Link className={style.cart} to={"/Cart"}>
-          {totalPrice}
+          {totalCount}
         </Link>
       </div>
     </div>

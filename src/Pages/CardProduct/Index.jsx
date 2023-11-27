@@ -37,9 +37,11 @@ export default function CardProduct() {
 
   if (!product) {
     return (
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Skeleton />
-      </div>
+      <section className="sectionBack">
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Skeleton />
+        </div>
+      </section>
     );
   }
 
@@ -85,7 +87,7 @@ export default function CardProduct() {
                     />
                     <label htmlFor={el.size}>
                       {el.size} <br />
-                      {el.price} руб.
+                      {el.price.toLocaleString()} руб.
                     </label>
                   </div>
                 ))}
@@ -150,9 +152,15 @@ export default function CardProduct() {
               </div>
               <div className={style.addToCart}>
                 <div className={style.price}>
-                  <p>{product.description[size].price * count} руб.</p>
+                  <p>
+                    {(product.description[size].price * count).toLocaleString()}{" "}
+                    руб.
+                  </p>
                 </div>
-                <button className="sendForm" onClick={() => onClickAdd()}>
+                <button
+                  className="sendForm"
+                  onClick={() => (onClickAdd(), setCount(1))}
+                >
                   В корзину
                 </button>
               </div>

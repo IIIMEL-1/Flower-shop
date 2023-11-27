@@ -38,7 +38,7 @@ export default function Index({ id, title, image, price, description }) {
         <div>
           <div className={style.price}>
             <p>Стоимость:</p>
-            <p>{price} руб.</p>
+            <p>{price.toLocaleString()} руб.</p>
           </div>
           <button className={style.addToCart} onClick={() => onClickAdd()}>
             В корзину

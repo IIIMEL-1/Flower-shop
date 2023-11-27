@@ -11,6 +11,10 @@ import PageQuestion from "./Pages/Questions/Index";
 import PageLogin from "./Pages/Login/Index";
 import PageContacts from "./Pages/Contacts/Index";
 import PageCardProduct from "./Pages/CardProduct/Index";
+import PageProfile from "./Pages/PersonalAccount/Profile/Index";
+import PageMyOrders from "./Pages/PersonalAccount/MyOrders/Index";
+import PagePasswordChange from "./Pages/PersonalAccount/PasswordChange/Index";
+import PagePersonalAccount from "./Pages/PersonalAccount/Index";
 
 import { Outlet, createBrowserRouter, useLocation } from "react-router-dom";
 
@@ -53,6 +57,19 @@ export const router = createBrowserRouter([
       { path: "/PlaceAnOrder", element: <PagePlaceAnOrder /> },
       { path: "/Login", element: <PageLogin /> },
       { path: "/Contacts", element: <PageContacts /> },
+
+      {
+        path: "/PersonalAccount",
+        element: <PagePersonalAccount />,
+        children: [
+          { path: "/PersonalAccount/Profile", element: <PageProfile /> },
+          { path: "/PersonalAccount/MyOrders", element: <PageMyOrders /> },
+          {
+            path: "/PersonalAccount/PasswordChange",
+            element: <PagePasswordChange />,
+          },
+        ],
+      },
     ],
   },
 ]);

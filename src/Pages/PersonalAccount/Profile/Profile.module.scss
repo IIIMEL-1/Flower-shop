@@ -1,0 +1,41 @@
+.profileBlock {
+  padding: 27px 0 50px 0;
+  gap: 30px;
+
+  .discountBlock,
+  .aboutMeBlock {
+    width: 100%;
+    min-height: 180px;
+
+    padding: 25px 30px;
+
+    border-radius: 10px;
+    background-color: white;
+  }
+
+  .aboutMeBlock {
+    h4 {
+      margin-bottom: 20px;
+
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 20px;
+
+      h5 {
+        margin-left: 5px;
+      }
+
+      input {
+        margin-top: 10px;
+        width: 350px;
+      }
+    }
+  }
+}
