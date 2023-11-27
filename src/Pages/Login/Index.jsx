@@ -1,16 +1,20 @@
 import { useState } from "react";
 import style from "./Login.module.scss";
 import { auth, register } from "../../redux/slices/authSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const [email, setEmail] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
+
+  const Res = useSelector((state) => state.authSlice.authRes);
+
+  console.log(Res);
 
   return (
     <section className="sectionBack" style={{ padding: "75px 0" }}>
@@ -47,6 +51,8 @@ export default function Login() {
                   type="password"
                   onChange={(el) => setPassword(el.target.value)}
                   value={password}
+                  minLength={6}
+                  maxLength={15}
                 />
               </div>
               <button
@@ -69,6 +75,7 @@ export default function Login() {
                   placeholder="Вася Пупкин"
                   onChange={(el) => setFullName(el.target.value)}
                   value={fullName}
+                  minLength={2}
                 />
               </div>
               <div>
@@ -86,6 +93,8 @@ export default function Login() {
                   type="password"
                   onChange={(el) => setPassword(el.target.value)}
                   value={password}
+                  minLength={6}
+                  maxLength={18}
                 />
               </div>
               <button

@@ -51,7 +51,6 @@ export default function Index({ search }) {
   }
 
   setCount();
-  console.log(pages);
   return (
     <div className={style.productBlock} id="catalog">
       <div className={style.sort}>

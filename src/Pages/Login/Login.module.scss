@@ -35,10 +35,10 @@
       font-size: 20px;
       font-weight: bold;
 
-      &:disabled {
+      /* &:disabled {
         pointer-events: none;
         opacity: 0.4;
-      }
+      } */
     }
   }
 
@@ -48,7 +48,7 @@
 
     height: 80px;
 
-    border-bottom: 1px solid #e0e0e0;
+    /* border-bottom: 1px solid #e0e0e0; */
 
     > button {
       width: 100%;
@@ -58,7 +58,8 @@
 
       opacity: 0.6;
 
-      border-right: 1px solid #e0e0e0;
+      border: 1px solid rgb(184, 184, 184, 0.5);
+      background-color: #e0e0e0;
 
       transition: 0.2s ease-in-out;
 
@@ -68,16 +69,18 @@
 
       &:last-child {
         border-top-right-radius: 10px;
-        border: none;
       }
 
       &.active {
+        pointer-events: none;
         opacity: 1;
-        background-color: #e0e0e0;
+
+        background-color: white;
+        border: none;
       }
 
       &:hover {
-        opacity: 0.8;
+        opacity: 1;
         background-color: #e0e0e0;
       }
     }

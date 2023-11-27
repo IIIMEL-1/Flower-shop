@@ -29,6 +29,7 @@ body {
 
 :root {
   --background-nav: #4d414b;
+  --nav-menu-height: 105px;
 }
 
 .container {
@@ -86,10 +87,16 @@ body {
     background-color: rgba(86, 188, 55, 0.7);
     transform: scale(1.02);
   }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
 }
 
 .sectionBack {
-  background-color: #f1f0f3;
+  background-color: #efeff0;
+  margin-top: var(--nav-menu-height);
 }
 
 input[type="text"],
@@ -107,8 +114,22 @@ textarea {
   border: 1px solid #e0e0e0;
   background-color: #fafafa;
 
+  transition: 0.3s ease-in-out;
+
   &:focus {
-    border: 2px solid rgba(0, 128, 53, 0.698);
+    box-shadow: 0 2px 13px 0 rgba(40, 40, 40, 0.4);
+  }
+
+  &:invalid {
+    border: 2px solid rgba(255, 0, 0, 0.5);
+  }
+
+  &:focus:required {
+    border: 2px solid rgba(18, 155, 37, 0.5);
+  }
+
+  &:focus:invalid {
+    border: 1px solid #e0e0e0;
   }
 
   &::placeholder {

@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: [],
+  authRes: "",
+  registerRes: "",
 };
 
 export const authSlice = createSlice({
@@ -15,16 +16,18 @@ export const authSlice = createSlice({
       });
 
       /* const res = fetch("https://b6c487f79077af26.mokky.dev/auth", {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              email: payload.email,
-              password: payload.password
-            })
-          }); */
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: payload.email,
+          password: payload.password,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => (state.authRes = data)); */
     },
 
     register(state, { payload }) {
