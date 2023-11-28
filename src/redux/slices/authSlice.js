@@ -26,7 +26,7 @@ export const fetchLogin = createAsyncThunk(
 
 const initialState = {
   authRes: "",
-  status: "loading",
+  status: "",
 };
 
 export const authSlice = createSlice({

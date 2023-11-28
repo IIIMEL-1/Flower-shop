@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Profile.module.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Profile() {
   const { data } = useSelector((state) => state.authSlice.authRes);
+
+  const dispatch = useDispatch();
 
   return (
     <section className={style.profileBlock}>
@@ -17,12 +19,24 @@ export default function Profile() {
 
       <div className={style.discountBlock}></div>
       <div className={style.aboutMeBlock}>
-        <h4>Информация обо мне</h4>
+        <div>
+          <h4>Информация обо мне</h4>
+          <Link
+            to={"/Login"}
+            onClick={() => (
+              alert("Вы точно хотите сменить аккаунт"), dispatch((data = ""))
+            )}
+            className="sendForm"
+          >
+            Сменить аккаунт
+          </Link>
+        </div>
+
         <form onClick={(el) => el.preventDefault()}>
           {!data ? (
             <div className="opacity">
               <div className="modal">
-                <img src="/static/images/as.png" alt="" />
+                <img src="/static/images/as.webp" alt="" />
                 <p>
                   Похоже вы не вошли в свой аккаунт, или вы ещё не
                   зарегистрировались на нашем сайте

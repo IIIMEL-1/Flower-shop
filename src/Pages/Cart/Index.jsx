@@ -52,8 +52,9 @@ export default function Cart() {
                 <p>{totalPrice.toLocaleString()} руб.</p>
               </div>
               <div className={style.discount}>
-                Зайдите в <Link to={"/"}>личный кабинет</Link> чтобы проверить
-                вашу СКИДКУ!
+                Зайдите в{" "}
+                <Link to={"/PersonalAccount/Profile"}>личный кабинет</Link>{" "}
+                чтобы проверить вашу СКИДКУ!
               </div>
             </div>
             <Link

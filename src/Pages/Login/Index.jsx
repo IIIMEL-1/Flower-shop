@@ -3,6 +3,7 @@ import style from "./Login.module.scss";
 import { fetchLogin } from "../../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { sassTrue } from "sass";
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState("auth");
@@ -15,9 +16,9 @@ export default function Login() {
 
   const dispatch = useDispatch();
 
-  const response = useSelector((state) => state.authSlice.authRes);
+  const { authRes, status } = useSelector((state) => state.authSlice);
 
-  console.log(response);
+  console.log(status);
 
   return (
     <section className="sectionBack" style={{ padding: "75px 0" }}>
@@ -38,11 +39,30 @@ export default function Login() {
             </button>
           </div>
 
-          {/*  */}
-
-          {/*  */}
-
-          {/*  */}
+          {authRes.data ? (
+            <div className="opacity">
+              <div className="modal">
+                <img src="/static/images/party-popper.webp" alt="" />
+                <p>Вы успешно вошли в аккаунт!</p>
+                <Link className="sendForm" to={"/PersonalAccount/Profile"}>
+                  Вернутся назад
+                </Link>
+              </div>
+            </div>
+          ) : status === "loading" ? (
+            <div className="opacity">
+              <div className="modal">
+                <div className="loading">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
 
           {isLogin === "auth" ? (
             <form onClick={(el) => el.preventDefault()} className={style.login}>
@@ -71,23 +91,15 @@ export default function Login() {
                   maxLength={15}
                 />
               </div>
-              {response.statusCode === 401 ? (
-                <div className={style.error}>{response.message}</div>
-              ) : response.statusCode === 400 ? (
-                <div className={style.error}>{response.message}</div>
-              ) : response.data ? (
-                <div className="opacity">
-                  <div className="modal">
-                    <img src="/static/images/party-popper.png" alt="" />
-                    <p>Вы успешно вошли в аккаунт!</p>
-                    <Link className="sendForm" to={"/PersonalAccount/Profile"}>
-                      Вернутся назад
-                    </Link>
-                  </div>
-                </div>
+
+              {authRes.statusCode === 401 ? (
+                <div className={style.error}>{authRes.message}</div>
+              ) : authRes.statusCode === 400 ? (
+                <div className={style.error}>{authRes.message}</div>
               ) : (
                 ""
               )}
+
               <button
                 disabled={email && password ? false : true}
                 onClick={() =>
@@ -109,6 +121,7 @@ export default function Login() {
                   id="username"
                   type="text"
                   name="username"
+                  pattern="[а-я]{4,8}"
                   autoComplete="username"
                   placeholder="Вася Пупкин"
                   onChange={(el) => setFullName(el.target.value)}
@@ -143,9 +156,10 @@ export default function Login() {
               <div>
                 <h3>Электронная почта:</h3>
                 <input
-                  id="username"
+                  id="email"
                   type="email"
-                  name="username"
+                  autoComplete="email"
+                  name="email"
                   placeholder="Эл. почта"
                   onChange={(el) => setEmail(el.target.value)}
                   value={email}
@@ -157,6 +171,7 @@ export default function Login() {
                   type="password"
                   id="password"
                   name="password"
+                  security="none"
                   autoComplete="current-password"
                   placeholder="Пароль"
                   onChange={(el) => setPassword(el.target.value)}
@@ -166,7 +181,15 @@ export default function Login() {
                 />
               </div>
               <button
-                disabled={fullName && email && password ? false : true}
+                disabled={
+                  fullName.length >= 3 &&
+                  email.includes("@") &&
+                  password.length >= 6 &&
+                  city.length >= 3 &&
+                  phone.length >= 12
+                    ? false
+                    : true
+                }
                 onClick={() =>
                   dispatch(
                     fetchLogin({

@@ -63,7 +63,7 @@ export default function Index({ search }) {
       </div>
       <div id={style.productsContainer}>
         {status === "error" ? (
-          <div>Error</div>
+          <div className={style.error}>Error</div>
         ) : status === "loading" ? (
           [...new Array(6)].map((_, i) => <Skeleton key={i} />)
         ) : (

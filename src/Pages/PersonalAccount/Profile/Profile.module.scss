@@ -14,11 +14,20 @@
   }
 
   .aboutMeBlock {
-    h4 {
-      margin-bottom: 20px;
+    > div {
+      display: flex;
+      justify-content: space-between;
 
-      font-size: 18px;
-      font-weight: bold;
+      h4 {
+        margin-bottom: 20px;
+
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      a {
+        height: 20px;
+      }
     }
 
     form {
