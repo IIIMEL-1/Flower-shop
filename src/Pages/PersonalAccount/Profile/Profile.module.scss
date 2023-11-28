@@ -13,6 +13,96 @@
     background-color: white;
   }
 
+  .discountBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .range {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      width: 100%;
+      height: 15px;
+
+      background-color: #aaaaaa;
+      border-radius: 10px;
+
+      span {
+        position: absolute;
+
+        width: 10px;
+        height: 10px;
+        background-color: rgb(63, 63, 63);
+        border-radius: 100%;
+
+        &::after {
+          position: absolute;
+          bottom: -20px;
+          right: 0;
+          display: flex;
+          width: 105px;
+          font-size: 12px;
+          font-weight: bold;
+        }
+
+        &:nth-child(1) {
+          left: calc(15% - 10px);
+          &::after {
+            content: "от 15 000 руб. |";
+            right: -9px;
+          }
+        }
+        &:nth-child(2) {
+          left: calc(50% - 10px);
+          &::after {
+            content: "от 50 000 руб. |";
+            right: -4px;
+          }
+        }
+        &:nth-child(3) {
+          left: calc(100% - 12px);
+          &::after {
+            content: "от 100 000 руб. |";
+          }
+        }
+      }
+
+      .trackSuccess {
+        height: 15px;
+        background-color: #6aae55;
+        border-radius: 10px;
+      }
+
+      .point {
+        position: absolute;
+        top: 0;
+
+        width: 15px;
+        height: 15px;
+
+        background-color: #f2994a;
+
+        border: 2px solid white;
+        border-radius: 100%;
+      }
+    }
+
+    .priceBlock {
+      display: flex;
+      justify-content: center;
+
+      font-size: 18px;
+      font-weight: bold;
+
+      span {
+        margin-left: 7px;
+        color: #6aae55;
+      }
+    }
+  }
+
   .aboutMeBlock {
     > div {
       display: flex;

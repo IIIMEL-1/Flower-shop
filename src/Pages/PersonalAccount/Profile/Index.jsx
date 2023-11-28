@@ -5,8 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Profile() {
   const { data } = useSelector((state) => state.authSlice.authRes);
+  const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
 
   const dispatch = useDispatch();
+
+  const percent = totalPrice / 1000;
+  console.log(percent);
 
   return (
     <section className={style.profileBlock}>
@@ -17,15 +21,35 @@ export default function Profile() {
         </div>
       </div>
 
-      <div className={style.discountBlock}></div>
+      <div className={style.discountBlock}>
+        <div className={style.range}>
+          <span className={style.one}></span>
+          <span className={style.five}></span>
+          <span className={style.ten}></span>
+          <div
+            className={style.trackSuccess}
+            style={{ width: percent ? `${percent}% ` : 0 }}
+          ></div>
+          <div
+            className={style.point}
+            style={{ left: percent ? `calc(${percent}% - 15px)` : 0 }}
+          ></div>
+        </div>
+        <div className={style.priceBlock}>
+          Сумма заказов — <span>{totalPrice.toLocaleString()} руб.</span>
+        </div>
+      </div>
+
       <div className={style.aboutMeBlock}>
         <div>
           <h4>Информация обо мне</h4>
           <Link
             to={"/Login"}
-            onClick={() => (
-              alert("Вы точно хотите сменить аккаунт"), dispatch((data = ""))
-            )}
+            onClick={() =>
+              window.confirm("Вы точно хотите сменить аккаунт?")
+                ? dispatch((data = ""))
+                : ""
+            }
             className="sendForm"
           >
             Сменить аккаунт
