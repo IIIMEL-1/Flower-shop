@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchLogin = createAsyncThunk(
   "login/fetchLoginStatus",
   async (params) => {
-    const { email, password, fullName, phone, city, isLogin } = params;
+    const { email, password, fullName, phone, city, items, isLogin } = params;
 
     const res = fetch(`https://b6c487f79077af26.mokky.dev/${isLogin}`, {
       method: "POST",
@@ -17,6 +17,7 @@ export const fetchLogin = createAsyncThunk(
         password,
         phone,
         city,
+        items,
       }),
     });
 
@@ -53,7 +54,5 @@ export const authSlice = createSlice({
     },
   },
 });
-
-/* export const { auth } = authSlice.actions; */
 
 export default authSlice.reducer;

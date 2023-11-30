@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 
 import { addItem } from "../../../../../redux/slices/addToCartSlice";
 
-export default function Index({ id, title, image, price, description }) {
+export default function Index({ id, title, image, description }) {
   const [size, setSize] = useState(0);
 
   const dispatch = useDispatch();
@@ -20,7 +20,6 @@ export default function Index({ id, title, image, price, description }) {
       id,
       title,
       image,
-      price,
       description: description[size],
       count: 1,
     };
@@ -38,7 +37,7 @@ export default function Index({ id, title, image, price, description }) {
         <div>
           <div className={style.price}>
             <p>Стоимость:</p>
-            <p>{price.toLocaleString()} руб.</p>
+            <p>{description[size].price.toLocaleString()} руб.</p>
           </div>
           <button className={style.addToCart} onClick={() => onClickAdd()}>
             В корзину

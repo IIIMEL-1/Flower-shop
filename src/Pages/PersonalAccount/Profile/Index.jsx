@@ -9,15 +9,16 @@ export default function Profile() {
 
   const dispatch = useDispatch();
 
-  const percent = totalPrice / 1000;
-  console.log(percent);
+  let percent = totalPrice / 1000;
+  percent >= 100 ? (percent = 100) : percent;
 
   return (
     <section className={style.profileBlock}>
       <div className="pageName">
         <div>
-          <Link>Главная</Link> {" > "} <Link>Личный кабинет</Link> {" > "}
-          <Link>Профиль</Link>
+          <Link to={"/"}>Главная</Link> {" > "}{" "}
+          <Link to={"/PersonalAccount/Profile"}>Личный кабинет</Link> {" > "}
+          <Link to={"/PersonalAccount/Profile"}>Профиль</Link>
         </div>
       </div>
 
@@ -62,7 +63,7 @@ export default function Profile() {
               <div className="modal">
                 <img src="/static/images/as.webp" alt="" />
                 <p>
-                  Похоже вы не вошли в свой аккаунт, или вы ещё не
+                  Похоже вы не вошли в свой аккаунт, или ещё не
                   зарегистрировались на нашем сайте
                 </p>
                 <Link className="sendForm" to={"/Login"}>

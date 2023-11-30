@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./PlaceAnOrder.module.scss";
 import { Link } from "react-router-dom";
+import { fetchLogin } from "../../redux/slices/authSlice";
 
 export default function OrderRegistration() {
+  const items = useSelector((state) => state.addToCartSlice.items);
+  const res = useSelector((state) => state.authSlice.authRes);
+
+  const dispatch = useDispatch();
+
   return (
     <section className="sectionBack">
       <div className="container">
@@ -15,7 +21,7 @@ export default function OrderRegistration() {
           <h3>Оформление заказа</h3>
         </div>
 
-        <form action="" className={style.form}>
+        <form className={style.form}>
           <div className={style.deliveryMethod}>
             <h5>Способ доставки</h5>
             <div className={style.blockRadioInput}>
@@ -153,7 +159,15 @@ export default function OrderRegistration() {
               <label htmlFor="paymentOnline">Онлайн оплата — Сбербанк</label>
             </div>
           </div>
-          <button className="sendForm">Оформить заказ</button>
+          <button
+            onClick={(el) => (
+              el.preventDefault(),
+              dispatch(fetchLogin({ ...res.data, items, isLogin: "users" }))
+            )}
+            className="sendForm"
+          >
+            Оформить заказ
+          </button>
         </form>
       </div>
     </section>

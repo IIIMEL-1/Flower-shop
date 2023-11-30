@@ -3,7 +3,6 @@ import style from "./Login.module.scss";
 import { fetchLogin } from "../../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { sassTrue } from "sass";
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState("auth");
@@ -17,8 +16,6 @@ export default function Login() {
   const dispatch = useDispatch();
 
   const { authRes, status } = useSelector((state) => state.authSlice);
-
-  console.log(status);
 
   return (
     <section className="sectionBack" style={{ padding: "75px 0" }}>
@@ -65,7 +62,7 @@ export default function Login() {
           )}
 
           {isLogin === "auth" ? (
-            <form onClick={(el) => el.preventDefault()} className={style.login}>
+            <form action="#" onClick={(el) => el.preventDefault()} className={style.login}>
               <div>
                 <h3>Электронная почта:</h3>
                 <input
@@ -112,6 +109,7 @@ export default function Login() {
             </form>
           ) : (
             <form
+              action="#"
               onClick={(el) => el.preventDefault()}
               className={style.registration}
             >
@@ -199,6 +197,7 @@ export default function Login() {
                       email,
                       password,
                       isLogin,
+                      items: [],
                     })
                   )
                 }

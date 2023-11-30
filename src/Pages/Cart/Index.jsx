@@ -37,7 +37,6 @@ export default function Cart() {
                     id={el.id}
                     title={el.title}
                     image={el.image}
-                    price={el.price}
                     description={el.description}
                     count={el.count}
                   />
