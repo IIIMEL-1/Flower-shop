@@ -40,7 +40,7 @@ export const addToCartSlice = createSlice({
       });
 
       findItem.count < 2 ? "" : findItem.count--;
-      state.totalPrice -= findItem.price;
+      state.totalPrice -= findItem.description.price;
     },
 
     removeItem(state, { payload }) {
@@ -52,7 +52,7 @@ export const addToCartSlice = createSlice({
       });
 
       state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.price * obj.count + sum;
+        return obj.description.price * obj.count + sum;
       }, 0);
     },
   },

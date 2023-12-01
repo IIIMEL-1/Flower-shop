@@ -62,7 +62,11 @@ export default function Login() {
           )}
 
           {isLogin === "auth" ? (
-            <form action="#" onClick={(el) => el.preventDefault()} className={style.login}>
+            <form
+              action="#"
+              onClick={(el) => el.preventDefault()}
+              className={style.login}
+            >
               <div>
                 <h3>Электронная почта:</h3>
                 <input
@@ -125,6 +129,7 @@ export default function Login() {
                   onChange={(el) => setFullName(el.target.value)}
                   value={fullName}
                   minLength={2}
+                  maxLength={18}
                 />
               </div>
               <div>
@@ -147,7 +152,7 @@ export default function Login() {
                   placeholder="+_(___) ___-__-__"
                   onChange={(el) => setPhone(el.target.value)}
                   value={phone}
-                  minLength={15}
+                  minLength={11}
                   maxLength={16}
                 />
               </div>

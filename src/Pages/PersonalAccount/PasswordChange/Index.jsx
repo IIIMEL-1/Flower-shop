@@ -42,6 +42,7 @@ export default function PasswordChange() {
                 type="password"
                 onChange={(el) => setNewPassword(el.target.value)}
                 value={newPassword}
+                maxLength={18}
               />
             </div>
             <div>
@@ -55,7 +56,7 @@ export default function PasswordChange() {
             <button
               disabled={
                 currentPassword === password &&
-                newPassword &&
+                newPassword.length >= 6 &&
                 newPassword === repeatNewPassword
                   ? false
                   : true

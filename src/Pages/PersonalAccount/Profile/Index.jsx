@@ -4,7 +4,7 @@ import style from "./Profile.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Profile() {
-  const { data } = useSelector((state) => state.authSlice.authRes);
+  let { data } = useSelector((state) => state.authSlice.authRes);
   const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
 
   const dispatch = useDispatch();
@@ -23,6 +23,21 @@ export default function Profile() {
       </div>
 
       <div className={style.discountBlock}>
+        <div className={style.discount}>
+          Ваша скидка —{" "}
+          <span>
+            {percent < 25
+              ? 0
+              : percent < 65
+              ? 3
+              : percent < 100
+              ? 5
+              : percent === 100
+              ? 7
+              : ""}
+            %
+          </span>{" "}
+        </div>
         <div className={style.range}>
           <span className={style.one}></span>
           <span className={style.five}></span>

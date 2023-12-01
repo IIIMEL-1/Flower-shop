@@ -50,12 +50,7 @@ export default function Index({ search }) {
           <button
             key={i}
             className={isActive === i ? "active" : ""}
-            onClick={() => (
-              setSortBy(el.sortBy),
-              setOrder(el.order),
-              setPage(1),
-              setIsActive(i)
-            )}
+            onClick={() => (setSortBy(el.sortBy), setPage(1), setIsActive(i))}
           >
             {el.title}
           </button>
@@ -72,7 +67,6 @@ export default function Index({ search }) {
               key={el.id}
               id={el.id}
               title={el.title}
-              price={el.price}
               description={el.description}
               image={el.image}
             />
