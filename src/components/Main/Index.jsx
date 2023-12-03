@@ -10,8 +10,8 @@ export default function Index() {
   return (
     <>
       <Background />
-      <Advantages />
       <Catalog />
+      <Advantages />
       <Order />
       <Description />
     </>
