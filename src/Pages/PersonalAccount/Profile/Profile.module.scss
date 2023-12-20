@@ -167,7 +167,7 @@
 
       input {
         margin-top: 10px;
-        width: 350px;
+        width: clamp(250px, 80vw, 350px);
       }
     }
   }
