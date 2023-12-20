@@ -78,31 +78,3 @@
     font-weight: bold;
   }
 }
-
-.pageList {
-  margin-top: 40px;
-  display: flex;
-  gap: 0 10px;
-
-  :global {
-    button {
-      width: 45px;
-      height: 45px;
-      transition: 0.2s ease-in-out;
-      font-size: 18px;
-      color: #619f4f;
-      border: 2px solid rgb(190, 190, 190);
-      border-radius: 12px;
-
-      &.active {
-        background-color: #b8daae;
-        transform: scale(1.1);
-      }
-
-      &:hover {
-        background-color: #bcf5aa;
-        transform: scale(1.05);
-      }
-    }
-  }
-}

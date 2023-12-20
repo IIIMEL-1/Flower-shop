@@ -81,10 +81,11 @@
         background-color: white;
         border: 1px solid rgb(184, 184, 184, 0);
       }
-
-      &:hover {
+    }
+    @media (hover: hover) and (pointer: fine) {
+      button:hover {
         opacity: 1;
-        background-color: #e0e0e0;
+        background-color: #e0e0e0 !important;
       }
     }
   }

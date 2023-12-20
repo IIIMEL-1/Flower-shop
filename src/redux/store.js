@@ -3,6 +3,7 @@ import addToCartSlice from "./slices/addToCartSlice";
 import authSlice from "./slices/authSlice";
 import flowerSlice from "./slices/flowerSlice";
 import changeDataSlice from "./slices/changeDataSlice";
+import reviewsSlice from "./slices/reviewsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     authSlice,
     flowerSlice,
     changeDataSlice,
+    reviewsSlice,
   },
 });

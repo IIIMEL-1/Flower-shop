@@ -14,7 +14,7 @@
 
 .navItemFooter {
   display: block;
-  padding: clamp(10px, 2vw, 36px);
+  padding: clamp(20px, 3vw, 36px) clamp(10px, 2vw, 36px);
   cursor: pointer;
 
   font-size: 18px;

@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./PersonalAccount.module.scss";
 
 import { Outlet } from "react-router";

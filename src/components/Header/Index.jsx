@@ -27,7 +27,7 @@ export default function Header() {
         <div>
           <Link to={"/"}>каталог</Link>
           <Link to={"/"}>скидки</Link>
-          <Link to={"/"}>отзывы</Link>
+          <Link to={"/Reviews/TextReviews"}>отзывы</Link>
           <Link to={"/Contacts"}>контакты</Link>
         </div>
         <div>
@@ -42,39 +42,5 @@ export default function Header() {
         </div>
       </nav>
     </div>
-
-    /*     <div className={style.nav}>
-      <div className="container">
-        <ul className={isOpen ? "active" : ""}>
-          {headerList.map((el, i) => (
-            <li key={i}>
-              <Link to={`${el.link}`}>{el.title}</Link>
-            </li>
-          ))}
-          <li className={style.logotype}>
-            <Link to={"/"}>
-              <img src="../static/images/logo.svg" alt="#" />
-            </Link>
-          </li>
-          <li className={style.inform}>информация для клиента</li>
-          <li className={style.profile}>
-            <Link to={"/PersonalAccount/Profile"}>
-              <img src="/static/images/Profile-icon.svg" alt="" />
-            </Link>
-          </li>
-        </ul>
-        <div
-          onClick={() => {
-            isOpen ? setIsOpen(false) : setIsOpen(true);
-          }}
-          className={style.menu}
-        >
-          <p>меню</p>
-        </div>
-        <Link className={style.cart} to={"/Cart"}>
-          {totalCount}
-        </Link>
-      </div>
-    </div> */
   );
 }

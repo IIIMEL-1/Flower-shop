@@ -16,18 +16,14 @@ export const fetchFlowers = createAsyncThunk(
 
 const initialState = {
   products: [],
-  totalPages: 0,
+  totalPages: 1,
   status: "loading",
 };
 
 export const flowerSlice = createSlice({
   name: "flower",
   initialState,
-  reducers: {
-    setItems(state, { payload }) {
-      state.products = payload;
-    },
-  },
+  reducers: {},
 
   extraReducers: {
     [fetchFlowers.pending]: (state) => {

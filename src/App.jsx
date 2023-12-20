@@ -11,10 +11,15 @@ import PageQuestion from "./Pages/Questions/Index";
 import PageLogin from "./Pages/Login/Index";
 import PageContacts from "./Pages/Contacts/Index";
 import PageCardProduct from "./Pages/CardProduct/Index";
+
 import PageProfile from "./Pages/PersonalAccount/Profile/Index";
 import PageMyOrders from "./Pages/PersonalAccount/MyOrders/Index";
 import PagePasswordChange from "./Pages/PersonalAccount/PasswordChange/Index";
 import PagePersonalAccount from "./Pages/PersonalAccount/Index";
+
+import PageReviews from "./Pages/Reviews/Index";
+import PageTextReviews from "./Pages/Reviews/TextReviews/Index";
+import PagePhotoReviews from "./Pages/Reviews/PhotoReviews/Index";
 
 import { Outlet, createBrowserRouter, useLocation } from "react-router-dom";
 
@@ -68,6 +73,15 @@ export const router = createBrowserRouter([
             path: "/PersonalAccount/PasswordChange",
             element: <PagePasswordChange />,
           },
+        ],
+      },
+
+      {
+        path: "/Reviews",
+        element: <PageReviews />,
+        children: [
+          { path: "/Reviews/PhotoReviews", element: <PagePhotoReviews /> },
+          { path: "/Reviews/TextReviews", element: <PageTextReviews /> },
         ],
       },
     ],

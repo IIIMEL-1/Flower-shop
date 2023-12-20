@@ -14,7 +14,7 @@ export default function Index({ search }) {
   const [sortBy, setSortBy] = useState("");
 
   const [isActive, setIsActive] = useState();
-  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const list = [
     { title: "Новизне", sortBy: "title" },
@@ -24,24 +24,9 @@ export default function Index({ search }) {
   ];
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      dispatch(fetchFlowers({ sortBy, page }));
-    };
+    dispatch(fetchFlowers({ sortBy, currentPage }));
+  }, [sortBy, currentPage]);
 
-    fetchProducts();
-  }, [sortBy, page, search]);
-
-  const pages = [];
-
-  function setCount() {
-    let count = totalPages;
-
-    for (let i = 1; i < count + 1; i++) {
-      pages.push(i);
-    }
-  }
-
-  setCount();
   return (
     <div className={style.productBlock} id="catalog">
       <div className={style.sort}>
@@ -50,7 +35,9 @@ export default function Index({ search }) {
           <button
             key={i}
             className={isActive === i ? "active" : ""}
-            onClick={() => (setSortBy(el.sortBy), setPage(1), setIsActive(i))}
+            onClick={() => (
+              setSortBy(el.sortBy), setCurrentPage(1), setIsActive(i)
+            )}
           >
             {el.title}
           </button>
@@ -73,14 +60,14 @@ export default function Index({ search }) {
           ))
         )}
       </div>
-      <div className={style.pageList}>
-        {pages.map((el, i) => (
+      <div className="pageList">
+        {[...new Array(totalPages)].map((el, i) => (
           <button
             key={i}
-            className={page == i + 1 ? " active" : ""}
-            onClick={() => setPage(i + 1)}
+            className={currentPage == i + 1 ? " active" : ""}
+            onClick={() => setCurrentPage(i + 1)}
           >
-            {el}
+            {i + 1}
           </button>
         ))}
       </div>
