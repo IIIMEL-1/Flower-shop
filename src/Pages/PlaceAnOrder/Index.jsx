@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./PlaceAnOrder.module.scss";
 import { Link } from "react-router-dom";
-import { fetchLogin } from "../../redux/slices/authSlice";
+import { fetchData } from "../../redux/slices/changeDataSlice";
 
 export default function OrderRegistration() {
-  const items = useSelector((state) => state.addToCartSlice.items);
-  const res = useSelector((state) => state.authSlice.authRes);
-
   const dispatch = useDispatch();
+
+  const items = useSelector((state) => state.addToCartSlice.items);
+  const { id } = useSelector((state) => state.authSlice.authRes.data);
 
   return (
     <section className="sectionBack">
@@ -161,8 +161,7 @@ export default function OrderRegistration() {
           </div>
           <button
             onClick={(el) => (
-              el.preventDefault(),
-              dispatch(fetchLogin({ ...res.data, items, isLogin: "users" }))
+              el.preventDefault(), dispatch(fetchData({ items, id }))
             )}
             className="sendForm"
           >

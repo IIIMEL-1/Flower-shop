@@ -8,13 +8,12 @@ export default function TextReviews() {
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
-
   const { reviews, totalPages } = useSelector((state) => state.reviewsSlice);
 
   useEffect(() => {
     dispatch(fetchReviews({ currentPage }));
 
-    /* window.scrollTo(0, 0); */
+    window.scrollTo(0, 0);
   }, [currentPage]);
 
   return (

@@ -4,10 +4,10 @@ import axios from "axios";
 export const fetchFlowers = createAsyncThunk(
   "flower/fetchFlowersStatus",
   async (params) => {
-    const { sortBy, page } = params;
+    const { sortBy, currentPage } = params;
 
     const { data } = await axios.get(
-      `https://b6c487f79077af26.mokky.dev/items?limit=6&page=${page}&sortBy=${sortBy}`
+      `https://b6c487f79077af26.mokky.dev/items?limit=6&page=${currentPage}&sortBy=${sortBy}`
     );
 
     return data;
