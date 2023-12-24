@@ -1,7 +1,7 @@
 [
   {
     "title": "«Джипси»",
-    "id": "el1",
+    "id": 1,
     "price": 3700,
     "image": "https://i.ibb.co/Mc4ZF1L/IMG-1402.jpg",
     "rating": 3,
@@ -28,7 +28,7 @@
   },
   {
     "title": "«Дора»",
-    "id": "el2",
+    "id": 2,
     "price": 4550,
     "image": "https://i.ibb.co/MPm2XNR/IMG-9434-2-min.jpg",
     "rating": 2,
@@ -70,7 +70,7 @@
   },
   {
     "title": "«Barbie Land»",
-    "id": "el3",
+    "id": 3,
     "price": 28550,
     "image": "https://i.ibb.co/J3yjz8K/IMG-9654-min.jpg",
     "rating": 5,
@@ -115,7 +115,7 @@
   },
   {
     "title": "Букетик лилий",
-    "id": "el4",
+    "id": 4,
     "price": 5000,
     "image": "https://i.ibb.co/CV2r69L/IMG-0878.jpg",
     "rating": 5,
@@ -137,7 +137,7 @@
   },
   {
     "title": "«Букет ромашек MAXI»",
-    "id": "el5",
+    "id": 5,
     "price": 4300,
     "image": "https://i.ibb.co/xGHrZSP/2-AD98-F84-645-F-4075-A314-B3042006870-E.jpg",
     "rating": 4,
@@ -164,7 +164,7 @@
   },
   {
     "title": "«Crème»",
-    "id": "el6",
+    "id": 6,
     "price": 8900,
     "image": "https://i.ibb.co/VJw7zVz/IMG-9345-2-min.jpg",
     "rating": 4,
@@ -209,7 +209,7 @@
   },
   {
     "title": "«Flowerbomb»",
-    "id": "el7",
+    "id": 7,
     "price": 8650,
     "image": "https://i.ibb.co/R2PJrc8/IMG-0297-min.jpg",
     "rating": 5,
@@ -254,7 +254,7 @@
   },
   {
     "title": "«LITCHI»",
-    "id": "el8",
+    "id": 8,
     "price": 6800,
     "image": "https://i.ibb.co/JWL86XR/IMG-9405-min.jpg",
     "rating": 5,
@@ -299,7 +299,7 @@
   },
   {
     "title": "15 кремовых роз Эквадор",
-    "id": "el9",
+    "id": 9,
     "price": 5450,
     "image": "https://i.ibb.co/mD8f3XM/IMG-5001.jpg",
     "rating": 2,
@@ -326,7 +326,7 @@
   },
   {
     "title": "101 роза «Candleight» Эквадор",
-    "id": "el10",
+    "id": 10,
     "price": 33500,
     "image": "https://i.ibb.co/Gtb0zhF/IMG-9157.jpg",
     "rating": 5,
@@ -343,7 +343,7 @@
   },
   {
     "title": "Букет из 101 приморской розы",
-    "id": "el11",
+    "id": 11,
     "price": 10200,
     "image": "https://i.ibb.co/317KX3n/IMG-3522.jpg",
     "rating": 3,
@@ -360,7 +360,7 @@
   },
   {
     "title": "25 разноцветных роз",
-    "id": "el12",
+    "id": 12,
     "price": 7600,
     "image": "https://i.ibb.co/sPTmLVz/IMG-9185-min.jpg",
     "rating": 4,
@@ -387,7 +387,7 @@
   },
   {
     "title": "«Дейнерис»",
-    "id": "el13",
+    "id": 13,
     "price": 19500,
     "image": "https://i.ibb.co/qCt4RRv/IMG-6868.jpg",
     "rating": 1,
@@ -404,7 +404,7 @@
   },
   {
     "title": "«Мишель»",
-    "id": "el14",
+    "id": 14,
     "price": 6550,
     "image": "https://i.ibb.co/NLNNYkJ/IMG-7407.jpg",
     "rating": 3,
@@ -426,7 +426,7 @@
   },
   {
     "title": "«Айрис»",
-    "id": "el15",
+    "id": 15,
     "price": 13500,
     "image": "https://i.ibb.co/C9tmV72/IMG-7683.jpg",
     "rating": 2,
@@ -460,7 +460,7 @@
   },
   {
     "title": "«Черри»",
-    "id": "el16",
+    "id": 16,
     "price": 8650,
     "image": "https://i.ibb.co/82PFNQs/IMG-5759.jpg",
     "rating": 4,
@@ -502,7 +502,7 @@
   },
   {
     "title": "«Ангел»",
-    "id": "el17",
+    "id": 17,
     "price": 8000,
     "image": "https://i.ibb.co/JHdndx1/IMG-4799-2.jpg",
     "rating": 5,
@@ -547,7 +547,7 @@
   },
   {
     "title": "Гигантская корзина из 1001 розы",
-    "id": "el18",
+    "id": 18,
     "price": 100000,
     "image": "https://i.ibb.co/8PPqsf6/IMG-5533.jpg",
     "rating": 5,
@@ -564,7 +564,7 @@
   },
   {
     "title": "«Femme fatale»",
-    "id": "el19",
+    "id": 19,
     "price": 25000,
     "image": "https://i.ibb.co/9r8NHp5/IMG-0429-min.jpg",
     "rating": 2,
@@ -587,7 +587,7 @@
   },
   {
     "title": "Корзина белых ромашек XL",
-    "id": "el20",
+    "id": 20,
     "price": 13000,
     "image": "https://i.ibb.co/k00J9Nb/IMG-7758.jpg",
     "rating": 1,
@@ -614,7 +614,7 @@
   },
   {
     "title": "«Селена»",
-    "id": "el21",
+    "id": 21,
     "price": 12500,
     "image": "https://i.ibb.co/r7YsHsv/IMG-5401.jpg",
     "rating": 3,
@@ -659,7 +659,7 @@
   },
   {
     "title": "«Фемида»",
-    "id": "el22",
+    "id": 22,
     "price": 15000,
     "image": "https://i.ibb.co/0f7rVDK/IMG-5391.jpg",
     "rating": 3,
@@ -676,7 +676,7 @@
   },
   {
     "title": "Набор «I love you»",
-    "id": "el23",
+    "id": 23,
     "price": 13500,
     "image": "https://i.ibb.co/GFNGQHr/IMG-7736.jpg",
     "rating": 5,
@@ -697,7 +697,7 @@
   },
   {
     "title": "«Milkshake»",
-    "id": "el24",
+    "id": 24,
     "price": 8000,
     "image": "https://i.ibb.co/Ns0CMJp/IMG-0280-2-min.jpg",
     "rating": 2,
@@ -736,7 +736,7 @@
   },
   {
     "title": "Букет из 51 Приморской розы",
-    "id": "el25",
+    "id": 25,
     "price": 5400,
     "image": "https://i.ibb.co/VpqNHxp/IMG-2359.jpg",
     "rating": 4,

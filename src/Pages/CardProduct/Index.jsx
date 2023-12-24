@@ -21,7 +21,7 @@ export default function CardProduct() {
     async function fetchFlowers() {
       try {
         const { data } = await axios.get(
-          "https://64ebe102e51e1e82c577b25b.mockapi.io/products/" + id
+          `https://b6c487f79077af26.mokky.dev/items/${id}`
         );
         setProduct({ ...data, count: 1 });
         data.description.forEach((el, i) => {

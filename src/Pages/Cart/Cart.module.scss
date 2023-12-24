@@ -59,7 +59,7 @@
 
   text-align: center;
 
-  margin: clamp(0px, 7vw, 130px) 0 20px 0;
+  margin: clamp(0px, 7vw, 130px) 0 30px 0;
 
   .totalCostBlock {
     padding: clamp(25px, 7vw, 40px) 25px;
@@ -148,9 +148,5 @@
       background: none;
       padding: 0;
     }
-  }
-
-  .totalPriceBlock {
-    margin-bottom: 30px;
   }
 }
