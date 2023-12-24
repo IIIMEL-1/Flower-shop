@@ -9,7 +9,7 @@ body {
 
   a,
   p {
-    color: #5b4a58;
+    color: inherit;
   }
 
   &::-webkit-scrollbar {
@@ -28,14 +28,19 @@ body {
 }
 
 :root {
-  --background-nav: #4d414b;
+  --font-color: #5b4a58;
+  --font-color-two: #828282;
+  --background-grey-nav: #4d414b;
+  --background-white: #ffffff;
+  --border-color: rgb(118 171 102 / 35%);
+  --background-section: #efeff0;
   --nav-menu-height: clamp(60px, 10vw, 90px);
 }
 
 .container {
   max-width: 1170px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(10px, 3vw, 20px);
 }
 
 .pageName {
@@ -94,6 +99,11 @@ body {
     pointer-events: none;
     opacity: 0.4;
   }
+
+  &:focus {
+    background-color: #518442;
+    transform: scale(1.03);
+  }
 }
 
 .pageList {
@@ -128,7 +138,7 @@ button:disabled {
 }
 
 .sectionBack {
-  background-color: #efeff0;
+  background-color: var(--background-section);
   margin-top: var(--nav-menu-height);
 }
 

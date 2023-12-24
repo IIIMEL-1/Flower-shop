@@ -3,7 +3,7 @@ import style from "./Description.module.scss";
 
 export default function Description() {
   return (
-    <section id={style.description}>
+    <section id={style.description} className="sectionBack">
       <div className="container">
         <div className={style.descriptionBlock}>
           <p>

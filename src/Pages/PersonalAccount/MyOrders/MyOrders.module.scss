@@ -15,7 +15,7 @@
     max-height: 100%;
     padding: 25px;
 
-    background-color: white;
+    background-color: var(--background-white);
     border-radius: 10px;
 
     .dateOrder {
@@ -33,7 +33,7 @@
 
         padding-bottom: 5px;
         margin-bottom: 10px;
-        border-bottom: 1px solid #828282;
+        border-bottom: 1px solid var(--font-color-two);
 
         &:last-child {
           border-bottom: none;
@@ -58,7 +58,7 @@
     div {
       font-size: 18px;
       font-weight: bold;
-      color: #5b4a58;
+      color: var(--font-color);
     }
   }
 }

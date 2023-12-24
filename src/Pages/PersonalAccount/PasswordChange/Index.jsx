@@ -10,6 +10,7 @@ export default function PasswordChange() {
   const [repeatNewPassword, setRepeatNewPassword] = useState("");
 
   const { id, password } = useSelector((state) => state.authSlice.authRes.data);
+  const { dataRes, status } = useSelector((state) => state.changeDataSlice);
 
   const dispatch = useDispatch();
 
@@ -25,6 +26,31 @@ export default function PasswordChange() {
       </div>
       <div>
         <div className={style.PasswordBlock}>
+          {status === "success" ? (
+            <div className="opacity">
+              <div className="modal">
+                <img src="/static/images/party-popper.webp" alt="" />
+                <p>Вы успешно сменили пароль!</p>
+                <Link className="sendForm" to={"/PersonalAccount/Profile"}>
+                  Вернутся назад
+                </Link>
+              </div>
+            </div>
+          ) : status === "loading" ? (
+            <div className="opacity">
+              <div className="modal">
+                <div className="loading">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+
           <form onClick={(el) => el.preventDefault()} action="#">
             <div>
               <h5>Текущий пароль</h5>

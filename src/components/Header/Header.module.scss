@@ -14,7 +14,8 @@ header {
 
   border-bottom: 1px solid #e0e0e0;
 
-  background: url(/public/static/images/logo.svg) no-repeat center center white;
+  background: url(/public/static/images/logo.svg) no-repeat center center
+    var(--background-white);
   background-size: clamp(60px, 10vw, 90px);
 
   input[type="checkbox"] + label {
@@ -102,7 +103,7 @@ header {
       transition: 0.2s ease-in-out;
       transform: translateX(-100%);
 
-      background-color: white;
+      background-color: var(--background-white);
 
       > div {
         position: static;

@@ -37,6 +37,8 @@
 
     .changeSize {
       display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       justify-content: space-between;
 
       input[type="radio"] {
@@ -45,7 +47,7 @@
           align-items: center;
           padding: 10px 15px;
           background-color: white;
-          width: 195px;
+          width: clamp(186px, 30vw, 195px);
           height: 60px;
           border: 1px solid #f0f0f0;
           border-radius: 10px;
@@ -53,7 +55,7 @@
 
           &::before,
           &::after {
-            left: 160px;
+            left: calc(100% - 30px);
           }
 
           &:hover {
@@ -126,6 +128,7 @@
 
   .addToCartBlock {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 

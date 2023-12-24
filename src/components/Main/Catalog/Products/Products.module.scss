@@ -19,17 +19,17 @@
   font-weight: 600;
   width: 830px;
 
-  background-color: #ffffff;
-  border: 1px solid #76ab665e;
+  background-color: var(--background-white);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   line-height: 100%;
   color: #b3adad;
 
   p {
-    color: #525252;
+    color: #828282;
 
     padding: 1em 10px 1em 0;
-    border-right: 1px solid #76ab665e;
+    border-right: 1px solid var(--border-color);
   }
 
   :global {
@@ -54,7 +54,7 @@
         color: rgba(0, 0, 0, 0.684);
         opacity: 1;
         transform: scale(1.02);
-        text-decoration: underline;
+        text-decoration: 2px underline;
       }
     }
   }

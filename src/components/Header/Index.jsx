@@ -18,7 +18,11 @@ export default function Header() {
 
   return (
     <div className="container">
-      <input type="checkbox" id="menu" />
+      <input
+        type="checkbox"
+        id="menu"
+        onChange={(e) => console.log(e.target.checked)}
+      />
       <label htmlFor="menu">
         <img src="/static/images/menu.svg" alt="menu" />
       </label>
