@@ -11,10 +11,11 @@ export default function Index({ search }) {
     (state) => state.flowerSlice
   );
 
-  const [sortBy, setSortBy] = useState("");
+  const [sortBy, setSortBy] = useState("title");
 
-  const [isActive, setIsActive] = useState();
+  const [isActive, setIsActive] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
 
   const list = [
     { title: "Новизне", sortBy: "title" },
@@ -29,19 +30,31 @@ export default function Index({ search }) {
 
   return (
     <div className={style.productBlock} id="catalog">
-      <div className={style.sort}>
-        <p>Сортировать по:</p>
-        {list.map((el, i) => (
-          <button
-            key={i}
-            className={isActive === i ? "active" : ""}
-            onClick={() => (
-              setSortBy(el.sortBy), setCurrentPage(1), setIsActive(i)
-            )}
+      <div className={style.sort} onClick={() => setIsOpen(!isOpen)}>
+        <div className={style.sortBy}>
+          <p>Сортировать по:</p>
+        </div>
+        <div>
+          <div
+            className={`${style.sortList}` + (isOpen ? ` ${style.active}` : "")}
           >
-            {el.title}
-          </button>
-        ))}
+            {list.map((el, i) => (
+              <button
+                key={i}
+                className={isActive === i ? "active" : ""}
+                onClick={() => (
+                  setSortBy(el.sortBy), setCurrentPage(1), setIsActive(i)
+                )}
+              >
+                {el.title}
+              </button>
+            ))}
+          </div>
+          <div className={style.currentSort}>
+            {list[isActive].title}
+            <img src="/static/images/arrow.svg" alt="" />
+          </div>
+        </div>
       </div>
       <div id={style.productsContainer}>
         {status === "error" ? (

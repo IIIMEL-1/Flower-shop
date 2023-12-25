@@ -39,9 +39,11 @@
     justify-content: center;
     align-items: center;
 
+    width: 100%;
+
     input {
       height: 50px;
-      max-width: 100%;
+      width: 100%;
       padding-right: 27px;
 
       background: url(.//public/static/images/search.svg) center right 10px

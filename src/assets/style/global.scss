@@ -196,7 +196,7 @@ input[type="radio"] {
 
   + label {
     position: relative;
-    font-size: 18px;
+    font-size: clamp(16px, 4vw, 18px);
     color: #828282bd;
     padding-left: 33px;
     transition: 0.2s ease-in-out;

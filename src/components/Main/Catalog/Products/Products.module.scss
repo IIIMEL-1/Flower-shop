@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+
   max-width: 830px;
 
   &:not(.pageList) {
@@ -10,40 +11,44 @@
 }
 
 .sort {
+  position: relative;
+
   display: flex;
   align-items: center;
-  justify-content: center;
-  column-gap: 15px;
 
-  font-size: 17px;
+  font-size: clamp(15px, 3vw, 17px);
   font-weight: 600;
-  width: 830px;
+  width: 100%;
 
   background-color: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 10px;
-  line-height: 100%;
   color: #b3adad;
 
-  p {
-    color: #828282;
+  > div:last-child {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
 
-    padding: 1em 10px 1em 0;
+  .currentSort {
+    display: none;
+  }
+
+  p {
+    color: var(--font-color-two);
+
+    padding: 1em 10px;
     border-right: 1px solid var(--border-color);
   }
 
   :global {
     button {
-      padding: 1em 0;
+      padding: 1em 0.7em;
       color: rgb(0, 0, 0);
       opacity: 0.4;
       transition: 0.15s ease-in-out;
       font-weight: bold;
-
-      &:hover {
-        opacity: 0.7;
-        transform: scale(1.01);
-      }
 
       &:focus {
         opacity: 0.7;
@@ -58,13 +63,22 @@
       }
     }
   }
+
+  @media (hover: hover) and (pointer: fine) {
+    button:hover {
+      opacity: 0.7;
+      transform: scale(1.01);
+    }
+  }
 }
 
 #productsContainer {
-  margin-top: 35px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
+
+  margin-top: 35px;
 
   .error {
     display: flex;
@@ -76,5 +90,69 @@
 
     font-size: 24px;
     font-weight: bold;
+  }
+}
+
+@media (max-width: 870px) {
+  .sort {
+    .sortList {
+      position: absolute;
+      right: 0;
+      top: 50px;
+
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      background-color: white;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+
+      font-size: 19px;
+      z-index: 2;
+
+      transition: 0.2s ease-in-out;
+      transform: translateY(-250px);
+      visibility: hidden;
+      opacity: 0;
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0px);
+      }
+    }
+
+    .currentSort {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: clamp(15px, 3vw, 20px);
+      color: var(--font-color);
+
+      img {
+        position: absolute;
+        right: clamp(5px, 3vw, 50px);
+      }
+    }
+
+    @media (max-width: 420px) {
+      flex-direction: column;
+
+      p {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .currentSort {
+        padding: 20px 0;
+      }
+
+      .sortList {
+        top: 110px;
+      }
+    }
   }
 }

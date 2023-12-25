@@ -1,4 +1,3 @@
-import { useState } from "react";
 import style from "./Sort.module.scss";
 
 import Skeleton from "./Skeleton.jsx";

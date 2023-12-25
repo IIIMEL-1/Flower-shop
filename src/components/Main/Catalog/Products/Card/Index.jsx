@@ -3,7 +3,6 @@ import style from "./Card.module.scss";
 import { Link } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
-
 import { addItem } from "../../../../../redux/slices/addToCartSlice";
 
 export default function Index({ id, title, image, description }) {
