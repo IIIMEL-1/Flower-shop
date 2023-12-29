@@ -5,7 +5,7 @@ import style from "./Products.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFlowers } from "../../../../redux/slices/flowerSlice.js";
 
-export default function Index({ search }) {
+export default function Index() {
   const dispatch = useDispatch();
   const { status, products, totalPages } = useSelector(
     (state) => state.flowerSlice
@@ -69,12 +69,13 @@ export default function Index({ search }) {
               title={el.title}
               description={el.description}
               image={el.image}
+              price={el.price}
             />
           ))
         )}
       </div>
       <div className="pageList">
-        {[...new Array(totalPages)].map((el, i) => (
+        {[...new Array(totalPages)].map((_, i) => (
           <button
             key={i}
             className={currentPage == i + 1 ? " active" : ""}

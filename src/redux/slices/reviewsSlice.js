@@ -31,22 +31,23 @@ export const reviewsSlice = createSlice({
   initialState,
   reducers: {},
 
-  extraReducers: {
-    [fetchReviews.pending]: (state) => {
-      state.reviews = "";
-      state.status = "loading";
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchReviews.pending, (state) => {
+        state.reviews = "";
+        state.status = "loading";
+      })
 
-    [fetchReviews.fulfilled]: (state, action) => {
-      state.reviews = action.payload.items;
-      state.totalPages = action.payload.meta.total_pages;
-      state.status = "success";
-    },
+      .addCase(fetchReviews.fulfilled, (state, action) => {
+        state.reviews = action.payload.items;
+        state.totalPages = action.payload.meta.total_pages;
+        state.status = "success";
+      })
 
-    [fetchReviews.rejected]: (state, action) => {
-      state.reviews = "";
-      state.status = "error";
-    },
+      .addCase(fetchReviews.rejected, (state) => {
+        state.reviews = "";
+        state.status = "error";
+      });
   },
 });
 

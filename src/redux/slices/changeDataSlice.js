@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchData = createAsyncThunk(
   "data/fetchDataStatus",
   async (params) => {
-    const { email, password, fullName, phone, city, items, id } = params;
+    const { email, password, fullName, phone, city, orders, id } = params;
 
     const res = fetch(`https://b6c487f79077af26.mokky.dev/users/${id}`, {
       method: "PATCH",
@@ -12,12 +12,12 @@ export const fetchData = createAsyncThunk(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        fullName,
         email,
         password,
-        fullName,
         phone,
         city,
-        items,
+        orders,
       }),
     });
 
@@ -35,23 +35,22 @@ export const dataSlice = createSlice({
   initialState,
   reducers: {},
 
-  extraReducers: {
-    [fetchData.pending]: (state) => {
-      state.status = "loading";
-      state.dataRes = "";
-      console.log("loading");
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchData.pending, (state) => {
+        state.status = "loading";
+        state.dataRes = "";
+      })
 
-    [fetchData.fulfilled]: (state, action) => {
-      state.dataRes = action.payload;
-      state.status = "success";
-    },
+      .addCase(fetchData.fulfilled, (state, action) => {
+        state.dataRes = action.payload;
+        state.status = "success";
+      })
 
-    [fetchData.rejected]: (state, action) => {
-      state.dataRes = "";
-      state.status = "error";
-      console.warn("error", action);
-    },
+      .addCase(fetchData.rejected, (state) => {
+        state.dataRes = "";
+        state.status = "error";
+      });
   },
 });
 

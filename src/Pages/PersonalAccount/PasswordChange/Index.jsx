@@ -9,8 +9,8 @@ export default function PasswordChange() {
   const [newPassword, setNewPassword] = useState("");
   const [repeatNewPassword, setRepeatNewPassword] = useState("");
 
-  const { id, password } = useSelector((state) => state.authSlice.authRes.data);
-  const { dataRes, status } = useSelector((state) => state.changeDataSlice);
+  const { id, password } = useSelector((state) => state.authSlice.authRes);
+  const { status } = useSelector((state) => state.changeDataSlice);
 
   const dispatch = useDispatch();
 

@@ -25,22 +25,23 @@ export const flowerSlice = createSlice({
   initialState,
   reducers: {},
 
-  extraReducers: {
-    [fetchFlowers.pending]: (state) => {
-      state.status = "loading";
-      state.products = [];
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchFlowers.pending, (state) => {
+        state.status = "loading";
+        state.products = [];
+      })
 
-    [fetchFlowers.fulfilled]: (state, action) => {
-      state.products = action.payload.items;
-      state.totalPages = action.payload.meta.total_pages;
-      state.status = "success";
-    },
+      .addCase(fetchFlowers.fulfilled, (state, action) => {
+        state.products = action.payload.items;
+        state.totalPages = action.payload.meta.total_pages;
+        state.status = "success";
+      })
 
-    [fetchFlowers.rejected]: (state, action) => {
-      state.products = [];
-      state.status = "error";
-    },
+      .addCase(fetchFlowers.rejected, (state) => {
+        state.products = [];
+        state.status = "error";
+      });
   },
 });
 

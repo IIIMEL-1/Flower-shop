@@ -7,7 +7,35 @@ export default function OrderRegistration() {
   const dispatch = useDispatch();
 
   const items = useSelector((state) => state.addToCartSlice.items);
-  const { id } = useSelector((state) => state.authSlice.authRes.data);
+  const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
+  const { orders } = useSelector((state) => state.authSlice.authRes.data);
+  const { id } = useSelector((state) => state.authSlice.authRes);
+
+  const currentDate = new Date()
+    .toLocaleDateString("en-US", { timeZone: "Asia/Bangkok" })
+    .replace(/\//g, "-");
+
+  function generateOrderNumber() {
+    const timestamp = new Date().getTime();
+    const randomString = Math.random().toString(36).substring(2, 8);
+
+    return `${timestamp}-${randomString}`;
+  }
+
+  const orderNumber = generateOrderNumber();
+
+  const order = {
+    items,
+    date: currentDate,
+    orderNumber,
+    totalPrice,
+    orderStatus: "Оплачен",
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    dispatch(fetchData({ orders: [...orders, order], id }));
+  };
 
   return (
     <section className="sectionBack">
@@ -21,7 +49,7 @@ export default function OrderRegistration() {
           <h3>Оформление заказа</h3>
         </div>
 
-        <form className={style.form}>
+        <form className={style.form} onSubmit={handleFormSubmit}>
           <div className={style.deliveryMethod}>
             <h5>Способ доставки</h5>
             <div className={style.blockRadioInput}>
@@ -159,14 +187,7 @@ export default function OrderRegistration() {
               <label htmlFor="paymentOnline">Онлайн оплата — Сбербанк</label>
             </div>
           </div>
-          <button
-            onClick={(el) => (
-              el.preventDefault(), dispatch(fetchData({ items, id }))
-            )}
-            className="sendForm"
-          >
-            Оформить заказ
-          </button>
+          <button className="sendForm">Оформить заказ</button>
         </form>
       </div>
     </section>

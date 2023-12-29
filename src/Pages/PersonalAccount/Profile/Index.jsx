@@ -4,7 +4,7 @@ import style from "./Profile.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Profile() {
-  let { data } = useSelector((state) => state.authSlice.authRes);
+  let data = useSelector((state) => state.authSlice.authRes);
   const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
 
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export default function Profile() {
     <section className={style.profileBlock}>
       <div className="pageName">
         <div>
-          <Link to={"/"}>Главная</Link> {" > "}{" "}
+          <Link to={"/"}>Главная</Link> {" > "}
           <Link to={"/PersonalAccount/Profile"}>Личный кабинет</Link> {" > "}
           <Link to={"/PersonalAccount/Profile"}>Профиль</Link>
         </div>
@@ -36,7 +36,7 @@ export default function Profile() {
               ? 7
               : ""}
             %
-          </span>{" "}
+          </span>
         </div>
         <div className={style.range}>
           <span className={style.one}></span>

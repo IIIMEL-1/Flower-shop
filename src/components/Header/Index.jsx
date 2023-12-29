@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import style from "./Header.module.scss";
-import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchDataAccount } from "../../redux/slices/getDataSlice";
 
 export default function Header() {
   const items = useSelector((state) => state.addToCartSlice.items);
 
   const totalCount = items.reduce((sum, obj) => sum + obj.count, 0);
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const location = useLocation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setIsOpen(!isOpen);
-  }, [location]);
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      dispatch(fetchDataAccount(token));
+    }
+  }, []);
 
   return (
     <div className="container">

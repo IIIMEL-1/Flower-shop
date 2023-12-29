@@ -1,9 +1,8 @@
-import React from "react";
 import style from "./Cart.module.scss";
 
 import CartItem from "./CartItem/Index";
 
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function Cart() {

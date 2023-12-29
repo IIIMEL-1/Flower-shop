@@ -114,19 +114,30 @@ body {
   > button {
     width: 45px;
     height: 45px;
-    transition: 0.2s ease-in-out;
+
+    opacity: 0.7;
+
     font-size: 18px;
-    color: #619f4f;
-    border: 2px solid rgb(190, 190, 190);
-    border-radius: 12px;
+    font-weight: bold;
+    color: #63a050;
+
+    border: 2px solid #6aae55;
+    border-radius: 8px;
+    background-color: #ffffff;
+
+    transition: 0.2s ease-in-out;
 
     &.active {
-      background-color: #b8daae;
+      opacity: 1;
+
+      color: #307c19;
+      border: 3px solid #4cae2f;
+      background-color: #ffffff;
       transform: scale(1.1);
     }
 
     &:hover {
-      background-color: #bcf5aa;
+      opacity: 1;
       transform: scale(1.05);
     }
   }

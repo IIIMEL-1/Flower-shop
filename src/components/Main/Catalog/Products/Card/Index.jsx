@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../../../../redux/slices/addToCartSlice";
 
-export default function Index({ id, title, image, description }) {
+export default function Index({ id, title, image, description, price }) {
   const [size, setSize] = useState(0);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    description.map((el, i) => (el.size === "Стандартный" ? setSize(i) : ""));
+    const foundIndex = description.findIndex((el) => el.size === "Стандартный");
+    setSize(foundIndex !== -1 ? foundIndex : 0);
   }, []);
 
   const onClickAdd = () => {
@@ -36,9 +37,9 @@ export default function Index({ id, title, image, description }) {
         <div>
           <div className={style.price}>
             <p>Стоимость:</p>
-            <p>{description[size].price.toLocaleString()} руб.</p>
+            <p>{price.toLocaleString()} руб.</p>
           </div>
-          <button className={style.addToCart} onClick={() => onClickAdd()}>
+          <button className={style.addToCart} onClick={onClickAdd}>
             В корзину
           </button>
         </div>
