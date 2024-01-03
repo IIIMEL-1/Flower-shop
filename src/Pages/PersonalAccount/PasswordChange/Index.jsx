@@ -2,15 +2,13 @@ import { useState } from "react";
 import style from "./PasswordChange.module.scss";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../../../redux/slices/changeDataSlice";
 
 export default function PasswordChange() {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [repeatNewPassword, setRepeatNewPassword] = useState("");
 
-  const { id, password } = useSelector((state) => state.authSlice.authRes);
-  const { status } = useSelector((state) => state.changeDataSlice);
+  const { password } = useSelector((state) => state.authSlice.userDetails);
 
   const dispatch = useDispatch();
 
@@ -87,7 +85,7 @@ export default function PasswordChange() {
                   ? false
                   : true
               }
-              onClick={() => dispatch(fetchData({ id, password: newPassword }))}
+              /* onClick={() => dispatch(fetchData({ id, password: newPassword }))} */
               className="sendForm"
             >
               Сохранить

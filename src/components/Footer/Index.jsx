@@ -21,7 +21,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link to={"/"} className={style.navItemFooter}>
+              <Link to={"/Reviews/TextReviews"} className={style.navItemFooter}>
                 Отзывы
               </Link>
             </li>

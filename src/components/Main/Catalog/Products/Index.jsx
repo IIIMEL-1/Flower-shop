@@ -1,16 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Card from "./Card/Index.jsx";
 import Skeleton from "./Card/Skeleton.jsx";
 import style from "./Products.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchFlowers } from "../../../../redux/slices/flowerSlice.js";
+import { useGetProductsQuery } from "../../../../redux/slices/createApi.js";
 
 export default function Index() {
-  const dispatch = useDispatch();
-  const { status, products, totalPages } = useSelector(
-    (state) => state.flowerSlice
-  );
-
   const [sortBy, setSortBy] = useState("title");
 
   const [isActive, setIsActive] = useState(0);
@@ -24,9 +18,10 @@ export default function Index() {
     { title: "Популярности", sortBy: "rating" },
   ];
 
-  useEffect(() => {
-    dispatch(fetchFlowers({ sortBy, currentPage }));
-  }, [sortBy, currentPage]);
+  const { data, error, isLoading } = useGetProductsQuery({
+    currentPage,
+    sortBy,
+  });
 
   return (
     <div className={style.productBlock} id="catalog">
@@ -57,12 +52,14 @@ export default function Index() {
         </div>
       </div>
       <div id={style.productsContainer}>
-        {status === "error" ? (
-          <div className={style.error}>Error</div>
-        ) : status === "loading" ? (
+        {isLoading ? (
           [...new Array(6)].map((_, i) => <Skeleton key={i} />)
+        ) : error ? (
+          <div className={style.error}>
+            <p>Error</p>
+          </div>
         ) : (
-          products.map((el) => (
+          data.items.map((el) => (
             <Card
               key={el.id}
               id={el.id}
@@ -75,15 +72,23 @@ export default function Index() {
         )}
       </div>
       <div className="pageList">
-        {[...new Array(totalPages)].map((_, i) => (
-          <button
-            key={i}
-            className={currentPage == i + 1 ? " active" : ""}
-            onClick={() => setCurrentPage(i + 1)}
-          >
-            {i + 1}
-          </button>
-        ))}
+        {isLoading ? (
+          <div className={style.error}>
+            <p>Loading</p>
+          </div>
+        ) : error ? (
+          ""
+        ) : (
+          [...new Array(data.meta.total_pages)].map((_, i) => (
+            <button
+              key={i}
+              className={currentPage == i + 1 ? " active" : ""}
+              onClick={() => setCurrentPage(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))
+        )}
       </div>
     </div>
   );

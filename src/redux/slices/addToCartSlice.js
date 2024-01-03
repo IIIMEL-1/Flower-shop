@@ -1,13 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  totalPrice: 0,
-  items: [],
-};
-
 export const addToCartSlice = createSlice({
   name: "addToCartSlice",
-  initialState,
+  initialState: {
+    totalPrice: 0,
+    items: [],
+  },
   reducers: {
     addItem(state, { payload }) {
       const findItem = state.items.find((obj) => {

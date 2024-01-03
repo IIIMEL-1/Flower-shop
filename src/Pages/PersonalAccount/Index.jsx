@@ -1,7 +1,6 @@
-import style from "./PersonalAccount.module.scss";
-
 import { Outlet } from "react-router";
 import { Link } from "react-router-dom";
+import style from "./PersonalAccount.module.scss";
 
 export default function Profile() {
   return (

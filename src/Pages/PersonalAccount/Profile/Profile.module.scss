@@ -110,6 +110,8 @@
         height: 15px;
         background-color: #6aae55;
         border-radius: 10px;
+
+        animation: trackSuccess 1s cubic-bezier(0.93, 0, 0.19, 1);
       }
 
       .point {
@@ -123,6 +125,20 @@
 
         border: 2px solid white;
         border-radius: 100%;
+
+        animation: point 1s cubic-bezier(0.93, 0, 0.19, 1);
+      }
+
+      @keyframes trackSuccess {
+        0% {
+          width: 0%;
+        }
+      }
+
+      @keyframes point {
+        0% {
+          left: 0%;
+        }
       }
     }
 

@@ -1,29 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
 import addToCartSlice from "./slices/addToCartSlice";
-import authSlice, { getData } from "./slices/authSlice";
-import flowerSlice from "./slices/flowerSlice";
-import changeDataSlice from "./slices/changeDataSlice";
+import authSlice from "./slices/authSlice";
+/* import changeDataSlice from "./slices/changeDataSlice"; */
 import reviewsSlice from "./slices/reviewsSlice";
-import dataAccountSlice from "./slices/getDataSlice";
+
+import api from "./slices/createApi";
 
 export const store = configureStore({
   reducer: {
+    [api.reducerPath]: api.reducer,
     addToCartSlice,
     authSlice,
-    flowerSlice,
-    changeDataSlice,
+    /*    changeDataSlice, */
     reviewsSlice,
-    dataAccountSlice,
   },
-});
-
-let isGetDataDispatched = false;
-
-store.subscribe(() => {
-  let userData = store.getState().dataAccountSlice.dataAccount;
-
-  if (userData && !isGetDataDispatched) {
-    isGetDataDispatched = true;
-    store.dispatch(getData(userData));
-  }
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
 });

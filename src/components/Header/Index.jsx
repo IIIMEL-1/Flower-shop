@@ -2,30 +2,35 @@ import { useEffect } from "react";
 import style from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDataAccount } from "../../redux/slices/getDataSlice";
+import { useGetDataAccountQuery } from "../../redux/slices/createApi";
+import { getData } from "../../redux/slices/authSlice";
 
 export default function Header() {
+  const dispatch = useDispatch();
+
   const items = useSelector((state) => state.addToCartSlice.items);
 
   const totalCount = items.reduce((sum, obj) => sum + obj.count, 0);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
+  const fetchDataAccount = () => {
     const token = localStorage.getItem("token");
 
-    if (token) {
-      dispatch(fetchDataAccount(token));
-    }
-  }, []);
+    const { data, error, isLoading } = useGetDataAccountQuery(token);
+
+    useEffect(() => {
+      if (token) {
+        if (!isLoading && !error) {
+          dispatch(getData({ data, error, isLoading }));
+        }
+      }
+    }, [data, isLoading, error]);
+  };
+
+  fetchDataAccount();
 
   return (
     <div className="container">
-      <input
-        type="checkbox"
-        id="menu"
-        onChange={(e) => console.log(e.target.checked)}
-      />
+      <input type="checkbox" id="menu" />
       <label htmlFor="menu">
         <img src="/static/images/menu.svg" alt="menu" />
       </label>

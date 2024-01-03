@@ -41,7 +41,7 @@ export default function Contacts() {
             </div>
           </div>
           <div>
-            <img src="static/image/Map.png" alt="" />
+            <img src="static/images/Map.png" alt="" />
           </div>
           <div className={style.contactsForm}>
             <h4>Остались вопросы? Свяжитесь с нами.</h4>

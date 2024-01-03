@@ -20,6 +20,7 @@
 
     img {
       width: clamp(90px, 25vw, 130px);
+      height: clamp(90px, 25vw, 130px);
       border: 1px solid var(--border-color);
       border-radius: 10px;
       background: #c4c4c4;

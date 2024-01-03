@@ -6,7 +6,7 @@
 
   margin: 30px 0;
 
-  .order {
+  > div {
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -21,6 +21,15 @@
       width: 150px;
 
       text-align: right;
+    }
+
+    &:has(> h1) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      font-size: 24px;
+      font-weight: bold;
     }
 
     .dateOrder {

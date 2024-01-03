@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./Login.module.scss";
-import { fetchLogin } from "../../redux/slices/authSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useAuthAndLoginQuery } from "../../redux/slices/createApi";
 import { Link } from "react-router-dom";
+import { getData } from "../../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
+  const dispatch = useDispatch();
+
   const [isLogin, setIsLogin] = useState("auth");
 
   const [email, setEmail] = useState("");
@@ -13,9 +16,16 @@ export default function Login() {
   const [city, setCity] = useState("");
   const [phone, setPhone] = useState("");
 
-  const dispatch = useDispatch();
+  const [params, setParams] = useState({});
 
-  const { authRes, status } = useSelector((state) => state.authSlice);
+  const { data, error, isLoading } = useAuthAndLoginQuery(params);
+
+  useEffect(() => {
+    if (data) {
+      dispatch(getData({ data, error, isLoading }));
+      localStorage.setItem("token", `${data.token}`);
+    }
+  }, [data]);
 
   return (
     <section className="sectionBack" style={{ padding: "75px 0" }}>
@@ -36,7 +46,7 @@ export default function Login() {
             </button>
           </div>
 
-          {authRes.data ? (
+          {data ? (
             <div className="opacity">
               <div className="modal">
                 <img src="/static/images/party-popper.webp" alt="" />
@@ -46,7 +56,7 @@ export default function Login() {
                 </Link>
               </div>
             </div>
-          ) : status === "loading" ? (
+          ) : isLoading ? (
             <div className="opacity">
               <div className="modal">
                 <div className="loading">
@@ -93,19 +103,15 @@ export default function Login() {
                 />
               </div>
 
-              {authRes.statusCode === 401 ? (
-                <div className={style.error}>{authRes.message}</div>
-              ) : authRes.statusCode === 400 ? (
-                <div className={style.error}>{authRes.message}</div>
+              {error ? (
+                <div className={style.error}>{error.data.message}</div>
               ) : (
                 ""
               )}
 
               <button
                 disabled={email && password ? false : true}
-                onClick={() =>
-                  dispatch(fetchLogin({ email, password, isLogin }))
-                }
+                onClick={() => setParams({ email, password, isLogin })}
                 className="sendForm"
               >
                 Войти
@@ -194,17 +200,15 @@ export default function Login() {
                     : true
                 }
                 onClick={() =>
-                  dispatch(
-                    fetchLogin({
-                      fullName,
-                      city,
-                      phone,
-                      email,
-                      password,
-                      isLogin,
-                      items: [],
-                    })
-                  )
+                  setParams({
+                    fullName,
+                    city,
+                    phone,
+                    email,
+                    password,
+                    isLogin,
+                    orders: [],
+                  })
                 }
                 className="sendForm"
               >

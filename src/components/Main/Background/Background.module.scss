@@ -6,7 +6,8 @@
 
   margin-top: var(--nav-menu-height);
 
-  background: url(/public/static/images/Background.png) no-repeat center bottom;
+  background: url(/public/static/images/Background.png) no-repeat center top
+    fixed;
 
   .logo {
     font-size: clamp(18px, 5.4vw, 35px);

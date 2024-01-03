@@ -57,7 +57,6 @@ export const router = createBrowserRouter([
         element: <PageCardProduct />,
       },
 
-      { path: "*", element: <PageError /> },
       { path: "/Questions", element: <PageQuestion /> },
       { path: "/Cart", element: <PageCart /> },
       { path: "/PlaceAnOrder", element: <PagePlaceAnOrder /> },
@@ -85,6 +84,8 @@ export const router = createBrowserRouter([
           { path: "/Reviews/TextReviews", element: <PageTextReviews /> },
         ],
       },
+
+      { path: "*", element: <PageError /> },
     ],
   },
 ]);

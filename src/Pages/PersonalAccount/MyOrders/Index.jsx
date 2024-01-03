@@ -1,36 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import style from "./MyOrders.module.scss";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import { fetchDataAccount } from "../../../redux/slices/getDataSlice";
+import { useSelector } from "react-redux";
+import { useGetDataAccountQuery } from "../../../redux/slices/createApi";
 
 export default function MyOrders() {
-  const orders = useSelector(
-    (state) => state.dataAccountSlice.dataAccount.orders
+  const { userDetails, error, isLoading } = useSelector(
+    (state) => state.authSlice
   );
 
-  const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-
+  const fetchDataAccount = (token) => {
     if (token) {
-      dispatch(fetchDataAccount(token));
+      const e = useGetDataAccountQuery(token);
     }
+  };
 
-    /* const fetchData = async () => {
-      const response = await axios.get(
-        `https://b6c487f79077af26.mokky.dev/users/${id}`
-      );
-      const data = response.data.orders;
-      return data;
-    };
-
-    fetchData().then((result) => {
-      setOrders(result);
-    }); */
-  }, []);
+  fetchDataAccount(token);
 
   return (
     <section>
@@ -42,10 +29,12 @@ export default function MyOrders() {
         </div>
       </div>
       <div className={style.ordersBlock}>
-        {!orders ? (
-          <h1>Вы ещё ничего не заказывали</h1>
-        ) : (
-          orders.map((el, i) => (
+        {isLoading ? (
+          <div>
+            <h1>Loading...</h1>
+          </div>
+        ) : !isLoading && userDetails?.orders?.length ? (
+          userDetails.orders.map((el, i) => (
             <div key={i} className={style.order}>
               <div className={style.dateOrder}>
                 <div>
@@ -60,8 +49,8 @@ export default function MyOrders() {
               <div className={style.dataOfOrder}>
                 <span>Наименование:</span>
                 <div>
-                  {el.items.map((el) => (
-                    <div className={style.flower}>
+                  {el.items.map((el, i) => (
+                    <div key={i} className={style.flower}>
                       <div className={style.title}>
                         <p>{el.title}</p>
                         <span>({el.description.size})</span>
@@ -87,6 +76,10 @@ export default function MyOrders() {
               </div>
             </div>
           ))
+        ) : (
+          <div>
+            <h1>Вы ничего не заказывали</h1>
+          </div>
         )}
       </div>
     </section>
