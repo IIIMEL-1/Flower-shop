@@ -1,16 +1,11 @@
-import { useEffect, useState } from "react";
 import style from "./MyOrders.module.scss";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { useGetDataAccountQuery } from "../../../redux/slices/createApi";
-import { getData } from "../../../redux/slices/authSlice";
 
 export default function MyOrders() {
   const { isLoading, data, error } = useGetDataAccountQuery(
     localStorage.getItem("token")
   );
-
-  console.log(data);
 
   return (
     <section>

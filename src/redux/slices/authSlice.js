@@ -14,11 +14,8 @@ export const authSlice = createSlice({
       state.isLoading = action.payload.isLoading;
       state.error = action.payload.error;
     },
-    addOrder: (state, action) => {
-      state.orders = [...state.userDetails.orders, action.payload];
-    },
   },
 });
 
-export const { getData, addOrder } = authSlice.actions;
+export const { getData } = authSlice.actions;
 export default authSlice.reducer;
