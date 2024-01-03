@@ -1,23 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import style from "./MyOrders.module.scss";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useGetDataAccountQuery } from "../../../redux/slices/createApi";
+import { getData } from "../../../redux/slices/authSlice";
 
 export default function MyOrders() {
-  const { userDetails, error, isLoading } = useSelector(
-    (state) => state.authSlice
+  const { isLoading, data, error } = useGetDataAccountQuery(
+    localStorage.getItem("token")
   );
 
-  const token = localStorage.getItem("token");
-
-  const fetchDataAccount = (token) => {
-    if (token) {
-      const e = useGetDataAccountQuery(token);
-    }
-  };
-
-  fetchDataAccount(token);
+  console.log(data);
 
   return (
     <section>
@@ -33,8 +26,8 @@ export default function MyOrders() {
           <div>
             <h1>Loading...</h1>
           </div>
-        ) : !isLoading && userDetails?.orders?.length ? (
-          userDetails.orders.map((el, i) => (
+        ) : !isLoading && data?.orders?.length ? (
+          data.orders.map((el, i) => (
             <div key={i} className={style.order}>
               <div className={style.dateOrder}>
                 <div>

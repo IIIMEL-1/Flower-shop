@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const api = createApi({
   reducerPath: "api",
+  tagTypes: ["orders"],
   baseQuery: fetchBaseQuery({ baseUrl: "https://b6c487f79077af26.mokky.dev/" }),
   endpoints: (builder) => ({
     getProducts: builder.query({
@@ -16,6 +17,11 @@ const api = createApi({
           Authorization: `Bearer ${token}`,
         },
       }),
+      providesTags: () => [
+        {
+          type: "orders",
+        },
+      ],
     }),
     authAndLogin: builder.query({
       query: (params) => ({
@@ -35,10 +41,10 @@ const api = createApi({
         },
       }),
     }),
-    changeData: builder.query({
+    changeData: builder.mutation({
       query: (params) => ({
         url: `users/${params.id}`,
-        method: "POST",
+        method: "PATCH",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -52,6 +58,11 @@ const api = createApi({
           orders: params.orders,
         },
       }),
+      invalidatesTags: () => [
+        {
+          type: "orders",
+        },
+      ],
     }),
   }),
 });
@@ -60,7 +71,7 @@ export const {
   useGetProductsQuery,
   useGetDataAccountQuery,
   useAuthAndLoginQuery,
-  useChangeDataQuery,
+  useChangeDataMutation,
 } = api;
 
 export const { reducer: apiReducer, middleware: apiMiddleware } = api;

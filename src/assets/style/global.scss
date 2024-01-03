@@ -99,11 +99,6 @@ body {
     pointer-events: none;
     opacity: 0.4;
   }
-
-  &:focus {
-    background-color: #518442;
-    transform: scale(1.03);
-  }
 }
 
 .pageList {

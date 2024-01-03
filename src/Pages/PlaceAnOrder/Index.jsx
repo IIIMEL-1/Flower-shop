@@ -1,12 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useChangeDataQuery } from "../../redux/slices/createApi";
+import { useChangeDataMutation } from "../../redux/slices/createApi";
 import style from "./PlaceAnOrder.module.scss";
-import { addOrder } from "../../redux/slices/authSlice";
 
 export default function OrderRegistration() {
-  const dispatch = useDispatch();
-
   const items = useSelector((state) => state.addToCartSlice.items);
   const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
   const { orders, id } = useSelector((state) => state.authSlice.userDetails);
@@ -32,10 +29,11 @@ export default function OrderRegistration() {
     orderStatus: "Оплачен",
   };
 
+  const [createOrder, { isLoading, data, error }] = useChangeDataMutation();
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    dispatch(addOrder(order));
-    const e = useChangeDataQuery({ orders, id });
+    createOrder({ orders: [...orders, order], id });
   };
 
   return (
