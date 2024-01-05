@@ -3,98 +3,154 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 20px 0;
 
-  padding: 30px 0;
+  padding-bottom: 40px;
 
-  img {
-    width: clamp(290px, 71vw, 825px);
-    height: 400px;
-    background-color: white;
-    border-radius: 10px;
-  }
-}
-
-.contactsInform {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: start;
-
-  width: 265px;
-
-  border-radius: 10px;
-  background-color: white;
-
-  > div {
-    padding: 20px 30px;
-    border-bottom: 2px solid #dcdcdc;
-
-    &:nth-child(4) {
-      border-bottom: none;
-    }
-  }
-
-  h5 {
-    font-size: 16px;
-    line-height: 120%;
-    color: var(--font-color-two);
-
-    margin-bottom: 5px;
-  }
-
-  p {
-    font-size: 17px;
-    font-weight: bold;
-    color: #5b4a58;
-  }
-}
-
-.contactsForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: 1110px;
-  height: 300px;
-
-  background-color: white;
-  border-radius: 10px;
-
-  font-size: 18px;
-  font-weight: bold;
-
-  form {
-    position: relative;
-
+  .aboutUsBlock {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 20px;
 
-    width: 1050px;
-    padding-bottom: 55px;
-    margin-top: 25px;
+    width: 100%;
 
-    > div {
+    .contactsInform {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      text-align: start;
+      flex-shrink: 0;
+
+      width: 265px;
+
+      border-radius: 10px;
+      background-color: white;
+
+      > div {
+        padding: 20px;
+        border-bottom: 2px solid #dcdcdc;
+
+        &:nth-child(4) {
+          border-bottom: none;
+        }
+      }
+
+      h5 {
+        font-size: clamp(14px, 3vw, 16px);
+        line-height: 120%;
+        color: var(--font-color-two);
+
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-size: clamp(15px, 3.5vw, 17px);
+        font-weight: bold;
+        color: #5b4a58;
+      }
     }
 
-    input {
-      width: 325px;
+    .mapBlock {
+      img {
+        height: clamp(270px, 70vw, 400px);
+        background-color: white;
+        border-radius: 10px;
+
+        object-fit: none;
+      }
+    }
+  }
+
+  .contactsForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    padding: clamp(10px, 3vw, 30px);
+
+    background-color: white;
+    border-radius: 10px;
+
+    font-size: clamp(14px, 4vw, 18px);
+    font-weight: bold;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      align-items: end;
+
+      width: 100%;
+
+      margin-top: 25px;
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        width: 100%;
+
+        margin-bottom: 30px;
+
+        .inputBlock {
+          display: flex;
+          flex-direction: column;
+          gap: 15px 0;
+
+          width: 325px;
+        }
+
+        textarea {
+          width: 700px;
+          height: 150px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    margin: 0 auto;
+    max-width: 650px;
+
+    .aboutUsBlock {
+      align-items: center;
+      flex-direction: column;
+
+      .contactsInform {
+        width: clamp(300px, 94vw, 400px);
+
+        > div {
+          padding: clamp(15px, 4vw, 20px) clamp(20px, 9vw, 50px);
+        }
+      }
+
+      .mapBlock {
+        img {
+          object-fit: cover;
+        }
+      }
     }
 
-    textarea {
-      width: 700px;
-      height: 145px;
-    }
+    .contactsForm {
+      form {
+        align-items: center;
 
-    button {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+        > div {
+          flex-direction: column;
+
+          margin-bottom: 15px;
+
+          .inputBlock {
+            width: 100%;
+          }
+
+          textarea {
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }

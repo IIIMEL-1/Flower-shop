@@ -8,7 +8,7 @@ export default function MyOrders() {
   );
 
   return (
-    <section>
+    <section id={style.ordersPage}>
       <div className="pageName">
         <div>
           <Link to={"/"}>Главная</Link>

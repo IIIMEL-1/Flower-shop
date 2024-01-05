@@ -1,108 +1,104 @@
-#reviews {
-  > div:not(:first-child) {
-    padding: 30px;
-    margin: 50px 0;
-
-    background-color: white;
-    border-radius: 10px;
-
-    &:last-child {
-      margin-top: 0;
-    }
-  }
-}
-
-.textReviews {
-  display: flex;
-  flex-direction: column;
-  gap: 20px 0;
-
-  .loading {
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-
-    padding: 70px 0;
-  }
-
-  .review {
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
-
-    > div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    > p {
-      color: #7e6579;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .reviewer {
-      margin-bottom: 15px;
-
-      div:first-child {
-        p {
-          font-size: 18px;
-          font-weight: bold;
-          color: #6aae55;
-        }
-        span {
-          color: var(--font-color-two);
-          font-size: 16px;
-          font-weight: 400;
-
-          margin-right: 12px;
-        }
-      }
-    }
-  }
-}
-
-.leaveReview {
-  display: flex;
-  flex-direction: column;
-  gap: 20px 0;
-
-  form {
-    > div {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-
-      gap: 20px 10px;
-
-      input {
-        @media (max-width: 900px) {
-          width: 100%;
-        }
-      }
-    }
-
-    textarea {
-      margin-top: 20px;
-
-      width: 100%;
-      height: 100px;
-    }
-  }
-
-  .sendReviews {
+#textReviewsPage {
+  .textReviewsBlock {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px 0;
 
     > div {
-      display: flex;
-      align-items: center;
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+    }
 
-      p {
+    .loading {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+
+      padding: 70px 0;
+    }
+
+    .review {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+
+      border-bottom: 1px solid #e0e0e0;
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      > p {
+        color: #7e6579;
+        font-size: 18px;
         font-weight: bold;
-        font-size: 17px;
+      }
 
-        margin-right: 15px;
+      .reviewer {
+        margin-bottom: 15px;
+
+        div:first-child {
+          p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #6aae55;
+          }
+          span {
+            color: var(--font-color-two);
+            font-size: 16px;
+            font-weight: 400;
+
+            margin-right: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  .leaveReview {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+
+    form {
+      > div {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        gap: 20px 10px;
+
+        input {
+          @media (max-width: 900px) {
+            width: 100%;
+          }
+        }
+      }
+
+      textarea {
+        margin-top: 20px;
+
+        width: 100%;
+        height: 100px;
+      }
+    }
+
+    .sendReviews {
+      display: flex;
+      justify-content: space-between;
+
+      > div {
+        display: flex;
+        align-items: center;
+
+        p {
+          font-weight: bold;
+          font-size: 17px;
+
+          margin-right: 15px;
+        }
       }
     }
   }

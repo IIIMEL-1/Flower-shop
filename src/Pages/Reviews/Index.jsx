@@ -16,12 +16,12 @@ export default function Reviews() {
   return (
     <section className="sectionBack">
       <div className="container">
-        <div className={style.ReviewBlock}>
-          <div className={style.asideBlock}>
+        <div className="generalBlock">
+          <div className="asideBlock">
             <div className="pageName">
               <h3>Отзывы</h3>
             </div>
-            <div className={style.aside}>
+            <div className="aside">
               <Link to={"/Reviews/TextReviews"}>Текстовые отзывы</Link>
               <Link to={"/Reviews/PhotoReviews"}>Фотоотзывы</Link>
             </div>
