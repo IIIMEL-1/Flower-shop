@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+/* const res = fetch("https://b6c487f79077af26.mokky.dev/items?_select=flower,color,packing"); */
+
 const api = createApi({
   reducerPath: "api",
   tagTypes: ["orders"],

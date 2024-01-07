@@ -4,10 +4,6 @@
   flex-direction: column;
 
   max-width: 830px;
-
-  &:not(.pageList) {
-    align-items: start;
-  }
 }
 
 .sort {

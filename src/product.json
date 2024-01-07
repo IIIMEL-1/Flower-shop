@@ -22,9 +22,9 @@
         "content": ["Роза Эквадор Премиум - 15 шт."]
       }
     ],
-    "flower": "Rose",
-    "color": "orange",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Оранжевая",
+    "packing": "Букетом"
   },
   {
     "title": "«Дора»",
@@ -64,9 +64,9 @@
         ]
       }
     ],
-    "flower": "Rose",
-    "color": "white",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Белая",
+    "packing": "Букетом"
   },
   {
     "title": "«Barbie Land»",
@@ -109,9 +109,9 @@
         ]
       }
     ],
-    "flower": "Rose",
-    "color": "yellow",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Желтая",
+    "packing": "Букетом"
   },
   {
     "title": "Букетик лилий",
@@ -131,9 +131,9 @@
         "content": ["Лилия - 11 шт"]
       }
     ],
-    "flower": "Lily",
-    "color": "yellow",
-    "packing": "paper"
+    "flower": "Лилиями",
+    "color": "Желтая",
+    "packing": "Букетом"
   },
   {
     "title": "«Букет ромашек MAXI»",
@@ -158,9 +158,9 @@
         "content": ["Хризантема ромашковая кустовая - 17 шт."]
       }
     ],
-    "flower": "Chrysanthemum",
-    "color": "white",
-    "packing": "paper"
+    "flower": "Хризантемами",
+    "color": "Белая",
+    "packing": "Букетом"
   },
   {
     "title": "«Crème»",
@@ -203,9 +203,9 @@
         ]
       }
     ],
-    "flower": "Rose",
-    "color": "yellow",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Желтая",
+    "packing": "Букетом"
   },
   {
     "title": "«Flowerbomb»",
@@ -248,9 +248,9 @@
         ]
       }
     ],
-    "flower": "Rose",
-    "color": "yellow",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Желтая",
+    "packing": "Букетом"
   },
   {
     "title": "«LITCHI»",
@@ -293,9 +293,9 @@
         ]
       }
     ],
-    "flower": "Rose",
-    "color": "pink",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Розовая",
+    "packing": "Букетом"
   },
   {
     "title": "15 кремовых роз Эквадор",
@@ -320,9 +320,9 @@
         "content": ["Роза пионовидная Эквадор Премиум - 21 шт."]
       }
     ],
-    "flower": "Rose",
-    "color": "yellow",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Желтая",
+    "packing": "Букетом"
   },
   {
     "title": "101 роза «Candleight» Эквадор",
@@ -337,9 +337,9 @@
         "content": ["Пионовидная роза Эквадор Премиум - 101 шт."]
       }
     ],
-    "flower": "Rose",
-    "color": "yellow",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Желтая",
+    "packing": "Букетом"
   },
   {
     "title": "Букет из 101 приморской розы",
@@ -354,9 +354,9 @@
         "content": ["Роза Приморская - 101 шт."]
       }
     ],
-    "flower": "Rose",
-    "color": "red",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Красная",
+    "packing": "Букетом"
   },
   {
     "title": "25 разноцветных роз",
@@ -381,9 +381,9 @@
         "content": ["Роза Эквадор премиум - 31 шт."]
       }
     ],
-    "flower": "Rose",
-    "color": "red",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Красная",
+    "packing": "Букетом"
   },
   {
     "title": "«Дейнерис»",
@@ -398,9 +398,9 @@
         "content": ["Роза Эквадор премиум - 51 шт."]
       }
     ],
-    "flower": "Rose",
-    "color": "white",
-    "packing": "box"
+    "flower": "Розами",
+    "color": "Белая",
+    "packing": "В коробке"
   },
   {
     "title": "«Мишель»",
@@ -420,9 +420,9 @@
         "content": ["Роза Эквадор Премиум - 15 шт."]
       }
     ],
-    "flower": "Rose",
-    "color": "yellow",
-    "packing": "box"
+    "flower": "Розами",
+    "color": "Желтая",
+    "packing": "В коробке"
   },
   {
     "title": "«Айрис»",
@@ -454,9 +454,9 @@
         ]
       }
     ],
-    "flower": "Dianthus",
-    "color": "white",
-    "packing": "box"
+    "flower": "Диантусами",
+    "color": "Белая",
+    "packing": "В коробке"
   },
   {
     "title": "«Черри»",
@@ -496,9 +496,9 @@
         ]
       }
     ],
-    "flower": "Rose",
-    "color": "red",
-    "packing": "box"
+    "flower": "Розами",
+    "color": "Красная",
+    "packing": "В коробке"
   },
   {
     "title": "«Ангел»",
@@ -541,9 +541,9 @@
         ]
       }
     ],
-    "flower": "Tulip",
-    "color": "white",
-    "packing": "box"
+    "flower": "Тюльпанами",
+    "color": "Белая",
+    "packing": "В коробке"
   },
   {
     "title": "Гигантская корзина из 1001 розы",
@@ -558,9 +558,9 @@
         "content": ["Приморская роза - 1001 шт."]
       }
     ],
-    "flower": "Rose",
-    "color": "pink",
-    "packing": "basket"
+    "flower": "Розами",
+    "color": "Розовая",
+    "packing": "В корзине"
   },
   {
     "title": "«Femme fatale»",
@@ -581,9 +581,9 @@
         ]
       }
     ],
-    "flower": "Rose",
-    "color": "orange",
-    "packing": "basket"
+    "flower": "Розами",
+    "color": "Оранжевая",
+    "packing": "В корзине"
   },
   {
     "title": "Корзина белых ромашек XL",
@@ -608,9 +608,9 @@
         "content": ["Хризантема ромашковая кустовая - 31 шт."]
       }
     ],
-    "flower": "Chrysanthemum",
-    "color": "white",
-    "packing": "basket"
+    "flower": "Хризантемами",
+    "color": "Белая",
+    "packing": "В корзине"
   },
   {
     "title": "«Селена»",
@@ -653,9 +653,9 @@
         ]
       }
     ],
-    "flower": "Dianthus",
-    "color": "white",
-    "packing": "basket"
+    "flower": "Диантусами",
+    "color": "Белая",
+    "packing": "В корзине"
   },
   {
     "title": "«Фемида»",
@@ -670,9 +670,9 @@
         "content": ["Роза пионовидная Эквадор премиум - 27 шт."]
       }
     ],
-    "flower": "Rose",
-    "color": "pink",
-    "packing": "basket"
+    "flower": "Розами",
+    "color": "Розовая",
+    "packing": "В корзине"
   },
   {
     "title": "Набор «I love you»",
@@ -691,9 +691,9 @@
         ]
       }
     ],
-    "flower": "Rose",
-    "color": "red",
-    "packing": "basket"
+    "flower": "Розами",
+    "color": "Красная",
+    "packing": "В корзине"
   },
   {
     "title": "«Milkshake»",
@@ -730,9 +730,9 @@
         ]
       }
     ],
-    "flower": "Rose",
-    "color": "orange",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Оранжевая",
+    "packing": "Букетом"
   },
   {
     "title": "Букет из 51 Приморской розы",
@@ -747,8 +747,8 @@
         "content": ["Роза Приморская - 51 шт."]
       }
     ],
-    "flower": "Rose",
-    "color": "pink",
-    "packing": "paper"
+    "flower": "Розами",
+    "color": "Розовая",
+    "packing": "Букетом"
   }
 ]

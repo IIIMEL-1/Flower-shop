@@ -7,7 +7,7 @@
     > div {
       background-color: white;
       border-radius: 10px;
-      padding: 30px;
+      padding: clamp(10px, 3vw, 30px);
     }
 
     .loading {
@@ -22,6 +22,9 @@
       padding-bottom: 20px;
       margin-bottom: 20px;
 
+      max-height: 200px;
+      overflow: hidden;
+
       border-bottom: 1px solid #e0e0e0;
 
       > div {
@@ -30,28 +33,33 @@
         align-items: center;
       }
 
-      > p {
-        color: #7e6579;
-        font-size: 18px;
-        font-weight: bold;
-      }
-
       .reviewer {
+        display: flex;
+        justify-content: space-between;
+
         margin-bottom: 15px;
 
         div:first-child {
           p {
-            font-size: 18px;
+            font-size: clamp(15px, 2.5vw, 18px);
             font-weight: bold;
             color: #6aae55;
           }
           span {
             color: var(--font-color-two);
-            font-size: 16px;
+            font-size: clamp(13px, 2vw, 16px);
             font-weight: 400;
 
             margin-right: 12px;
           }
+        }
+      }
+
+      .reviewText {
+        p {
+          color: #7e6579;
+          font-size: clamp(15px, 2.5vw, 18px);
+          font-weight: bold;
         }
       }
     }
@@ -100,6 +108,14 @@
           margin-right: 15px;
         }
       }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .reviewer {
+      flex-direction: column;
+      align-items: start !important;
+      gap: 10px;
     }
   }
 }

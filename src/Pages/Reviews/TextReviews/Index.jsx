@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./TextReviews.module.scss";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchReviews } from "../../../redux/slices/reviewsSlice";
 
 export default function TextReviews() {
@@ -25,8 +25,7 @@ export default function TextReviews() {
         </div>
       </div>
       <div className={style.textReviewsBlock}>
-        <div>
-          {" "}
+        <div className={style.reviewsList}>
           {!reviews ? (
             <h1 className={style.loading}>Loading.....</h1>
           ) : (
@@ -37,10 +36,11 @@ export default function TextReviews() {
                     <p>{el.name}</p>
                     <span>{el.date}</span>
                     <span>{el.time}</span>
+
                     <span>{el.city}</span>
                   </div>
                   <div>
-                    {[...Array(5)].map((star, i) => (
+                    {[...Array(5)].map((_, i) => (
                       <svg
                         key={i}
                         width="16"
@@ -57,12 +57,17 @@ export default function TextReviews() {
                     ))}
                   </div>
                 </div>
-                <p>{el.review}</p>
+                <div
+                  className={style.reviewText}
+                  onClick={(e) => console.dir(e.target.offsetHeight)}
+                >
+                  <p>{el.review}</p>
+                </div>
               </div>
             ))
           )}
           <div className="pageList">
-            {[...Array(totalPages)].map((el, i) => (
+            {[...Array(totalPages)].map((_, i) => (
               <button
                 key={i}
                 className={currentPage == i + 1 ? " active" : ""}
@@ -89,7 +94,7 @@ export default function TextReviews() {
           <div className={style.sendReviews}>
             <div>
               <p>Оцените нашу работу</p>
-              {[...Array(5)].map((star, i) => (
+              {[...Array(5)].map((_, i) => (
                 <svg
                   key={i}
                   width="16"
