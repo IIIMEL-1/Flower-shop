@@ -124,7 +124,7 @@ export default function TextReviews() {
         <div className={style.leaveReview}>
           {status === "pending" ? (
             <Modal />
-          ) : status === "uninitialized" ? (
+          ) : status === "fulfilled" ? (
             <Modal
               img={"/static/images/party-popper.webp"}
               text={"Отзыв успешно отправлен!"}
