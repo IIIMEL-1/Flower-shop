@@ -4,30 +4,6 @@ import Skeleton from "./Skeleton.jsx";
 import { useEffect, useState } from "react";
 
 export default function Sort({ setSearch }) {
-  /*   const sortList = {
-    bouquet: [
-      { title: "Розами", sortBy: "Rose" },
-      { title: "Тюльпанами", sortBy: "Tulip" },
-      { title: "Хризантемами ", sortBy: "Chrysanthemum" },
-      { title: "Гвоздика", sortBy: "Dianthus" },
-      { title: "Лилия", sortBy: "Lily" },
-    ],
-
-    packed: [
-      { title: "В бумаге", sortBy: "paper" },
-      { title: "В коробке", sortBy: "box" },
-      { title: "В корзине", sortBy: "basket" },
-    ],
-
-    colorScheme: [
-      { title: "Белая", sortBy: "white" },
-      { title: "Красная", sortBy: "red" },
-      { title: "Желтая", sortBy: "yellow" },
-      { title: "Розовая", sortBy: "pink" },
-      { title: "Оранжевая", sortBy: "orange" },
-    ],
-  }; */
-
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

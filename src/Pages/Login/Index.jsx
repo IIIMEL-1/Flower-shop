@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import style from "./Login.module.scss";
-import { useAuthAndLoginQuery } from "../../redux/slices/createApi";
-import { Link } from "react-router-dom";
+import { useAuthAndLoginMutation } from "../../redux/slices/createApi";
 import { getData } from "../../redux/slices/authSlice";
 import { useDispatch } from "react-redux";
+import Modal from "../../components/Modal/Index";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -16,9 +16,25 @@ export default function Login() {
   const [city, setCity] = useState("");
   const [phone, setPhone] = useState("");
 
-  const [params, setParams] = useState({});
+  const [createAcc, { isLoading, error, data }] = useAuthAndLoginMutation();
 
-  const { data, error, isLoading } = useAuthAndLoginQuery(params);
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    if (isLogin === "auth") {
+      createAcc({ email, password, isLogin });
+    } else {
+      createAcc({
+        fullName,
+        city,
+        phone,
+        email,
+        password,
+        isLogin,
+        orders: [],
+      });
+    }
+  };
 
   useEffect(() => {
     if (data) {
@@ -47,26 +63,14 @@ export default function Login() {
           </div>
 
           {data ? (
-            <div className="opacity">
-              <div className="modal">
-                <img src="/static/images/party-popper.webp" alt="" />
-                <p>Вы успешно вошли в аккаунт!</p>
-                <Link className="sendForm" to={"/PersonalAccount/Profile"}>
-                  Вернутся назад
-                </Link>
-              </div>
-            </div>
+            <Modal
+              img={"/static/images/party-popper.webp"}
+              text={"Вы успешно вошли в аккаунт!"}
+              buttonText={"Вернутся назад"}
+              link={"/PersonalAccount/Profile"}
+            />
           ) : isLoading ? (
-            <div className="opacity">
-              <div className="modal">
-                <div className="loading">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-              </div>
-            </div>
+            <Modal />
           ) : (
             ""
           )}
@@ -74,7 +78,7 @@ export default function Login() {
           {isLogin === "auth" ? (
             <form
               action="#"
-              onClick={(el) => el.preventDefault()}
+              onSubmit={handleFormSubmit}
               className={style.login}
             >
               <div>
@@ -111,7 +115,6 @@ export default function Login() {
 
               <button
                 disabled={email && password ? false : true}
-                onClick={() => setParams({ email, password, isLogin })}
                 className="sendForm"
               >
                 Войти
@@ -120,7 +123,7 @@ export default function Login() {
           ) : (
             <form
               action="#"
-              onClick={(el) => el.preventDefault()}
+              onSubmit={handleFormSubmit}
               className={style.registration}
             >
               <div>
@@ -129,7 +132,7 @@ export default function Login() {
                   id="username"
                   type="text"
                   name="username"
-                  pattern="[а-я]{4,8}"
+                  pattern="[Аа-Яя]{1,30}"
                   autoComplete="username"
                   placeholder="Вася Пупкин"
                   onChange={(el) => setFullName(el.target.value)}
@@ -143,6 +146,7 @@ export default function Login() {
                 <input
                   type="text"
                   name="city"
+                  pattern="[Аа-Яя]{1,30}"
                   placeholder="Владивосток"
                   onChange={(el) => setCity(el.target.value)}
                   value={city}
@@ -153,7 +157,7 @@ export default function Login() {
               <div>
                 <h3>Моб. номер:</h3>
                 <input
-                  type="text"
+                  type="tel"
                   name="phoneNumber"
                   placeholder="+_(___) ___-__-__"
                   onChange={(el) => setPhone(el.target.value)}
@@ -189,26 +193,22 @@ export default function Login() {
                   maxLength={18}
                 />
               </div>
+
+              {error ? (
+                <div className={style.error}>{error.data.message}</div>
+              ) : (
+                ""
+              )}
+
               <button
                 disabled={
                   fullName.length >= 3 &&
                   email.includes("@") &&
                   password.length >= 6 &&
                   city.length >= 3 &&
-                  phone.length >= 12
+                  phone.length >= 11
                     ? false
                     : true
-                }
-                onClick={() =>
-                  setParams({
-                    fullName,
-                    city,
-                    phone,
-                    email,
-                    password,
-                    isLogin,
-                    orders: [],
-                  })
                 }
                 className="sendForm"
               >

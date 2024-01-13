@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import style from "./Profile.module.scss";
+import Modal from "../../../components/Modal/Index";
 
 export default function Profile() {
   const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
@@ -11,6 +12,11 @@ export default function Profile() {
 
   let percent = totalPrice / 1000;
   percent >= 100 ? (percent = 100) : percent;
+
+  const logOut = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
 
   return (
     <section id={style.profilePage}>
@@ -65,18 +71,14 @@ export default function Profile() {
           <form onClick={(event) => event.preventDefault()}>
             {isLoading ? (
               !localStorage.getItem("token") ? (
-                <div className="opacity">
-                  <div className="modal">
-                    <img src="/static/images/as.webp" alt="" />
-                    <p>
-                      Похоже вы не вошли в свой аккаунт, или ещё не
-                      зарегистрировались на нашем сайте
-                    </p>
-                    <Link className="sendForm" to={"/Login"}>
-                      Войти в аккаунт
-                    </Link>
-                  </div>
-                </div>
+                <Modal
+                  img={"/static/images/as.webp"}
+                  text={
+                    "Похоже вы не вошли в свой аккаунт, или ещё не зарегистрировались на нашем сайте"
+                  }
+                  buttonText={"Войти в аккаунт"}
+                  link={"/Login"}
+                />
               ) : (
                 <div>Loading...</div>
               )
@@ -105,6 +107,16 @@ export default function Profile() {
             )}
           </form>
         </div>
+        {!localStorage.getItem("token") ? (
+          ""
+        ) : (
+          <div className={style.logOut}>
+            <button className="sendForm">Удалить аккаунт</button>
+            <button className="sendForm" onClick={logOut}>
+              Выйти из аккаунта
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

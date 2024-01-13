@@ -4,8 +4,7 @@
     flex-direction: column;
     gap: 30px 0;
 
-    .discountBlock,
-    .aboutMeBlock {
+    > div {
       padding: 25px 30px;
 
       border-radius: 10px;
@@ -57,12 +56,12 @@
           &::after,
           &::before {
             position: absolute;
-            bottom: -20px;
-            right: 0;
-            display: flex;
+            bottom: -170%;
             width: 105px;
             font-size: 12px;
             font-weight: bold;
+
+            text-align: end;
           }
 
           &::before {
@@ -77,7 +76,7 @@
             left: calc(25% - 10px);
             &::after {
               content: "от 25 000 руб. |";
-              right: -6px;
+              right: 35%;
             }
             &::before {
               content: "3%";
@@ -88,7 +87,7 @@
             left: calc(65% - 10px);
             &::after {
               content: "от 65 000 руб. |";
-              right: -5px;
+              right: 35%;
             }
             &::before {
               content: "5%";
@@ -99,6 +98,7 @@
             left: calc(100% - 12px);
             &::after {
               content: "от 100 000 руб. |";
+              right: 35%;
             }
             &::before {
               content: "7%";
@@ -184,6 +184,29 @@
         input {
           margin-top: 10px;
           width: clamp(250px, 80vw, 350px);
+        }
+      }
+    }
+
+    .logOut {
+      display: flex;
+      justify-content: space-between;
+
+      > button {
+        width: 260px;
+        height: 45px;
+
+        font-weight: bold;
+        color: white;
+
+        border-radius: 10px;
+
+        &:first-child {
+          background-color: rgb(225, 82, 82);
+        }
+
+        &:last-child {
+          background-color: rgb(89, 186, 71);
         }
       }
     }

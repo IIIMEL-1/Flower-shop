@@ -53,6 +53,11 @@ export const addToCartSlice = createSlice({
         return obj.description.price * obj.count + sum;
       }, 0);
     },
+
+    /*     clearCart(state) {
+      state.items = [];
+      state.totalPrice = 0;
+    }, */
   },
 });
 

@@ -15,7 +15,7 @@ export default function Header() {
   const fetchDataAccount = () => {
     const token = localStorage.getItem("token");
 
-    const { data, error, isLoading } = useGetDataAccountQuery(token);
+    const { data, error, isLoading } = useGetDataAccountQuery(token || "");
 
     useEffect(() => {
       if (token) {

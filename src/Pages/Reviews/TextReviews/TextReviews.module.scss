@@ -18,48 +18,50 @@
       padding: 70px 0;
     }
 
-    .review {
-      padding-bottom: 20px;
-      margin-bottom: 20px;
+    .reviewsList {
+      .review {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
 
-      max-height: 200px;
-      overflow: hidden;
+        /* max-height: 200px;
+      overflow: hidden; */
 
-      border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
 
-      > div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+        > div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
 
-      .reviewer {
-        display: flex;
-        justify-content: space-between;
+        .reviewer {
+          display: flex;
+          justify-content: space-between;
 
-        margin-bottom: 15px;
+          margin-bottom: 15px;
 
-        div:first-child {
-          p {
-            font-size: clamp(15px, 2.5vw, 18px);
-            font-weight: bold;
-            color: #6aae55;
-          }
-          span {
-            color: var(--font-color-two);
-            font-size: clamp(13px, 2vw, 16px);
-            font-weight: 400;
+          div:first-child {
+            p {
+              font-size: clamp(15px, 2.5vw, 18px);
+              font-weight: bold;
+              color: #6aae55;
+            }
+            span {
+              color: var(--font-color-two);
+              font-size: clamp(13px, 2vw, 16px);
+              font-weight: 400;
 
-            margin-right: 12px;
+              margin-right: 12px;
+            }
           }
         }
-      }
 
-      .reviewText {
-        p {
-          color: #7e6579;
-          font-size: clamp(15px, 2.5vw, 18px);
-          font-weight: bold;
+        .reviewText {
+          p {
+            color: #7e6579;
+            font-size: clamp(15px, 2.5vw, 18px);
+            font-weight: bold;
+          }
         }
       }
     }
@@ -79,6 +81,8 @@
         gap: 20px 10px;
 
         input {
+          width: 45%;
+
           @media (max-width: 900px) {
             width: 100%;
           }
@@ -106,6 +110,11 @@
           font-size: 17px;
 
           margin-right: 15px;
+        }
+
+        > div {
+          display: flex;
+          gap: 0 4px;
         }
       }
     }

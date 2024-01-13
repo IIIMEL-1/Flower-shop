@@ -7,7 +7,7 @@ export default function PhotoReviews() {
       <div className="pageName">
         <div>
           <Link to={"/"}>Главная</Link>
-          {" > "} <Link to={"/PersonalAccount/Profile"}>Отзывы</Link>
+          {" > "} <Link to={"/Reviews/TextReviews"}>Отзывы</Link>
         </div>
       </div>
       <div></div>
