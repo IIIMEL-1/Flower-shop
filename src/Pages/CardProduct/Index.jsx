@@ -9,6 +9,10 @@ import { Link } from "react-router-dom";
 
 export default function CardProduct() {
   const [product, setProduct] = useState();
+  const [images, setImages] = useState([]);
+
+  const [currentImg, setCurrentImg] = useState(0);
+
   const [size, setSize] = useState(0);
 
   const [count, setCount] = useState(1);
@@ -27,8 +31,9 @@ export default function CardProduct() {
         data.description.forEach((el, i) => {
           el.size === "Стандартный" ? setSize(i) : "";
         });
+        setImages([data.image, ...data.images]);
       } catch (error) {
-        return <h2>Упс кажется что-то пошло не так...</h2>;
+        return <h2>{`${error.status} ${error.data.message}`}</h2>;
       }
     }
 
@@ -69,7 +74,17 @@ export default function CardProduct() {
         </div>
         <div className={style.productCard}>
           <div className={style.imgBlock}>
-            <img src={product.image} alt="" />
+            <img src={images[currentImg]} alt="" />
+            <div>
+              {images.map((img, i) => (
+                <div
+                  onClick={(e) => setCurrentImg(i)}
+                  className={i === currentImg ? style.active : ""}
+                >
+                  <img src={img} alt="" />
+                </div>
+              ))}
+            </div>
           </div>
           <div className={style.descriptionBlock}>
             <p>{product.title}</p>

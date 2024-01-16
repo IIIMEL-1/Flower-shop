@@ -2,31 +2,34 @@ import { useEffect } from "react";
 import style from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useGetDataAccountQuery } from "../../redux/slices/createApi";
+import { useGetDataAccountMutation } from "../../redux/slices/createApi";
 import { getData } from "../../redux/slices/authSlice";
 
 export default function Header() {
   const dispatch = useDispatch();
 
+  const [getDataUser, { data, error, isLoading }] = useGetDataAccountMutation();
+
   const items = useSelector((state) => state.addToCartSlice.items);
 
   const totalCount = items.reduce((sum, obj) => sum + obj.count, 0);
 
-  const fetchDataAccount = () => {
-    const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
-    const { data, error, isLoading } = useGetDataAccountQuery(token || "");
-
-    useEffect(() => {
-      if (token) {
-        if (!isLoading && !error) {
-          dispatch(getData({ data, error, isLoading }));
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (token) {
+          const { data } = await getDataUser(token);
+          dispatch(getData({ data, isLoading, error }));
         }
+      } catch (error) {
+        console.log(error);
       }
-    }, [data, isLoading, error]);
-  };
+    };
 
-  fetchDataAccount();
+    fetchData();
+  }, []);
 
   return (
     <div className="container">

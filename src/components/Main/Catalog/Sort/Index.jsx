@@ -26,7 +26,7 @@ export default function Sort({ setSearch }) {
     return arrays;
   };
 
-  useEffect(() => {
+  /*   useEffect(() => {
     fetch(
       "https://b6c487f79077af26.mokky.dev/items?_select=flower,color,packing"
     )
@@ -38,7 +38,7 @@ export default function Sort({ setSearch }) {
       })
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
-  }, []);
+  }, []); */
 
   return (
     <>

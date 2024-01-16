@@ -4,6 +4,12 @@
     "id": 1,
     "price": 3700,
     "image": "https://i.ibb.co/Mc4ZF1L/IMG-1402.jpg",
+    "images": [
+      "https://i.ibb.co/cbJcj5q/IMG-1411.jpg",
+      "https://i.ibb.co/g7S0VX9/IMG-1408.jpg",
+      "https://i.ibb.co/RBNBymf/IMG-1406.jpg",
+      "https://i.ibb.co/wQZ4bk5/IMG-1407.jpg"
+    ],
     "rating": 3,
     "description": [
       {

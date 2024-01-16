@@ -9,9 +9,9 @@ const api = createApi({
       query: ({ currentPage, sortBy }) =>
         `items?_select=title,price,image,id&limit=6&page=${currentPage}&sortBy=${sortBy}`,
     }),
-    getDataAccount: builder.query({
+    getDataAccount: builder.mutation({
       query: (token) => ({
-        url: "/users",
+        url: "/auth_me",
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -108,7 +108,7 @@ const api = createApi({
 
 export const {
   useGetProductsQuery,
-  useGetDataAccountQuery,
+  useGetDataAccountMutation,
   useAuthAndLoginMutation,
   useChangeDataMutation,
   useGetReviewsQuery,

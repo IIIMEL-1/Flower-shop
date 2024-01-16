@@ -56,7 +56,7 @@ export default function Index() {
           [...new Array(6)].map((_, i) => <Skeleton key={i} />)
         ) : error ? (
           <div className={style.error}>
-            <p>Error</p>
+            <p>{`${error.status} ${error.data.message}`}</p>
           </div>
         ) : (
           data.items.map((el) => (

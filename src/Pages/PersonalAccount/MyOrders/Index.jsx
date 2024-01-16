@@ -1,9 +1,9 @@
 import style from "./MyOrders.module.scss";
 import { Link } from "react-router-dom";
-import { useGetDataAccountQuery } from "../../../redux/slices/createApi";
+import { useGetDataAccountMutation } from "../../../redux/slices/createApi";
 
 export default function MyOrders() {
-  const { isLoading, data, error } = useGetDataAccountQuery(
+  const { isLoading, data, error } = useGetDataAccountMutation(
     localStorage.getItem("token")
   );
 
