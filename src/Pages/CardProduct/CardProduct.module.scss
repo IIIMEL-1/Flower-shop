@@ -11,13 +11,15 @@
   flex-direction: column;
   gap: 20px 0;
 
-  object-fit: cover;
+  img {
+    object-fit: cover;
+    background-color: #5b4a58;
+    border-radius: 10px;
+  }
 
   > img {
-    border-radius: 10px;
-
     width: 450px;
-    height: 420px;
+    max-height: 420px;
   }
 
   > div {
@@ -32,12 +34,8 @@
       transition: 0.1s ease-in-out;
 
       img {
-        width: 75px;
-        height: 75px;
-
-        background-color: #5b4a58;
-
-        border-radius: 10px;
+        width: clamp(55px, 17vw, 75px);
+        height: clamp(55px, 17vw, 75px);
       }
 
       &:hover {
@@ -55,6 +53,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  gap: 20px 0;
 
   width: 630px;
 
@@ -169,7 +169,7 @@
 
     > div {
       height: 75px;
-      padding: 0 25px;
+      padding: 0 clamp(15px, 3vw, 25px);
       border-radius: 10px;
       background-color: var(--background-white);
       border: 1px solid #f0f0f0;
@@ -239,7 +239,7 @@
       > button {
         position: relative;
 
-        width: clamp(140px, 43vw, 222px);
+        width: clamp(160px, 43vw, 222px);
 
         font-weight: bold;
         font-size: clamp(16px, 4vw, 18px);
