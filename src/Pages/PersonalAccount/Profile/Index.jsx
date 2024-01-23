@@ -1,21 +1,29 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./Profile.module.scss";
 import Modal from "../../../components/Modal/Index";
+import { logoutUser } from "../../../redux/slices/authSlice";
 
 export default function Profile() {
+  const dispatch = useDispatch();
+
   const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
 
-  const { userDetails, isLoading, error } = useSelector(
-    (state) => state.authSlice
-  );
+  const { userDetails } = useSelector((state) => state.authSlice);
 
-  let percent = totalPrice / 1000;
-  percent >= 100 ? (percent = 100) : percent;
+  const percent = Math.min(totalPrice / 1000, 100);
 
   const logOut = () => {
     localStorage.clear();
-    window.location.reload();
+    dispatch(logoutUser());
+  };
+
+  const getDiscountPercentage = (percent) => {
+    if (percent < 25) return 0;
+    if (percent < 65) return 3;
+    if (percent < 100) return 5;
+    if (percent === 100) return 7;
+    return "";
   };
 
   return (
@@ -31,19 +39,7 @@ export default function Profile() {
       <div className={style.profileBlock}>
         <div className={style.discountBlock}>
           <div className={style.discount}>
-            Ваша скидка —{" "}
-            <span>
-              {percent < 25
-                ? 0
-                : percent < 65
-                ? 3
-                : percent < 100
-                ? 5
-                : percent === 100
-                ? 7
-                : ""}
-              %
-            </span>
+            Ваша скидка — <span>{getDiscountPercentage(percent)}%</span>
           </div>
           <div className={style.range}>
             <span className={style.one}></span>
@@ -69,20 +65,16 @@ export default function Profile() {
           </div>
 
           <form onClick={(event) => event.preventDefault()}>
-            {isLoading ? (
-              !localStorage.getItem("token") ? (
-                <Modal
-                  img={"/static/images/as.webp"}
-                  text={
-                    "Похоже вы не вошли в свой аккаунт, или ещё не зарегистрировались на нашем сайте"
-                  }
-                  buttonText={"Войти в аккаунт"}
-                  link={"/Login"}
-                />
-              ) : (
-                <div>Loading...</div>
-              )
-            ) : (
+            {!localStorage.getItem("token") ? (
+              <Modal
+                img={"/static/images/as.webp"}
+                text={
+                  "Похоже вы не вошли в свой аккаунт, или ещё не зарегистрировались на нашем сайте"
+                }
+                buttonText={"Войти в аккаунт"}
+                link={"/Login"}
+              />
+            ) : userDetails ? (
               <>
                 <div>
                   <h5>Имя и фамилия</h5>
@@ -104,12 +96,12 @@ export default function Profile() {
                   <input type="email" readOnly value={userDetails.email} />
                 </div>
               </>
+            ) : (
+              <p>Загрузка...</p>
             )}
           </form>
         </div>
-        {!localStorage.getItem("token") ? (
-          ""
-        ) : (
+        {localStorage.getItem("token") && (
           <div className={style.logOut}>
             <button className="sendForm">Удалить аккаунт</button>
             <button className="sendForm" onClick={logOut}>

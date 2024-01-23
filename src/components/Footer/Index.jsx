@@ -16,7 +16,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link to={"/"} className={style.navItemFooter}>
+              <Link to={"*"} className={style.navItemFooter}>
                 Скидки
               </Link>
             </li>
@@ -31,12 +31,12 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link to={"/"} className={style.navItemFooter}>
+              <Link to={"*"} className={style.navItemFooter}>
                 Оферта
               </Link>
             </li>
             <li>
-              <Link to={"/"} className={style.navItemFooter}>
+              <Link to={"*"} className={style.navItemFooter}>
                 Информация для клиента
               </Link>
             </li>
@@ -68,16 +68,16 @@ export default function Footer() {
               <h5>Для посетителей</h5>
               <ul>
                 <li>
-                  <Link to={"/"}>Оформление заказа</Link>
+                  <Link to={"*"}>Оформление заказа</Link>
                 </li>
                 <li>
                   <Link to={"/Questions"}>Вопросы и ответы</Link>
                 </li>
                 <li>
-                  <Link to={"/"}>Изменение или отмена заказа</Link>
+                  <Link to={"*"}>Изменение или отмена заказа</Link>
                 </li>
                 <li>
-                  <Link to={"/"}>Способы доставки и оплаты</Link>
+                  <Link to={"*"}>Способы доставки и оплаты</Link>
                 </li>
               </ul>
             </div>

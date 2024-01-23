@@ -78,6 +78,7 @@ export default function CardProduct() {
             <div>
               {images.map((img, i) => (
                 <div
+                  key={i}
                   onClick={(e) => setCurrentImg(i)}
                   className={i === currentImg ? style.active : ""}
                 >

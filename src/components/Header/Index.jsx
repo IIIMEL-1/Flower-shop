@@ -8,7 +8,7 @@ import { getData } from "../../redux/slices/authSlice";
 export default function Header() {
   const dispatch = useDispatch();
 
-  const [getDataUser, { data, error, isLoading }] = useGetDataAccountMutation();
+  const [getDataUser] = useGetDataAccountMutation();
 
   const items = useSelector((state) => state.addToCartSlice.items);
 
@@ -21,7 +21,7 @@ export default function Header() {
       try {
         if (token) {
           const { data } = await getDataUser(token);
-          dispatch(getData({ data, isLoading, error }));
+          dispatch(getData({ data }));
         }
       } catch (error) {
         console.log(error);
@@ -41,7 +41,7 @@ export default function Header() {
       <nav className={style.navbar}>
         <div>
           <Link to={"/"}>каталог</Link>
-          <Link to={"/"}>скидки</Link>
+          <Link to={"*"}>скидки</Link>
           <Link to={"/Reviews/TextReviews"}>отзывы</Link>
           <Link to={"/Contacts"}>контакты</Link>
         </div>

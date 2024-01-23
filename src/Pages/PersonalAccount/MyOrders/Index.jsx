@@ -19,7 +19,7 @@ export default function MyOrders() {
       <div className={style.ordersBlock}>
         {isLoading ? (
           <div>
-            <h1>Loading...</h1>
+            <p>Загрузка...</p>
           </div>
         ) : !isLoading && data?.orders?.length ? (
           data.orders.map((el, i) => (
@@ -66,7 +66,7 @@ export default function MyOrders() {
           ))
         ) : (
           <div>
-            <h1>Вы ничего не заказывали</h1>
+            <p>Вы ничего не заказывали</p>
           </div>
         )}
       </div>

@@ -200,7 +200,7 @@ export default function OrderRegistration() {
                 <div>Заказ успешно оформлен</div>
               )
             ) : (
-              <div>Loading...</div>
+              <div>Загрузка...</div>
             )}
           </form>
         ) : (

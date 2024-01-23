@@ -25,7 +25,7 @@
         text-align: right;
       }
 
-      &:has(> h1) {
+      &:has(> p) {
         display: flex;
         justify-content: center;
         align-items: center;

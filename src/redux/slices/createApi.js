@@ -6,8 +6,11 @@ const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://b6c487f79077af26.mokky.dev/" }),
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: ({ currentPage, sortBy }) =>
-        `items?_select=title,price,image,id&limit=6&page=${currentPage}&sortBy=${sortBy}`,
+      query: ({ currentPage, sortBy, sortList }) =>
+        `items?_select=title,price,image,id&limit=6&page=${currentPage}&sortBy=${sortBy}&${sortList}`,
+    }),
+    getSortData: builder.query({
+      query: () => `items?_select=flower,color,packing`,
     }),
     getDataAccount: builder.mutation({
       query: (token) => ({
@@ -113,6 +116,7 @@ export const {
   useChangeDataMutation,
   useGetReviewsQuery,
   useAddReviewMutation,
+  useGetSortDataQuery,
 } = api;
 
 export const { reducer: apiReducer, middleware: apiMiddleware } = api;

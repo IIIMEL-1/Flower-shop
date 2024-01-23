@@ -63,7 +63,7 @@ export default function TextReviews() {
       <div className={style.textReviewsBlock}>
         <div className={style.reviewsList}>
           {isLoading ? (
-            <h1 className={style.loading}>Loading.....</h1>
+            <p className={style.loading}>Загрузка...</p>
           ) : (
             data.items.map((el) => (
               <div key={el.id} className={style.review}>
@@ -104,7 +104,7 @@ export default function TextReviews() {
           )}
           <div className="pageList">
             {isLoading ? (
-              <h4>Loading...</h4>
+              <p>Загрузка...</p>
             ) : (
               [...Array(data.meta.total_pages)].map((_, i) => (
                 <button

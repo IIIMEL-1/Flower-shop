@@ -3,8 +3,10 @@ import Card from "./Card/Index.jsx";
 import Skeleton from "./Card/Skeleton.jsx";
 import style from "./Products.module.scss";
 import { useGetProductsQuery } from "../../../../redux/slices/createApi.js";
+import { useSelector } from "react-redux";
 
 export default function Index() {
+  const sortList = useSelector((state) => state.sortSlice.dataParse);
   const [sortBy, setSortBy] = useState("title");
 
   const [isActive, setIsActive] = useState(0);
@@ -21,6 +23,7 @@ export default function Index() {
   const { data, error, isLoading } = useGetProductsQuery({
     currentPage,
     sortBy,
+    sortList,
   });
 
   return (
@@ -58,7 +61,7 @@ export default function Index() {
           <div className={style.error}>
             <p>{`${error.status} ${error.data.message}`}</p>
           </div>
-        ) : (
+        ) : data.items.length ? (
           data.items.map((el) => (
             <Card
               key={el.id}
@@ -69,12 +72,16 @@ export default function Index() {
               price={el.price}
             />
           ))
+        ) : (
+          <div className={style.error}>
+            <p>Товары не найдены</p>
+          </div>
         )}
       </div>
       <div className="pageList">
         {isLoading ? (
           <div className={style.error}>
-            <p>Loading</p>
+            <p>Загрузка...</p>
           </div>
         ) : error ? (
           ""
