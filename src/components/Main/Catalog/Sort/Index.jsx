@@ -3,7 +3,7 @@ import style from "./Sort.module.scss";
 import Skeleton from "./Skeleton.jsx";
 import { useMemo, useState } from "react";
 import { useGetSortDataQuery } from "../../../../redux/slices/createApi.js";
-import SortCheckbox from "./sortCheckbox/Index.jsx";
+import SortCheckbox from "./SortCheckbox/Index.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { clearData, parseData } from "../../../../redux/slices/sortSlice.js";
 
