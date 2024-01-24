@@ -69,7 +69,7 @@ const api = createApi({
     }),
     getReviews: builder.query({
       query: ({ currentPage }) => ({
-        url: `reviews?limit=5&page=${currentPage}`,
+        url: `reviews?limit=5&page=${currentPage}&sortBy=-id`,
         method: "GET",
         headers: {
           Accept: "application/json",

@@ -8,9 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearData, parseData } from "../../../../redux/slices/sortSlice.js";
 
 export default function Sort({ setSearch }) {
+  const dispatch = useDispatch();
+
   const sortList = useSelector((state) => state.sortSlice.data);
   const sortParse = useSelector((state) => state.sortSlice.dataParse);
-  const dispatch = useDispatch();
+
   const [result, setResult] = useState(false);
 
   const countAndMap = (arr, keys) => {
