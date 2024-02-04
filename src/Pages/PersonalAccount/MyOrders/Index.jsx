@@ -1,11 +1,12 @@
+import { useSelector } from "react-redux";
+import { useGetOrdersQuery } from "../../../redux/slices/createApi";
 import style from "./MyOrders.module.scss";
 import { Link } from "react-router-dom";
-import { useGetDataAccountMutation } from "../../../redux/slices/createApi";
 
 export default function MyOrders() {
-  const { isLoading, data, error } = useGetDataAccountMutation(
-    localStorage.getItem("token")
-  );
+  const id = useSelector((state) => state.authSlice.userDetails.id);
+
+  const { data, isLoading, error } = useGetOrdersQuery({ id });
 
   return (
     <section id={style.ordersPage}>

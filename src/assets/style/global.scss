@@ -34,6 +34,7 @@ body {
   --background-white: #ffffff;
   --border-color: rgb(118 171 102 / 35%);
   --background-section: #efeff0;
+
   --nav-menu-height: clamp(60px, 10vw, 90px);
 }
 
@@ -73,6 +74,10 @@ body {
 }
 
 .sendForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 222px;
   height: 40px;
 

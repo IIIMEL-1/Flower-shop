@@ -1,9 +1,18 @@
+import { useState } from "react";
+import style from "../Login.module.scss";
+
 export default function Registration({
   handleFormSubmit,
   error,
   state: { email, password, phone, city, fullName },
   setState: { setEmail, setPassword, setPhone, setCity, setFullName },
 }) {
+  const [inputType, setInputType] = useState("password");
+
+  const clickOnEye = () => {
+    inputType === "password" ? setInputType("text") : setInputType("password");
+  };
+
   return (
     <form action="#" onSubmit={handleFormSubmit}>
       <div>
@@ -58,10 +67,10 @@ export default function Registration({
           value={email}
         />
       </div>
-      <div>
+      <div id={style.password}>
         <h3>Пароль:</h3>
         <input
-          type="text"
+          type={inputType}
           id="password"
           name="password"
           security="none"
@@ -72,6 +81,17 @@ export default function Registration({
           minLength={6}
           maxLength={18}
         />
+        <span onClick={clickOnEye}>
+          {
+            <img
+              src={
+                inputType === "password"
+                  ? "/public/static/images/hidden_eye.svg"
+                  : "/public/static/images/eye_visible.svg"
+              }
+            />
+          }
+        </span>
       </div>
 
       {error ? (

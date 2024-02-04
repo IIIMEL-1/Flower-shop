@@ -7,6 +7,28 @@
   border-radius: 10px;
   background-color: white;
 
+  #password {
+    position: relative;
+
+    input {
+      padding-right: 45px;
+    }
+
+    span {
+      position: absolute;
+
+      cursor: pointer;
+
+      width: 30px;
+      height: 30px;
+
+      right: 15px;
+      top: 50%;
+
+      transition: 0.2s ease-in-out;
+    }
+  }
+
   button {
     width: 100%;
 

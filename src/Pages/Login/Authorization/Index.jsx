@@ -1,4 +1,5 @@
-import React from "react";
+import { useState } from "react";
+import style from "../Login.module.scss";
 
 export default function Authorization({
   handleFormSubmit,
@@ -6,6 +7,12 @@ export default function Authorization({
   state: { email, password },
   setState: { setEmail, setPassword },
 }) {
+  const [inputType, setInputType] = useState("password");
+
+  const clickOnEye = () => {
+    inputType === "password" ? setInputType("text") : setInputType("password");
+  };
+
   return (
     <form action="#" onSubmit={handleFormSubmit}>
       <div>
@@ -20,11 +27,10 @@ export default function Authorization({
           value={email}
         />
       </div>
-      <div>
+      <div id={style.password}>
         <h3>Пароль:</h3>
         <input
-          type="password"
-          id="password"
+          type={inputType}
           name="password"
           autoComplete="current-password"
           onChange={(el) => setPassword(el.target.value)}
@@ -32,6 +38,17 @@ export default function Authorization({
           minLength={6}
           maxLength={15}
         />
+        <span onClick={clickOnEye}>
+          {
+            <img
+              src={
+                inputType === "password"
+                  ? "/public/static/images/hidden_eye.svg"
+                  : "/public/static/images/eye_visible.svg"
+              }
+            />
+          }
+        </span>
       </div>
 
       {error ? (

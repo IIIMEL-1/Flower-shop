@@ -1,8 +1,10 @@
 import { Outlet } from "react-router";
 import { Link } from "react-router-dom";
-import style from "./PersonalAccount.module.scss";
+import { useSelector } from "react-redux";
 
 export default function Profile() {
+  const userDetails = useSelector((state) => state.authSlice.userDetails);
+
   return (
     <section className="sectionBack">
       <div className="container">
@@ -15,6 +17,10 @@ export default function Profile() {
               <Link to={"/PersonalAccount/Profile"}>Профиль</Link>
               <Link to={"/PersonalAccount/MyOrders"}>Мои заказы</Link>
               <Link to={"/PersonalAccount/PasswordChange"}>Смена пароля</Link>
+
+              {userDetails && userDetails.admin && (
+                <Link to={"/Admin/ChangeItems"}>Админ панель</Link>
+              )}
             </div>
           </div>
           <Outlet />

@@ -14,7 +14,7 @@ const api = createApi({
     }),
     getDataAccount: builder.mutation({
       query: (token) => ({
-        url: "/auth_me",
+        url: "auth_me",
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -25,24 +25,6 @@ const api = createApi({
           type: "Orders",
         },
       ],
-    }),
-    authAndLogin: builder.mutation({
-      query: (params) => ({
-        url: `${params.isLogin}`,
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: {
-          fullName: params.fullName,
-          email: params.email,
-          password: params.password,
-          phone: params.phone,
-          city: params.city,
-          orders: params.orders,
-        },
-      }),
     }),
     changeData: builder.mutation({
       query: (params) => ({
@@ -67,6 +49,28 @@ const api = createApi({
         },
       ],
     }),
+    getOrders: builder.query({
+      query: ({ id }) => `/orders/${id}`,
+    }),
+    authAndLogin: builder.mutation({
+      query: (params) => ({
+        url: `${params.isLogin}`,
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: {
+          fullName: params.fullName,
+          email: params.email,
+          password: params.password,
+          phone: params.phone,
+          city: params.city,
+          orders: params.orders,
+        },
+      }),
+    }),
+
     getReviews: builder.query({
       query: ({ currentPage }) => ({
         url: `reviews?limit=5&page=${currentPage}&sortBy=-id`,
@@ -112,6 +116,7 @@ const api = createApi({
 export const {
   useGetProductsQuery,
   useGetDataAccountMutation,
+  useGetOrdersQuery,
   useAuthAndLoginMutation,
   useChangeDataMutation,
   useGetReviewsQuery,

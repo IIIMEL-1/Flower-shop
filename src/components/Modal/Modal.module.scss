@@ -54,9 +54,6 @@
     }
 
     a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 100%;
       height: clamp(40px, 10vw, 50px) !important;
       font-size: clamp(16px, 4vw, 19px);

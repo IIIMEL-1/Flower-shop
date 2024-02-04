@@ -22,6 +22,10 @@ import PageReviews from "./Pages/Reviews/Index";
 import PageTextReviews from "./Pages/Reviews/TextReviews/Index";
 import PagePhotoReviews from "./Pages/Reviews/PhotoReviews/Index";
 
+import PageAdminPanel from "./Pages/AdminPanel/Index";
+import PageChangeItems from "./Pages/AdminPanel/ChangeItems/Index";
+import PageChangeAdditional from "./Pages/AdminPanel/ChangeAdditional/Index";
+
 import { Outlet, createBrowserRouter, useLocation } from "react-router-dom";
 
 import { store } from "./redux/store";
@@ -86,6 +90,18 @@ export const router = createBrowserRouter([
       },
 
       { path: "*", element: <PageError /> },
+
+      {
+        path: "/Admin",
+        element: <PageAdminPanel />,
+        children: [
+          { path: "/Admin/ChangeItems", element: <PageChangeItems /> },
+          {
+            path: "/Admin/ChangeAdditional",
+            element: <PageChangeAdditional />,
+          },
+        ],
+      },
     ],
   },
 ]);
