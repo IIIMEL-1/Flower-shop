@@ -1,9 +1,12 @@
 import style from "./Card.module.scss";
 import { Link } from "react-router-dom";
 
-export default function Index({ id, title, image, price }) {
+export default function Card({ id, title, image, price, mini }) {
   return (
-    <div className={style.product} id={id}>
+    <div
+      className={mini ? `${style.product} ${style.active}` : style.product}
+      id={id}
+    >
       <img src={image} alt={title} />
       <div className={style.about}>
         <div className={style.title}>

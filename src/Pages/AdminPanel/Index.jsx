@@ -17,10 +17,9 @@ export default function AdminPanel() {
                   <h3>Админ панель</h3>
                 </div>
                 <div className="aside">
-                  <Link to={"/Admin/ChangeItems"}>Изменение items</Link>
-                  <Link to={"/Admin/ChangeAdditional"}>
-                    Изменение additional
-                  </Link>
+                  <Link to={"/Admin/ChangeItems"}>Товары</Link>
+                  <Link to={"/Admin/ChangeAdditional"}>Доп. Товары</Link>
+                  <Link to={"/Admin/ChangeStocks"}>Акции</Link>
                 </div>
               </div>
               <Outlet />

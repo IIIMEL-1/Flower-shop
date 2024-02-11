@@ -41,7 +41,7 @@ export default function Header() {
       <nav className={style.navbar}>
         <div>
           <Link to={"/"}>каталог</Link>
-          <Link to={"*"}>скидки</Link>
+          <Link to={"/Stocks"}>скидки</Link>
           <Link to={"/Reviews/TextReviews"}>отзывы</Link>
           <Link to={"/Contacts"}>контакты</Link>
         </div>

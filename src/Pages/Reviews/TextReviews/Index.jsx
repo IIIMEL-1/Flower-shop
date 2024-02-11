@@ -39,17 +39,19 @@ export default function TextReviews() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    addReview({
-      date,
-      time,
-      name: userDetails.fullName,
-      email: userDetails.email,
-      city: userDetails.city,
-      review,
-      estimation,
-    });
+    if (review) {
+      addReview({
+        date,
+        time,
+        name: userDetails.fullName,
+        email: userDetails.email,
+        city: userDetails.city,
+        review,
+        estimation,
+      });
 
-    setReview("");
+      setReview("");
+    }
   };
 
   return (
@@ -110,7 +112,7 @@ export default function TextReviews() {
             <form onSubmit={handleFormSubmit}>
               <textarea
                 placeholder="Ваш комментарий"
-                onChange={(el) => setReview(el.target.value)}
+                onChange={(event) => setReview(event.target.value)}
                 value={review}
               />
 
@@ -121,7 +123,7 @@ export default function TextReviews() {
                     {[...Array(5)].map((_, i) => (
                       <svg
                         key={i}
-                        onClick={(e) => setEstimation(i + 1)}
+                        onClick={() => setEstimation(i + 1)}
                         width="40px"
                         height="40px"
                         viewBox="0 0 24 24"
@@ -136,7 +138,9 @@ export default function TextReviews() {
                     ))}
                   </div>
                 </div>
-                <button className="sendForm">Отправить</button>
+                <button disabled={review ? false : true} className="sendForm">
+                  Отправить
+                </button>
               </div>
             </form>
           )}

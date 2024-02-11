@@ -12,6 +12,7 @@ import PageQuestion from "./Pages/Questions/Index";
 import PageLogin from "./Pages/Login/Index";
 import PageContacts from "./Pages/Contacts/Index";
 import PageCardProduct from "./Pages/CardProduct/Index";
+import PageStocks from "./Pages/Stocks/Index";
 
 import PageProfile from "./Pages/PersonalAccount/Profile/Index";
 import PageMyOrders from "./Pages/PersonalAccount/MyOrders/Index";
@@ -25,6 +26,7 @@ import PagePhotoReviews from "./Pages/Reviews/PhotoReviews/Index";
 import PageAdminPanel from "./Pages/AdminPanel/Index";
 import PageChangeItems from "./Pages/AdminPanel/ChangeItems/Index";
 import PageChangeAdditional from "./Pages/AdminPanel/ChangeAdditional/Index";
+import PageChangeStocks from "./Pages/AdminPanel/ChangeStocks/Index";
 
 import { Outlet, createBrowserRouter, useLocation } from "react-router-dom";
 
@@ -66,6 +68,7 @@ export const router = createBrowserRouter([
       { path: "/PlaceAnOrder", element: <PagePlaceAnOrder /> },
       { path: "/Login", element: <PageLogin /> },
       { path: "/Contacts", element: <PageContacts /> },
+      { path: "/Stocks", element: <PageStocks /> },
 
       {
         path: "/PersonalAccount",
@@ -99,6 +102,10 @@ export const router = createBrowserRouter([
           {
             path: "/Admin/ChangeAdditional",
             element: <PageChangeAdditional />,
+          },
+          {
+            path: "/Admin/ChangeStocks",
+            element: <PageChangeStocks />,
           },
         ],
       },

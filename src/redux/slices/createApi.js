@@ -110,6 +110,23 @@ const api = createApi({
         },
       ],
     }),
+    getStocks: builder.query({
+      query: () => "stocks",
+    }),
+    addStock: builder.mutation({
+      query: (stockData) => ({
+        url: "stocks",
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: stockData,
+      }),
+    }),
+    getSortItems: builder.mutation({
+      query: (sortBy) => `/items?_select=title,price,image,id&${sortBy}`,
+    }),
   }),
 });
 
@@ -122,6 +139,9 @@ export const {
   useGetReviewsQuery,
   useAddReviewMutation,
   useGetSortDataQuery,
+  useGetStocksQuery,
+  useAddStockMutation,
+  useGetSortItemsMutation,
 } = api;
 
 export const { reducer: apiReducer, middleware: apiMiddleware } = api;

@@ -7,7 +7,7 @@ export default function notFound() {
     <section className="sectionBack">
       <div className="container">
         <div className={style.wrapper}>
-          <img src="/static/images/Error.png" alt="" />
+          <img src="/static/images/Error.png" alt="Error" />
           <h3>Упс... Что-то пошло не так.</h3>
           <p>Перейдите на главную, а мы пока все починим.</p>
           <Link className="sendForm" to={"/"}>

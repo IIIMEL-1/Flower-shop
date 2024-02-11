@@ -1,0 +1,64 @@
+.stock {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 360px;
+  height: 380px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  background-color: var(--background-white);
+
+  img {
+    height: 100%;
+    max-height: 270px;
+
+    border-radius: inherit;
+
+    object-fit: cover;
+  }
+
+  .discount {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+
+    top: 15px;
+    right: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    background-color: #6aae55;
+
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .info {
+    height: 105px;
+    padding: 10px 15px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    p:first-child {
+      font-size: 16px;
+      font-weight: normal;
+
+      margin-bottom: 7px;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}
