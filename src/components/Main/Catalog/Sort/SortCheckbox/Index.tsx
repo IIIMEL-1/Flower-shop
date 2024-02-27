@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { getSort } from "../../../../../redux/slices/sortSlice.js";
 
-export default function SortCheckbox({ sortBy, title, sortType }) {
+function SortCheckbox({ sortBy, title, sortType }) {
   const dispatch = useDispatch();
 
   const getDataSort = (el) => {
@@ -23,3 +23,5 @@ export default function SortCheckbox({ sortBy, title, sortType }) {
     </div>
   );
 }
+
+export default React.memo(SortCheckbox);

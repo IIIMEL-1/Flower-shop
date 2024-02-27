@@ -9,9 +9,15 @@ const api = createApi({
       query: ({ currentPage, sortBy, sortList }) =>
         `items?_select=title,price,image,id&limit=6&page=${currentPage}&sortBy=${sortBy}&${sortList}`,
     }),
+
+    getAdditional: builder.query({
+      query: ({ currentPage }) =>
+        `additional?_select=-description&limit=6&page=${currentPage}`,
+    }),
     getSortData: builder.query({
       query: () => `items?_select=flower,color,packing`,
     }),
+
     getDataAccount: builder.mutation({
       query: (token) => ({
         url: "auth_me",
@@ -20,11 +26,6 @@ const api = createApi({
           Authorization: `Bearer ${token}`,
         },
       }),
-      providesTags: () => [
-        {
-          type: "Orders",
-        },
-      ],
     }),
     changeData: builder.mutation({
       query: (params) => ({
@@ -40,18 +41,20 @@ const api = createApi({
           password: params.password,
           phone: params.phone,
           city: params.city,
-          orders: params.orders,
         },
       }),
-      invalidatesTags: () => [
-        {
-          type: "Orders",
-        },
-      ],
     }),
+
     getOrders: builder.query({
       query: ({ id }) => `/orders/${id}`,
     }),
+    changeOrders: builder.query({
+      query: () => ({
+        url: "/orders",
+        method: "POST",
+      }),
+    }),
+
     authAndLogin: builder.mutation({
       query: (params) => ({
         url: `${params.isLogin}`,
@@ -110,6 +113,7 @@ const api = createApi({
         },
       ],
     }),
+
     getStocks: builder.query({
       query: () => "stocks",
     }),
@@ -124,6 +128,7 @@ const api = createApi({
         body: stockData,
       }),
     }),
+
     getSortItems: builder.mutation({
       query: (sortBy) => `/items?_select=title,price,image,id&${sortBy}`,
     }),
@@ -132,6 +137,7 @@ const api = createApi({
 
 export const {
   useGetProductsQuery,
+  useGetAdditionalQuery,
   useGetDataAccountMutation,
   useGetOrdersQuery,
   useAuthAndLoginMutation,

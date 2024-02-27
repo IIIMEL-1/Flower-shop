@@ -1,12 +1,17 @@
 import style from "./Card.module.scss";
 import { Link } from "react-router-dom";
 
-export default function Card({ id, title, image, price, mini }) {
+type CardItemProps = {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+  mini?: boolean;
+};
+
+export default function Card({ id, title, image, price, mini }: CardItemProps) {
   return (
-    <div
-      className={mini ? `${style.product} ${style.active}` : style.product}
-      id={id}
-    >
+    <div className={mini ? `${style.product} ${style.active}` : style.product}>
       <img src={image} alt={title} />
       <div className={style.about}>
         <div className={style.title}>

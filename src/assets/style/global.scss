@@ -70,6 +70,59 @@ body {
     font-family: "Bubblegum Sans", cursive;
     font-size: clamp(18px, 1.7vw, 26px);
     text-transform: uppercase;
+
+    span {
+      color: #6aae55;
+    }
+  }
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 45%;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+
+    background-color: #e0e0e0;
+    border-radius: 4px;
+
+    font-size: 22px;
+    line-height: 1px;
+
+    transition: 0.1s ease-in-out;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &:active {
+      transition: 0s ease-in-out;
+      opacity: 1;
+    }
+
+    &:disabled {
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.3;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .plus {
+    background-color: #6aae55;
+    color: white;
   }
 }
 
@@ -116,6 +169,41 @@ button:disabled {
 .sectionBack {
   background-color: var(--background-section);
   margin-top: var(--nav-menu-height);
+}
+
+.sectionWhite {
+  position: relative;
+
+  padding-bottom: 50px;
+
+  background-color: var(--background-white);
+
+  &::after,
+  &::before {
+    position: absolute;
+    top: -10%;
+
+    height: 110%;
+    width: 300px;
+  }
+
+  &::after {
+    content: "";
+
+    background: url(/public/static/images/five_step_right.png) no-repeat right
+      center / contain;
+
+    right: 0;
+  }
+
+  &::before {
+    content: "";
+
+    background: url(/public/static/images/five_step_left.png) no-repeat left
+      center / contain;
+
+    left: 0;
+  }
 }
 
 input[type="text"],

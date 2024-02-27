@@ -43,8 +43,8 @@ export default function Authorization({
             <img
               src={
                 inputType === "password"
-                  ? "/public/static/images/hidden_eye.svg"
-                  : "/public/static/images/eye_visible.svg"
+                  ? "public/static/images/hidden_eye.svg"
+                  : "public/static/images/eye_visible.svg"
               }
             />
           }

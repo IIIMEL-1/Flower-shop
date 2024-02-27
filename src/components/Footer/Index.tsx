@@ -99,7 +99,7 @@ export default function Footer() {
                 <div className={style.askAQuestion}>
                   <textarea
                     maxLength={300}
-                    onInput={(e) => setLetter(e.target.value.length)}
+                    onChange={(e) => setLetter(e.target.value.length)}
                   />
                   <div className={style.counter}>{letter}/300</div>
                 </div>

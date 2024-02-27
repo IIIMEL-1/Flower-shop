@@ -1,21 +1,23 @@
 import style from "./Sort.module.scss";
 
 import Skeleton from "./Skeleton.jsx";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback, memo } from "react";
 import { useGetSortDataQuery } from "../../../../redux/slices/createApi.js";
 import SortCheckbox from "./SortCheckbox/Index.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { clearData, parseData } from "../../../../redux/slices/sortSlice.js";
 
-export default function Sort({ setSearch }) {
+function Sort() {
   const dispatch = useDispatch();
+
+  console.log("render-sort");
 
   const sortList = useSelector((state) => state.sortSlice.data);
   const sortParse = useSelector((state) => state.sortSlice.dataParse);
 
   const [result, setResult] = useState(false);
 
-  const countAndMap = (arr, keys) => {
+  const countAndMap = useCallback((arr, keys) => {
     const counts = keys.reduce((acc, key) => {
       acc[key] = arr.reduce((countAcc, item) => {
         const value = item[key];
@@ -31,14 +33,13 @@ export default function Sort({ setSearch }) {
     }, {});
 
     return arrays;
-  };
+  }, []);
 
   const { data, isLoading, error } = useGetSortDataQuery();
 
   const sortListMemoize = useMemo(() => {
     if (data) {
-      const result = countAndMap(data, ["flower", "color", "packing"]);
-      setResult(result);
+      return setResult(countAndMap(data, ["flower", "color", "packing"]));
     }
   }, [data]);
 
@@ -59,11 +60,7 @@ export default function Sort({ setSearch }) {
       ) : result ? (
         <section id={style.sort}>
           <div className={style.searchBlock}>
-            <input
-              type="text"
-              placeholder="Поиск"
-              onInput={(el) => setSearch(el.target.value)}
-            />
+            <input type="text" placeholder="Поиск" />
           </div>
           <SortCheckbox
             sortBy={result.flower}
@@ -105,3 +102,5 @@ export default function Sort({ setSearch }) {
     </>
   );
 }
+
+export default memo(Sort);

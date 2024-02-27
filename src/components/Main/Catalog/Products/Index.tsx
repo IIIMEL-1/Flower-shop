@@ -6,11 +6,12 @@ import { useGetProductsQuery } from "../../../../redux/slices/createApi.js";
 import { useSelector } from "react-redux";
 import PageList from "../../../PageList/Index.jsx";
 
-export default function Index() {
+export default function Products() {
   const sortList = useSelector((state) => state.sortSlice.dataParse);
 
-  const [sortBy, setSortBy] = useState("title");
+  console.log("render-relative");
 
+  const [sortBy, setSortBy] = useState("title");
   const [isActive, setIsActive] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [isOpen, setIsOpen] = useState(false);

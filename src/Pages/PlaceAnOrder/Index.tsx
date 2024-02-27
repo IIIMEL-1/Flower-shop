@@ -183,8 +183,8 @@ export default function OrderRegistration() {
                 </label>
               </div>
               <div>
-                <input id="paymentСourier" name="payment" type="radio" />
-                <label htmlFor="paymentСourier">
+                <input id="paymentCourier" name="payment" type="radio" />
+                <label htmlFor="paymentCourier">
                   Оплата наличными курьеру (только, если получатель — Вы)
                 </label>
               </div>

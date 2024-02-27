@@ -2,7 +2,7 @@ import style from "./Order.module.scss";
 
 export default function Order() {
   return (
-    <section id="order">
+    <section className="sectionWhite">
       <div className="container">
         <div className={style.orderLogo}>
           <p>
