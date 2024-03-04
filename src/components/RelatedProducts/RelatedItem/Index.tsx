@@ -3,7 +3,7 @@ import style from "./RelatedItem.module.scss";
 import { addItem } from "../../../redux/slices/addToCartSlice";
 import { useDispatch } from "react-redux";
 
-type RelatedItemProps = {
+type TypeRelatedItemProps = {
   id: number;
   title: string;
   image: string;
@@ -15,7 +15,7 @@ export default function RelatedItem({
   title,
   image,
   price,
-}: RelatedItemProps) {
+}: TypeRelatedItemProps) {
   const [count, setCount] = useState(1);
 
   const dispatch = useDispatch();

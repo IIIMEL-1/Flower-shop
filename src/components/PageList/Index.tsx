@@ -1,6 +1,6 @@
 import style from "./PageList.module.scss";
 
-type PageListProps = {
+type TypePageListProps = {
   isLoading: boolean;
   error?: {};
   data: { meta: { total_pages: number }; items: number[] };
@@ -12,7 +12,7 @@ export default function PageList({
   error,
   data,
   state: { currentPage, setCurrentPage },
-}: PageListProps) {
+}: TypePageListProps) {
   return (
     <div className={style.pageList}>
       {isLoading ? (

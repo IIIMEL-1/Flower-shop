@@ -18,19 +18,12 @@ header {
     var(--background-white);
   background-size: clamp(60px, 10vw, 90px);
 
-  input[type="checkbox"] + label {
+  .burgerMenu {
     display: none;
     position: absolute;
 
     left: 15px;
     top: calc(var(--nav-menu-height) - 50% - 20px);
-
-    padding: 0;
-
-    &::before,
-    &::after {
-      content: none !important;
-    }
   }
 
   .navbar {
@@ -46,10 +39,6 @@ header {
 
       transition: 0.1s ease-in-out;
 
-      a:hover {
-        transform: scale(1.05);
-      }
-
       a:last-child {
         gap: 0;
       }
@@ -59,6 +48,12 @@ header {
 
         p {
           margin-left: 9px;
+        }
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        a:hover {
+          transform: scale(1.05);
         }
       }
     }
@@ -77,11 +72,11 @@ header {
   }
 
   @media (max-width: 1080px) {
-    input[type="checkbox"] + label {
+    .burgerMenu {
       display: flex;
     }
 
-    input[type="checkbox"]:checked ~ .navbar {
+    .burgerMenu.active ~ nav {
       transform: translateX(0%);
     }
 

@@ -5,7 +5,7 @@ import ProductItem from "./RelatedItem/Index";
 import PageList from "../PageList/Index";
 import { useGetAdditionalQuery } from "../../redux/slices/createApi";
 
-type RelatedItemProps = {
+type TypeRelatedItemProps = {
   id: number;
   title: string;
   image: string;
@@ -29,7 +29,7 @@ export default function RelatedProducts() {
         </div>
         <div className={style.relatedProductsList}>
           {data ? (
-            data.items.map((el: RelatedItemProps) => (
+            data.items.map((el: TypeRelatedItemProps) => (
               <ProductItem
                 key={el.id}
                 id={el.id}
