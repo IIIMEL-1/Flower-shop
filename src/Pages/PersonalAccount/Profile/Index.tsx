@@ -18,7 +18,7 @@ export default function Profile() {
     dispatch(logoutUser());
   };
 
-  const getDiscountPercentage = (percent) => {
+  const getDiscountPercentage = (percent: number) => {
     if (percent < 25) return 0;
     if (percent < 65) return 3;
     if (percent < 100) return 5;

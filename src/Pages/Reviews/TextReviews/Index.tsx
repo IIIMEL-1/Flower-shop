@@ -14,13 +14,9 @@ export default function TextReviews() {
   const userDetails = useSelector((state) => state.authSlice.userDetails);
 
   const [currentPage, setCurrentPage] = useState(1);
-
   const [review, setReview] = useState("");
-
   const [estimation, setEstimation] = useState(5);
-
   const { isLoading, error, data } = useGetReviewsQuery({ currentPage });
-
   const [addReview, { status }] = useAddReviewMutation();
 
   function getCurrentTime() {
@@ -90,17 +86,6 @@ export default function TextReviews() {
         </div>
 
         <div className={style.leaveReview}>
-          {status === "pending" ? (
-            <Modal />
-          ) : status === "fulfilled" ? (
-            <Modal
-              img={"/static/images/party-popper.webp"}
-              text={"Отзыв успешно отправлен!"}
-              buttonText={"Закрыть"}
-            />
-          ) : (
-            ""
-          )}
           {userDetails === null ? (
             <div>
               <p>Зарегистрируйтесь чтобы оставить отзыв</p>

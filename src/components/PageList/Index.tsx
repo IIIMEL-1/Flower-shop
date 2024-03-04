@@ -1,11 +1,18 @@
 import style from "./PageList.module.scss";
 
+type PageListProps = {
+  isLoading: boolean;
+  error?: {};
+  data: { meta: { total_pages: number }; items: number[] };
+  state: { currentPage: number; setCurrentPage: (i: number) => void };
+};
+
 export default function PageList({
   isLoading,
   error,
   data,
   state: { currentPage, setCurrentPage },
-}) {
+}: PageListProps) {
   return (
     <div className={style.pageList}>
       {isLoading ? (
@@ -17,7 +24,7 @@ export default function PageList({
           <p>Ошибка</p>
         </div>
       ) : (
-        [...new Array(data.meta.total_pages)].map((_, i) => (
+        [...new Array(data.meta?.total_pages)].map((_, i) => (
           <button
             key={i}
             className={currentPage == i + 1 ? `${style.active}` : ""}

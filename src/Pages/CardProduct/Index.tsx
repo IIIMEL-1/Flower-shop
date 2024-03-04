@@ -9,9 +9,24 @@ import { Link } from "react-router-dom";
 
 import RelatedProducts from "/src/components/RelatedProducts/Index";
 
+type TypeProduct = {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+  description: [
+    {
+      price: number;
+      size: string;
+      content: string[];
+    }
+  ];
+  count: number;
+};
+
 export default function CardProduct() {
-  const [product, setProduct] = useState(null);
-  const [images, setImages] = useState([]);
+  const [product, setProduct] = useState<TypeProduct | null>(null);
+  const [images, setImages] = useState([""]);
   const [currentImg, setCurrentImg] = useState(0);
   const [size, setSize] = useState(0);
   const [count, setCount] = useState(1);
@@ -29,7 +44,7 @@ export default function CardProduct() {
         setProduct({ ...data, count: 1 });
 
         const standardSizeIndex = data.description.findIndex(
-          (el) => el.size === "Стандартный"
+          (el: { size: string }) => el.size === "Стандартный"
         );
         setSize(standardSizeIndex !== -1 ? standardSizeIndex : 0);
 
@@ -57,8 +72,8 @@ export default function CardProduct() {
       id: product.id,
       title: product.title,
       image: product.image,
-      price: product.price,
-      description: product.description[size],
+      size: product.description[size].size,
+      price: product.description[size].price,
       count,
     };
 
@@ -127,6 +142,7 @@ export default function CardProduct() {
                     исходя из наличия в магазине.
                   </li>
                 </ul>
+                <div className={style.gradient}></div>
               </div>
               <div className={style.addToCartBlock}>
                 <div className="counter">

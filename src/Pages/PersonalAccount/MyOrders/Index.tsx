@@ -1,12 +1,16 @@
 import { useSelector } from "react-redux";
-import { useGetOrdersQuery } from "../../../redux/slices/createApi";
 import style from "./MyOrders.module.scss";
 import { Link } from "react-router-dom";
+import { useGetDataAccountMutation } from "../../../redux/slices/createApi";
+import { useEffect, useMemo } from "react";
 
 export default function MyOrders() {
-  const id = useSelector((state) => state.authSlice.userDetails.id);
+  const token = localStorage.getItem("token");
+  const [getData, { data, isLoading, error }] = useGetDataAccountMutation();
 
-  const { data, isLoading, error } = useGetOrdersQuery({ id });
+  useMemo(() => {
+    getData(token);
+  }, []);
 
   return (
     <section id={style.ordersPage}>
@@ -42,12 +46,12 @@ export default function MyOrders() {
                     <div key={i} className={style.flower}>
                       <div className={style.title}>
                         <p>{el.title}</p>
-                        <span>({el.description.size})</span>
+                        <span>({el.size})</span>
                       </div>
 
                       <div>
                         <span>x{el.count}</span>
-                        <p>{el.description.price.toLocaleString()} руб.</p>
+                        <p>{el.price.toLocaleString()} руб.</p>
                       </div>
                     </div>
                   ))}
@@ -70,6 +74,7 @@ export default function MyOrders() {
             <p>Вы ничего не заказывали</p>
           </div>
         )}
+        <div className={style.gradient}></div>
       </div>
     </section>
   );

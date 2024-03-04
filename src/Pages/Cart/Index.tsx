@@ -2,7 +2,7 @@ import style from "./Cart.module.scss";
 
 import CartItem from "./CartItem/Index";
 
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
@@ -36,7 +36,8 @@ export default function Cart() {
                     id={el.id}
                     title={el.title}
                     image={el.image}
-                    description={el.description}
+                    size={el.size}
+                    price={el.price}
                     count={el.count}
                   />
                 ))

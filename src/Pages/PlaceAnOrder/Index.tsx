@@ -1,12 +1,15 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useChangeDataMutation } from "../../redux/slices/createApi";
 import style from "./PlaceAnOrder.module.scss";
+import { clearCart } from "../../redux/slices/addToCartSlice";
 
 export default function OrderRegistration() {
   const items = useSelector((state) => state.addToCartSlice.items);
   const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
   const { orders, id } = useSelector((state) => state.authSlice.userDetails);
+
+  const dispatch = useDispatch();
 
   const currentDate = new Date()
     .toLocaleDateString("en-US", { timeZone: "Asia/Bangkok" })
@@ -21,8 +24,24 @@ export default function OrderRegistration() {
 
   const orderNumber = generateOrderNumber();
 
+  type TypeListItems = {
+    title: string;
+    count: number;
+    size: string;
+    price: number;
+  };
+
+  const listItems = items.map(
+    ({ title, count, size, price }: TypeListItems) => ({
+      title,
+      count,
+      size,
+      price,
+    })
+  );
+
   const order = {
-    items,
+    items: listItems,
     date: currentDate,
     orderNumber,
     totalPrice,
@@ -34,7 +53,10 @@ export default function OrderRegistration() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+
     createOrder({ orders: [...orders, order], id });
+
+    dispatch(clearCart());
   };
 
   return (

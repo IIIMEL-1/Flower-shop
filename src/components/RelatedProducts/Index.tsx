@@ -5,6 +5,13 @@ import ProductItem from "./RelatedItem/Index";
 import PageList from "../PageList/Index";
 import { useGetAdditionalQuery } from "../../redux/slices/createApi";
 
+type RelatedItemProps = {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+};
+
 export default function RelatedProducts() {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -22,7 +29,7 @@ export default function RelatedProducts() {
         </div>
         <div className={style.relatedProductsList}>
           {data ? (
-            data.items.map((el) => (
+            data.items.map((el: RelatedItemProps) => (
               <ProductItem
                 key={el.id}
                 id={el.id}
@@ -34,13 +41,13 @@ export default function RelatedProducts() {
           ) : (
             <p>loading</p>
           )}
-          <PageList
-            isLoading={isLoading}
-            error={error}
-            data={data}
-            state={{ currentPage, setCurrentPage }}
-          />
         </div>
+        <PageList
+          isLoading={isLoading}
+          error={error}
+          data={data}
+          state={{ currentPage, setCurrentPage }}
+        />
       </div>
     </section>
   );

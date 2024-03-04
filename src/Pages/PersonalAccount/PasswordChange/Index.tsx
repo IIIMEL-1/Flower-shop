@@ -2,13 +2,25 @@ import { useState } from "react";
 import style from "./PasswordChange.module.scss";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useChangeDataMutation } from "../../../redux/slices/createApi";
+import { log } from "console";
 
 export default function PasswordChange() {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [repeatNewPassword, setRepeatNewPassword] = useState("");
 
-  const { password } = useSelector((state) => state.authSlice.userDetails);
+  const { password, id } = useSelector((state) => state.authSlice.userDetails);
+
+  const [changePassword, { data, isLoading, status }] = useChangeDataMutation();
+
+  console.log(data);
+
+  const handleChangePassword = (event) => {
+    event.preventDefault();
+
+    changePassword({ id, password: newPassword });
+  };
 
   return (
     <section id={style.passwordPage}>
@@ -46,7 +58,7 @@ export default function PasswordChange() {
           ""
         )}
 
-        <form onClick={(el) => el.preventDefault()} action="#">
+        <form onSubmit={handleChangePassword}>
           <div>
             <h5>Текущий пароль</h5>
             <input
@@ -76,13 +88,11 @@ export default function PasswordChange() {
           </div>
           <button
             disabled={
-              currentPassword === password &&
-              newPassword.length >= 6 &&
-              newPassword === repeatNewPassword
+              /* currentPassword === password && */
+              newPassword.length >= 6 && newPassword === repeatNewPassword
                 ? false
                 : true
             }
-            /* onClick={() => dispatch(fetchData({ id, password: newPassword }))} */
             className="sendForm"
           >
             Сохранить

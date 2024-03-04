@@ -1,5 +1,15 @@
 import style from "./TextReview.module.scss";
 
+type TextReviewProps = {
+  id: number;
+  name: string;
+  date: string;
+  time:  string;
+  city: string;
+  estimation: number;
+  review: string;
+};
+
 export default function TextReview({
   id,
   name,
@@ -8,7 +18,7 @@ export default function TextReview({
   city,
   estimation,
   review,
-}) {
+}: TextReviewProps) {
   return (
     <div key={id} className={style.review}>
       <div className={style.reviewer}>

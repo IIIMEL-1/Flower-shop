@@ -7,7 +7,23 @@ import {
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-export default function CartItem({ id, title, image, description, count }) {
+type TypeCartItemProps = {
+  id: number;
+  title: string;
+  image: string;
+  size: string;
+  price: number;
+  count: number;
+};
+
+export default function CartItem({
+  id,
+  title,
+  image,
+  size,
+  price,
+  count,
+}: TypeCartItemProps) {
   const dispatch = useDispatch();
 
   return (
@@ -17,13 +33,12 @@ export default function CartItem({ id, title, image, description, count }) {
         <div className={style.title}>
           <Link to={`/flower/${id}`}>{title}</Link>
           <div>
-            <span>{description.size}</span>{" "}
-            <span>({description.price} руб.)</span>
+            <span>{size}</span> <span>({price} руб.)</span>
           </div>
         </div>
         <div
           className={style.removeBtn}
-          onClick={() => dispatch(removeItem({ id, description }))}
+          onClick={() => dispatch(removeItem({ id, size }))}
         >
           <svg
             width="13"
@@ -45,7 +60,7 @@ export default function CartItem({ id, title, image, description, count }) {
         <div className={style.counter}>
           <button
             className={style.minus}
-            onClick={() => dispatch(minusItem({ id, description }))}
+            onClick={() => dispatch(minusItem({ id, size, price }))}
             disabled={count < 2 ? true : false}
           >
             <svg
@@ -61,7 +76,7 @@ export default function CartItem({ id, title, image, description, count }) {
           <p>{count} шт.</p>
           <button
             className={style.plus}
-            onClick={() => dispatch(addItem({ id, description, count: 1 }))}
+            onClick={() => dispatch(addItem({ id, size, price, count: 1 }))}
           >
             <svg
               width="9"
@@ -81,7 +96,7 @@ export default function CartItem({ id, title, image, description, count }) {
         </div>
         <div className={style.price}>
           <span>Сумма</span>
-          <p>{(description.price * count).toLocaleString()} руб.</p>
+          <p>{(price * count).toLocaleString()} руб.</p>
         </div>
       </div>
     </div>

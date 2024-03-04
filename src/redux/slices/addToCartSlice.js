@@ -9,10 +9,7 @@ export const addToCartSlice = createSlice({
   reducers: {
     addItem(state, { payload }) {
       const findItem = state.items.find((obj) => {
-        return (
-          obj.id === payload.id &&
-          obj.description.size === payload.description.size
-        );
+        return obj.id === payload.id && obj.size === payload.size;
       });
 
       findItem
@@ -25,42 +22,37 @@ export const addToCartSlice = createSlice({
           });
 
       state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.description.price * obj.count + sum;
+        return obj.price * obj.count + sum;
       }, 0);
     },
 
     minusItem(state, { payload }) {
       const findItem = state.items.find((obj) => {
-        return (
-          obj.id === payload.id &&
-          obj.description.size === payload.description.size
-        );
+        return obj.id === payload.id && obj.size === payload.size;
       });
 
       findItem.count < 2 ? "" : findItem.count--;
-      state.totalPrice -= findItem.description.price;
+      state.totalPrice -= findItem.price;
     },
 
     removeItem(state, { payload }) {
       state.items = state.items.filter((obj) => {
-        return (
-          obj.id !== payload.id ||
-          obj.description.size !== payload.description.size
-        );
+        return obj.id !== payload.id || obj.size !== payload.size;
       });
 
       state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.description.price * obj.count + sum;
+        return obj.price * obj.count + sum;
       }, 0);
     },
 
-    /*     clearCart(state) {
+    clearCart(state) {
       state.items = [];
       state.totalPrice = 0;
-    }, */
+    },
   },
 });
 
-export const { addItem, minusItem, removeItem } = addToCartSlice.actions;
+export const { addItem, minusItem, removeItem, clearCart } =
+  addToCartSlice.actions;
 
 export default addToCartSlice.reducer;

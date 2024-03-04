@@ -26,6 +26,11 @@ const api = createApi({
           Authorization: `Bearer ${token}`,
         },
       }),
+      providesTags: () => [
+        {
+          type: "Orders",
+        },
+      ],
     }),
     changeData: builder.mutation({
       query: (params) => ({
@@ -41,18 +46,14 @@ const api = createApi({
           password: params.password,
           phone: params.phone,
           city: params.city,
+          orders: params.orders,
         },
       }),
-    }),
-
-    getOrders: builder.query({
-      query: ({ id }) => `/orders/${id}`,
-    }),
-    changeOrders: builder.query({
-      query: () => ({
-        url: "/orders",
-        method: "POST",
-      }),
+      invalidatesTags: () => [
+        {
+          type: "Orders",
+        },
+      ],
     }),
 
     authAndLogin: builder.mutation({
@@ -139,7 +140,6 @@ export const {
   useGetProductsQuery,
   useGetAdditionalQuery,
   useGetDataAccountMutation,
-  useGetOrdersQuery,
   useAuthAndLoginMutation,
   useChangeDataMutation,
   useGetReviewsQuery,

@@ -3,7 +3,19 @@ import style from "./RelatedItem.module.scss";
 import { addItem } from "../../../redux/slices/addToCartSlice";
 import { useDispatch } from "react-redux";
 
-export default function RelatedItem({ id, title, image, price }) {
+type RelatedItemProps = {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+};
+
+export default function RelatedItem({
+  id,
+  title,
+  image,
+  price,
+}: RelatedItemProps) {
   const [count, setCount] = useState(1);
 
   const dispatch = useDispatch();

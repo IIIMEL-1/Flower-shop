@@ -6,7 +6,7 @@ export default function Order() {
       <div className="container">
         <div className={style.orderLogo}>
           <p>
-            <span>заказать</span> в 5 шагов
+            <span>заказать</span> в 4 шага
           </p>
         </div>
         <div className={style.orderBlock}>
