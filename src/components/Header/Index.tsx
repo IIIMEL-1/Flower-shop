@@ -34,7 +34,7 @@ export default function Header() {
 
   useEffect(() => {
     setIsActive(false);
-  }, [locate.pathname]);
+  }, [locate.key]);
 
   return (
     <div className="container">
