@@ -11,7 +11,8 @@ export default function Header() {
   const totalCount = items.reduce((sum, obj) => sum + obj.count, 0);
   const token = localStorage.getItem("token");
 
-  const [isActive, setIsActive] = useState(false);
+  const [menuIsActive, setMenuIsActive] = useState(false);
+  const [infoIsActive, setInfoIsActive] = useState(false);
 
   const [getDataUser] = useGetDataAccountMutation();
 
@@ -33,16 +34,19 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    setIsActive(false);
+    setMenuIsActive(false);
+    setInfoIsActive(false);
   }, [locate.key]);
 
   return (
     <div className="container">
       <menu
         className={
-          isActive ? style.burgerMenu + " " + style.active : style.burgerMenu
+          menuIsActive
+            ? style.burgerMenu + " " + style.active
+            : style.burgerMenu
         }
-        onClick={(el) => setIsActive(!isActive)}
+        onClick={(el) => setMenuIsActive(!menuIsActive)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +66,34 @@ export default function Header() {
           <Link to={"/Contacts"}>контакты</Link>
         </div>
         <div>
-          <button>информация для клиента</button>
+          <div
+            className={
+              infoIsActive
+                ? style.infoForClient + " " + style.active
+                : style.infoForClient
+            }
+          >
+            <div onClick={(el) => setInfoIsActive(!infoIsActive)}>
+              информация для клиента
+            </div>
+            <ul>
+              <li>
+                <Link to={"/"}>Оформление заказа</Link>
+              </li>
+              <li>
+                <Link to={"/Questions"}>Вопросы и ответы</Link>
+              </li>
+              <li>
+                <Link to={"/"}>Изменение или отмена заказа</Link>
+              </li>
+              <li>
+                <Link to={"/"}>Способы доставки и оплаты</Link>
+              </li>
+              <li>
+                <Link to={"/"}>Оферта</Link>
+              </li>
+            </ul>
+          </div>
           <Link className={style.profile} to={"/PersonalAccount/Profile"}>
             <img src="/static/images/Profile-icon.svg" alt="profile" />
           </Link>
