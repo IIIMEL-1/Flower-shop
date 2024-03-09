@@ -36,6 +36,7 @@ export default function Header() {
   useEffect(() => {
     setMenuIsActive(false);
     setInfoIsActive(false);
+    document.body.style.overflowY = "auto";
   }, [locate.key]);
 
   return (
@@ -46,7 +47,12 @@ export default function Header() {
             ? style.burgerMenu + " " + style.active
             : style.burgerMenu
         }
-        onClick={(el) => setMenuIsActive(!menuIsActive)}
+        onClick={(el) => (
+          setMenuIsActive(!menuIsActive),
+          menuIsActive
+            ? (document.body.style.overflowY = "auto")
+            : (document.body.style.overflowY = "hidden")
+        )}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +82,7 @@ export default function Header() {
             <div onClick={(el) => setInfoIsActive(!infoIsActive)}>
               информация для клиента
             </div>
-            <ul>
+            <ul className={style.infoList}>
               <li>
                 <Link to={"/"}>Оформление заказа</Link>
               </li>
