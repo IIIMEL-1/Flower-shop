@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const api = createApi({
   reducerPath: "api",
-  tagTypes: ["Orders", "Reviews"],
+  tagTypes: ["Orders", "Reviews", "PhotoReviews"],
   baseQuery: fetchBaseQuery({ baseUrl: "https://b6c487f79077af26.mokky.dev/" }),
   endpoints: (builder) => ({
     getProducts: builder.query({
@@ -115,6 +115,46 @@ const api = createApi({
       ],
     }),
 
+    getPhotoReviews: builder.query({
+      query: ({ currentPage }) => ({
+        url: `photoReviews?limit=5&page=${currentPage}&sortBy=-id`,
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }),
+      providesTags: () => [
+        {
+          type: "PhotoReviews",
+        },
+      ],
+    }),
+    addPhotoReview: builder.mutation({
+      query: (params) => ({
+        url: `photoReviews`,
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: {
+          date: params.date,
+          time: params.time,
+          name: params.name,
+          email: params.email,
+          city: params.city,
+          review: params.review,
+          estimation: params.estimation,
+        },
+      }),
+      invalidatesTags: () => [
+        {
+          type: "PhotoReviews",
+        },
+      ],
+    }),
+
     getStocks: builder.query({
       query: () => "stocks",
     }),
@@ -148,6 +188,7 @@ export const {
   useGetStocksQuery,
   useAddStockMutation,
   useGetSortItemsMutation,
+  useGetPhotoReviewsQuery,
 } = api;
 
 export const { reducer: apiReducer, middleware: apiMiddleware } = api;

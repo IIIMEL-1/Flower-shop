@@ -19,71 +19,11 @@
     }
   }
 
-  .leaveReview {
-    display: flex;
-    flex-direction: column;
-    gap: 20px 0;
-
-    > div:last-child {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px 0;
-
-      text-align: center;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    form {
-      textarea {
-        margin-bottom: 20px;
-
-        width: 100%;
-        height: 100px;
-      }
-    }
-
-    .sendReviews {
-      display: flex;
-      justify-content: center;
-      gap: 30px 40px;
-      align-items: center;
-      flex-wrap: wrap;
-
-      > div {
-        display: flex;
-        align-items: center;
-
-        p {
-          font-weight: bold;
-          font-size: 17px;
-
-          margin-right: 15px;
-        }
-
-        > div {
-          display: flex;
-          gap: 0 4px;
-
-          cursor: pointer;
-        }
-      }
-    }
-  }
-
   @media (max-width: 500px) {
     .reviewer {
       flex-direction: column;
       align-items: start !important;
       gap: 10px;
-    }
-
-    .sendReviews {
-      > div {
-        flex-direction: column;
-        gap: 10px 0;
-      }
     }
   }
 }

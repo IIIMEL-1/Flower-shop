@@ -67,12 +67,15 @@ header {
         align-items: center;
 
         > div {
+          z-index: 10;
           cursor: pointer;
         }
 
         .infoList {
           opacity: 0;
           visibility: hidden;
+
+          z-index: 5;
 
           position: absolute;
           transform: translateY(-20px);
@@ -85,14 +88,22 @@ header {
 
           transition: 0.15s ease-in-out;
 
-          a {
-            display: flex;
+          li {
+            border-top: 1px solid #5b4a5850;
 
-            width: 100%;
-            padding: 8px 10px;
+            &:first-child {
+              border-top: none;
+            }
 
-            font-size: 14px;
-            transform: none;
+            a {
+              display: flex;
+
+              width: 100%;
+              padding: 8px 10px;
+
+              font-size: 14px;
+              transform: none;
+            }
           }
         }
 
@@ -147,6 +158,8 @@ header {
       justify-content: flex-start;
       gap: 0;
 
+      padding-bottom: 65px;
+
       width: 100%;
       height: calc(100.5dvh - var(--nav-menu-height));
 
@@ -176,6 +189,10 @@ header {
       }
 
       .infoForClient {
+        position: static !important;
+
+        height: 100%;
+
         align-items: start !important;
 
         padding: 0;
@@ -183,18 +200,30 @@ header {
         > div {
           width: inherit;
           padding: 20px !important;
+
+          background-color: white;
         }
 
         .infoList {
           width: 100% !important;
           height: 0%;
+
+          li {
+            &:first-child {
+              border-top: 1px solid #5b4a5850 !important;
+            }
+
+            a {
+              padding-left: 30px !important;
+            }
+          }
         }
 
         &.active {
-          height: 100%;
+          height: 235px;
 
           .infoList {
-            height: 100%;
+            height: 170px;
             border: none;
             border-radius: 0px;
           }
