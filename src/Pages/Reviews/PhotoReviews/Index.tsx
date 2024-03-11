@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PhotoReview from "./PhotoReview/Index";
 import LeaveReview from "./LeaveReview/Index";
 import style from "./PhotoReviews.module.scss";
@@ -25,6 +25,14 @@ export default function PhotoReviews() {
     useState<TypePhotoReviewProps | null>(null);
 
   const { isLoading, error, data } = useGetPhotoReviewsQuery({ currentPage });
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [isOpen]);
 
   return (
     <section id={style.PhotoReviewsPage}>
