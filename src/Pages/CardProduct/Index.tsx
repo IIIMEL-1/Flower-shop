@@ -49,9 +49,7 @@ export default function CardProduct() {
         setSize(standardSizeIndex !== -1 ? standardSizeIndex : 0);
 
         setImages([data.image, ...data.images]);
-      } catch (error) {
-        console.error(`${error.status} ${error.data.message}`);
-      }
+      } catch (error) {}
     }
 
     fetchFlowers();

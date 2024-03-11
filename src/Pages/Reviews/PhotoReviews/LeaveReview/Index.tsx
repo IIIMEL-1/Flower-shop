@@ -2,17 +2,19 @@ import style from "./LeaveReview.module.scss";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useAddPhotoReviewMutation } from "../../../../redux/slices/createApi";
 
 export default function LeaveReview() {
   const userDetails = useSelector((state) => state.authSlice.userDetails);
-
+  
   const [review, setReview] = useState("");
   const [estimation, setEstimation] = useState(5);
-  const [responseAPI, setResponseAPI] = useState({});
   const [image, setImage] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
   const API_KEY = "e09f027d77c074c3d63f51a5c811d134";
+
+  const [addPhotoReview, { isLoading, error }] = useAddPhotoReviewMutation();
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -25,20 +27,9 @@ export default function LeaveReview() {
     reader.readAsDataURL(file);
   };
 
-  const postDataImgBB = async () => {
-    const formData = new FormData();
-    formData.append("key", API_KEY);
-    formData.append("image", image);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    const response = await fetch("https://api.imgbb.com/1/upload", {
-      method: "POST",
-      body: formData,
-    });
-
-    return response.json();
-  };
-
-  async function postDataMokky() {
     function getCurrentTime() {
       const currentDate = new Date();
       const hours = String(currentDate.getHours()).padStart(2, "0");
@@ -52,31 +43,34 @@ export default function LeaveReview() {
 
     const time = getCurrentTime();
 
-    await fetch("https://b6c487f79077af26.mokky.dev/photoReviews", {
+    const formData = new FormData();
+    formData.append("key", API_KEY);
+    formData.append("image", image);
+
+    const response = await fetch("https://api.imgbb.com/1/upload", {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        date,
-        time,
-        name: userDetails.fullName,
-        email: userDetails.email,
-        city: userDetails.city,
-        photoUrl: responseAPI.data.url,
-        review,
-        estimation,
-      }),
-    });
-  }
+      body: formData,
+    }).then((res) =>
+      res.json().then((data) =>
+        addPhotoReview({
+          date,
+          time,
+          name: userDetails.fullName,
+          email: userDetails.email,
+          city: userDetails.city,
+          photoUrl: data.data.url,
+          review,
+          estimation,
+        })
+      )
+    );
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+    setImageUrl("");
+    setImage("");
+    setEstimation(5);
+    setReview("");
 
-    await postDataImgBB();
-
-    await postDataMokky();
+    return response;
   };
 
   return (
@@ -93,7 +87,11 @@ export default function LeaveReview() {
           <div className={style.inputBlock}>
             <label className={style.inputFile}>
               <img src="/public/static/images/download.svg" alt="" />
-              <img className={style.previewPhoto} src={imageUrl} alt="" />
+              <img
+                className={style.previewPhoto}
+                src={imageUrl}
+                style={!imageUrl ? { display: "none" } : { display: "block" }}
+              />
               <p>Загрузить изображение</p>
               <input
                 type="file"
@@ -131,8 +129,12 @@ export default function LeaveReview() {
                 ))}
               </div>
             </div>
-            <button disabled={review ? false : true} className="sendForm">
-              Отправить
+
+            <button
+              disabled={imageUrl && review ? false : true}
+              className="sendForm"
+            >
+              {isLoading ? "Загрузка" : "Отправить"}
             </button>
           </div>
         </form>

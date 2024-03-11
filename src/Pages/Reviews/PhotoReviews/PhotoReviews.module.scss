@@ -4,10 +4,10 @@
     flex-direction: column;
     gap: 20px 0;
 
-    > div {
-      background-color: white;
-      border-radius: 10px;
-      padding: clamp(10px, 3vw, 30px);
+    .photoReviewsList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .loading {

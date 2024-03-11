@@ -117,7 +117,7 @@ const api = createApi({
 
     getPhotoReviews: builder.query({
       query: ({ currentPage }) => ({
-        url: `photoReviews?limit=5&page=${currentPage}&sortBy=-id`,
+        url: `photoReviews?limit=6&page=${currentPage}&sortBy=-id`,
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -144,6 +144,7 @@ const api = createApi({
           name: params.name,
           email: params.email,
           city: params.city,
+          photoUrl: params.photoUrl,
           review: params.review,
           estimation: params.estimation,
         },
@@ -189,6 +190,7 @@ export const {
   useAddStockMutation,
   useGetSortItemsMutation,
   useGetPhotoReviewsQuery,
+  useAddPhotoReviewMutation,
 } = api;
 
 export const { reducer: apiReducer, middleware: apiMiddleware } = api;
