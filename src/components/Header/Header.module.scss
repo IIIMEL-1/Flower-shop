@@ -244,19 +244,13 @@ header {
       }
 
       .profile {
-        position: absolute;
-        bottom: 0;
-        left: 0;
+        img {
+          display: none;
+        }
 
-        display: flex;
-        justify-content: center;
-
-        height: 60px;
-
-        padding: 15px !important;
-
-        background-color: #f6f6f6;
-        border-top: 1px solid #5b4a580c;
+        &::after {
+          content: "ПРОФИЛЬ";
+        }
       }
     }
   }
