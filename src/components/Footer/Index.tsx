@@ -6,7 +6,7 @@ export default function Footer() {
   const [letter, setLetter] = useState(0);
 
   return (
-    <>
+    <footer>
       <section className={style.navFooter}>
         <div className="container">
           <ul className={style.navRowFooter}>
@@ -114,6 +114,6 @@ export default function Footer() {
           <p>© 2019 Цветочная лавка.</p>
         </div>
       </section>
-    </>
+    </footer>
   );
 }

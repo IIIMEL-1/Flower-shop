@@ -4,6 +4,13 @@ import { useChangeDataMutation } from "../../redux/slices/createApi";
 import style from "./PlaceAnOrder.module.scss";
 import { clearCart } from "../../redux/slices/addToCartSlice";
 
+type TypeListItems = {
+  title: string;
+  count: number;
+  size: string;
+  price: number;
+};
+
 export default function OrderRegistration() {
   const items = useSelector((state) => state.addToCartSlice.items);
   const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
@@ -23,13 +30,6 @@ export default function OrderRegistration() {
   }
 
   const orderNumber = generateOrderNumber();
-
-  type TypeListItems = {
-    title: string;
-    count: number;
-    size: string;
-    price: number;
-  };
 
   const listItems = items.map(
     ({ title, count, size, price }: TypeListItems) => ({

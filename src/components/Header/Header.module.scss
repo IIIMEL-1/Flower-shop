@@ -14,8 +14,9 @@ header {
 
   border-bottom: 1px solid #e0e0e0;
 
-  background: url(/public/static/images/logo.svg) no-repeat center center
-    var(--background-white);
+  background: url(/public/static/images/logo.svg) no-repeat center center;
+  background-color: var(--background-white);
+
   background-size: clamp(60px, 10vw, 90px);
 
   .burgerMenu {
@@ -28,6 +29,7 @@ header {
 
   .navbar {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 140px;
 
@@ -37,22 +39,28 @@ header {
 
       > a,
       .infoForClient div {
-        padding: calc(var(--nav-menu-height) - 55px) 20px;
+        display: flex;
+        align-items: center;
+
+        height: var(--nav-menu-height);
+
+        padding: 0 20px;
+
         transition: 0.1s ease-in-out;
 
-        &:first-child {
+        /*   &:first-child {
           padding-left: 0px;
         }
         &:last-child {
           padding-right: 0px;
-        }
+        } */
       }
 
       .cart {
         display: flex;
         align-items: center;
 
-        width: 110px;
+        width: 90px;
 
         p {
           margin-left: 9px;
@@ -83,13 +91,12 @@ header {
           width: 320px;
 
           border: 1px solid #e0e0e0;
-          border-radius: 5px;
           background-color: white;
 
           transition: 0.15s ease-in-out;
 
           li {
-            border-top: 1px solid #5b4a5850;
+            border-top: 1px solid #5b4a582e;
 
             &:first-child {
               border-top: none;
@@ -103,6 +110,12 @@ header {
 
               font-size: 14px;
               transform: none;
+
+              transition: 0.1s ease-in-out;
+
+              &:hover {
+                background-color: rgb(245, 245, 245);
+              }
             }
           }
         }
@@ -172,6 +185,8 @@ header {
         display: flex;
         flex-direction: column;
         align-items: start;
+
+        width: 100%;
 
         > a,
         > div {
@@ -249,7 +264,7 @@ header {
         }
 
         &::after {
-          content: "ПРОФИЛЬ";
+          content: "профиль";
         }
       }
     }

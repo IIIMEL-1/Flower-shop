@@ -13,6 +13,7 @@ type TypePhotoReviewProps = {
   date: string;
   time: string;
   city: string;
+  email: string;
   photoUrl: string;
   estimation: number;
   review: string;
@@ -46,6 +47,8 @@ export default function PhotoReviews() {
         <div className={style.photoReviewsList}>
           {isLoading ? (
             <p className={style.loading}>Загрузка...</p>
+          ) : error ? (
+            <p className={style.loading}>Ошибка</p>
           ) : (
             data.items.map((el) => (
               <PhotoReview
@@ -75,7 +78,6 @@ export default function PhotoReviews() {
         {isOpen && (
           <OpenPhotoReview setIsOpen={setIsOpen} data={dataPhotoReview} />
         )}
-
         <LeaveReview />
       </div>
     </section>

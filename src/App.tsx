@@ -1,4 +1,3 @@
-import React from "react";
 import "./reset.css";
 import Header from "./components/Header/Index";
 import Footer from "./components/Footer/Index";
@@ -9,6 +8,7 @@ import PageError from "./Pages/Error/Index";
 import PageCart from "./Pages/Cart/Index";
 import PagePlaceAnOrder from "./Pages/PlaceAnOrder/Index";
 import PageQuestion from "./Pages/Questions/Index";
+import PagePaymentMethods from "./Pages/PaymentMethods/Index";
 import PageLogin from "./Pages/Login/Index";
 import PageContacts from "./Pages/Contacts/Index";
 import PageCardProduct from "./Pages/CardProduct/Index";
@@ -40,15 +40,11 @@ export default function Index() {
 
   return (
     <Provider store={store}>
-      <header>
-        <Header />
-      </header>
+      <Header />
       <main>
         <Outlet />
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </Provider>
   );
 }
@@ -64,6 +60,7 @@ export const router = createBrowserRouter([
       },
 
       { path: "/Questions", element: <PageQuestion /> },
+      { path: "/PaymentMethods", element: <PagePaymentMethods /> },
       { path: "/Cart", element: <PageCart /> },
       { path: "/PlaceAnOrder", element: <PagePlaceAnOrder /> },
       { path: "/Login", element: <PageLogin /> },

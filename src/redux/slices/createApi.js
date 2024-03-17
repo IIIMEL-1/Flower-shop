@@ -9,6 +9,9 @@ const api = createApi({
       query: ({ currentPage, sortBy, sortList }) =>
         `items?_select=title,price,image,id&limit=6&page=${currentPage}&sortBy=${sortBy}&${sortList}`,
     }),
+    getProductById: builder.query({
+      query: ({ id }) => `items/${id}`,
+    }),
 
     getAdditional: builder.query({
       query: ({ currentPage }) =>
@@ -191,6 +194,7 @@ export const {
   useGetSortItemsMutation,
   useGetPhotoReviewsQuery,
   useAddPhotoReviewMutation,
+  useGetProductByIdQuery,
 } = api;
 
 export const { reducer: apiReducer, middleware: apiMiddleware } = api;

@@ -22,6 +22,8 @@ export default function Stocks() {
             <div className={style.error}>
               <p>Загрузка...</p>
             </div>
+          ) : error ? (
+            <p className={style.error}>Ошибка</p>
           ) : data.length ? (
             data.map((el) => (
               <Stock

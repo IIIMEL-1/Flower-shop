@@ -22,6 +22,8 @@ export default function TextReviews() {
         <div className={style.reviewsList}>
           {isLoading ? (
             <p className={style.loading}>Загрузка...</p>
+          ) : error ? (
+            <p className={style.loading}>Ошибка</p>
           ) : (
             data.items.map((el) => (
               <TextReview

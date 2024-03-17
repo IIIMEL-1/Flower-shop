@@ -17,8 +17,11 @@ export default function OpenPhotoReview({
   data: { name, date, time, city, photoUrl, estimation, review },
 }: TypePhotoReviewProps) {
   return (
-    <div className={style.opacity} onClick={() => setIsOpen(false)}>
+    <div className={style.opacity}>
       <div className={style.modal}>
+        <div className={style.buttonClose} onClick={() => setIsOpen(false)}>
+          <span></span>
+        </div>
         <div className={style.reviewer}>
           <div>
             <p>{name}</p>
