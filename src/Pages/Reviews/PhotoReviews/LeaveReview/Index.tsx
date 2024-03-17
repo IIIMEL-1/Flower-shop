@@ -86,7 +86,7 @@ export default function LeaveReview() {
         <form onSubmit={handleSubmit}>
           <div className={style.inputBlock}>
             <label className={style.inputFile}>
-              <img src="/public/static/images/download.svg" alt="" />
+              <img src="/static/images/download.svg" alt="" />
               <img
                 className={style.previewPhoto}
                 src={imageUrl}
