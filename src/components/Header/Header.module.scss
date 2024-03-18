@@ -47,13 +47,6 @@ header {
         padding: 0 20px;
 
         transition: 0.1s ease-in-out;
-
-        /*   &:first-child {
-          padding-left: 0px;
-        }
-        &:last-child {
-          padding-right: 0px;
-        } */
       }
 
       .cart {
@@ -104,11 +97,14 @@ header {
 
             a {
               display: flex;
+              align-items: center;
 
               width: 100%;
-              padding: 8px 10px;
+              height: 35px;
 
-              font-size: 14px;
+              padding: 0 10px;
+
+              font-size: clamp(13px, 4vw, 14px);
               transform: none;
 
               transition: 0.1s ease-in-out;
@@ -206,8 +202,6 @@ header {
       .infoForClient {
         position: static !important;
 
-        height: 100%;
-
         align-items: start !important;
 
         padding: 0;
@@ -223,11 +217,9 @@ header {
           width: 100% !important;
           height: 0%;
 
-          li {
-            &:first-child {
-              border-top: 1px solid #5b4a5850 !important;
-            }
+          border: 1px solid #5b4a5850 !important;
 
+          li {
             a {
               padding-left: 30px !important;
             }
@@ -235,10 +227,10 @@ header {
         }
 
         &.active {
-          height: 235px;
+          height: calc(var(--nav-menu-height) + 181px);
 
           .infoList {
-            height: 170px;
+            height: 181px;
             border: none;
             border-radius: 0px;
           }
@@ -259,6 +251,8 @@ header {
       }
 
       .profile {
+        border-top: 1px solid #5b4a5850;
+
         img {
           display: none;
         }

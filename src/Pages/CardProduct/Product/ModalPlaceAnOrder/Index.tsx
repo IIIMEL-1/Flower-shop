@@ -13,7 +13,6 @@ type TypeModalPlaceAnOrder = {
 
 export default function ModalPlaceAnOrder({
   setIsOpen,
-
   data: { title, image, price, size, count, about },
 }: TypeModalPlaceAnOrder) {
   return (
@@ -24,7 +23,9 @@ export default function ModalPlaceAnOrder({
         </div>
         <img src={image} alt={title} />
         <h2>{title}</h2>
-        <p>Размер: {size}</p>
+        <p className={style.size}>
+          Размер: <span>{size}</span>
+        </p>
         <ul>
           {about.map((content, i) => (
             <li key={i}>{content}</li>

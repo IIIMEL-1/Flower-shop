@@ -94,14 +94,14 @@ export default function Product() {
         <div className={style.sizeBlock}>
           <p>Размер:</p>
           <div className={style.changeSize}>
-            {product.description.map(({ size, price }) => (
+            {product.description.map(({ size, price }, idx) => (
               <div key={size}>
                 <input
                   type="radio"
                   name="changeSize"
                   id={size}
                   defaultChecked={size === "Стандартный" ? true : false}
-                  onClick={() => setSize(i)}
+                  onClick={() => setSize(idx)}
                 />
                 <label htmlFor={size}>
                   {size} <br />
