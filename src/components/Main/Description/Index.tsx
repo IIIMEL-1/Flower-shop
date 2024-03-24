@@ -1,9 +1,8 @@
-import React from "react";
 import style from "./Description.module.scss";
 
 export default function Description() {
   return (
-    <section id={style.description} className="sectionBack">
+    <section id={style.description}>
       <div className="container">
         <div className={style.descriptionBlock}>
           <p>

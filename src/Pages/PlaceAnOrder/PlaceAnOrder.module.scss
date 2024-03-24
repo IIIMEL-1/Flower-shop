@@ -1,128 +1,152 @@
-.form {
+.placeAnOrderBlock {
   display: flex;
-  flex-direction: column;
-  gap: 20px 0;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
 
-  padding: 40px 0;
-  margin: 0 auto;
-
-  max-width: 770px;
-
-  > div {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px clamp(12px, 3vw, 25px);
-
-    h5 {
-      font-size: 18px;
-      font-weight: bold;
-
-      margin-bottom: 13px;
-    }
-  }
-
-  button:last-child {
-    font-weight: bold;
-    font-size: 18px;
-
-    width: 300px;
-    height: 50px;
-  }
-}
-
-.blockRadioInput {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 20px;
-  transition: 0.2s ease-in-out !important;
-
-  > div {
-    display: flex;
-  }
-}
-
-.blockInput {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 25px;
-
-  .inputItem,
-  .textareaItem {
+  .cardList {
     display: flex;
     flex-direction: column;
-    gap: 11px 0;
+    gap: 10px 0;
 
-    p {
-      font-weight: bold;
-    }
+    width: 400px;
   }
-}
 
-.dateAndTime {
-  > div {
+  .form {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px 0;
 
-    border-bottom: 1px solid #e0e0e0;
-    padding: 15px 0;
+    padding-bottom: 20px;
 
-    &:last-child {
-      margin-left: clamp(10px, 2vw, 25px);
-      border-bottom: none;
+    max-width: 700px;
+
+    > div {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px clamp(12px, 3vw, 25px);
+
+      h5 {
+        font-size: 18px;
+        font-weight: bold;
+
+        margin-bottom: 13px;
+      }
+
+      &:last-child {
+        button {
+          width: 100%;
+          height: 50px;
+
+          font-weight: bold;
+          font-size: 18px;
+        }
+      }
     }
-  }
-}
 
-.recipient {
-  .inputItem {
-    width: 300px;
-  }
-
-  .textareaItem {
-    width: 100%;
-    textarea {
+    .blockRadioInput {
       display: flex;
-      width: 100%;
-      height: 90px !important;
-    }
-  }
-}
+      justify-content: space-between;
 
-.yourContacts {
-  .inputItem {
-    width: 200px;
-  }
-}
+      margin-bottom: 20px;
+      transition: 0.2s ease-in-out !important;
 
-.paymentMethod {
-  > div {
-    padding: 15px 0;
-    border-bottom: 1px solid #e0e0e0;
+      > div {
+        display: flex;
 
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-}
-
-@media (max-width: 740px) {
-  .blockRadioInput {
-    align-items: start;
-    flex-direction: column;
-    gap: 30px 0;
-  }
-
-  .blockInput {
-    flex-direction: column;
-
-    .inputItem {
-      width: 100%;
-
-      input {
         width: 100%;
+
+        label {
+          width: 100%;
+          padding: 10px 0 10px 30px;
+        }
+      }
+    }
+
+    .blockInput {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 25px;
+
+      .inputItem,
+      .textareaItem {
+        display: flex;
+        flex-direction: column;
+        gap: 11px 0;
+
+        p {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .dateAndTime {
+      > div {
+        display: flex;
+        justify-content: space-between;
+
+        border-bottom: 1px solid #e0e0e0;
+        padding: 15px 0;
+
+        &:last-child {
+          margin-left: clamp(10px, 2vw, 25px);
+          border-bottom: none;
+        }
+      }
+    }
+
+    .recipient {
+      .inputItem {
+        width: 300px;
+      }
+
+      .textareaItem {
+        width: 100%;
+
+        textarea {
+          display: flex;
+
+          width: 100%;
+          height: 90px !important;
+        }
+      }
+    }
+
+    .yourContacts {
+      .inputItem {
+        width: 200px;
+      }
+    }
+
+    .paymentMethod {
+      > div {
+        padding: 15px 0;
+        border-bottom: 1px solid #e0e0e0;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 740px) {
+    .blockRadioInput {
+      flex-direction: column;
+      align-items: start;
+      gap: 30px 0;
+    }
+
+    .blockInput {
+      flex-direction: column;
+
+      .inputItem {
+        width: 100% !important;
+
+        input {
+          width: 100%;
+        }
       }
     }
   }

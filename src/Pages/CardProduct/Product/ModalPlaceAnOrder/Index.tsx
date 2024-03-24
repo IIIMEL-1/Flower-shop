@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
 import style from "./ModalPlaceAnOrder.module.scss";
+import { placeAnOrder } from "../../../../redux/slices/addToCartSlice";
+import { useDispatch } from "react-redux";
 
 type TypeModalPlaceAnOrder = {
   data: {
+    id: number;
     title: string;
     image: string;
     price: number;
@@ -13,8 +17,14 @@ type TypeModalPlaceAnOrder = {
 
 export default function ModalPlaceAnOrder({
   setIsOpen,
-  data: { title, image, price, size, count, about },
+  data: { id, title, image, price, size, count, about },
 }: TypeModalPlaceAnOrder) {
+  const dispatch = useDispatch();
+
+  const items = [{ id, image, title, count, size, price }];
+
+  const totalPrice: number = price * count;
+
   return (
     <div className={style.opacity}>
       <div className={style.modal}>
@@ -35,7 +45,13 @@ export default function ModalPlaceAnOrder({
           <span>{count} шт.</span>
           <p>{(price * count).toLocaleString()} руб.</p>
         </div>
-        <button className="sendForm">Перейти к оформлению заказа</button>
+        <Link
+          to={"/PlaceAnOrder"}
+          onClick={() => dispatch(placeAnOrder({ items, totalPrice }))}
+          className="sendForm"
+        >
+          Перейти к оформлению заказа
+        </Link>
       </div>
     </div>
   );

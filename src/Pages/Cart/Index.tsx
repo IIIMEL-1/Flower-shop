@@ -1,13 +1,23 @@
+import { placeAnOrder } from "../../redux/slices/addToCartSlice";
 import style from "./Cart.module.scss";
-
 import CartItem from "./CartItem/Index";
-
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+type TypeCartItem = {
+  id: number;
+  title: string;
+  image: string;
+  size: string;
+  price: number;
+  count: number;
+};
+
 export default function Cart() {
-  const cardList = useSelector((state) => state.addToCartSlice.items);
+  const items = useSelector((state) => state.addToCartSlice.items);
   const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
+
+  const dispatch = useDispatch();
 
   return (
     <section className="sectionBack">
@@ -22,7 +32,7 @@ export default function Cart() {
               <h3>Корзина</h3>
             </div>
             <div className={style.productsContainer}>
-              {!cardList.length ? (
+              {!items.length ? (
                 <div className={style.cartEmpty}>
                   <h2>Корзина пуста...</h2>
                   <Link to={"/"} className="sendForm">
@@ -30,9 +40,9 @@ export default function Cart() {
                   </Link>
                 </div>
               ) : (
-                cardList.map((el, i) => (
+                items.map((el: TypeCartItem) => (
                   <CartItem
-                    key={i}
+                    key={`${el.id}_${el.size}`}
                     id={el.id}
                     title={el.title}
                     image={el.image}
@@ -58,8 +68,9 @@ export default function Cart() {
             </div>
             <Link
               to={"/PlaceAnOrder"}
+              onClick={() => dispatch(placeAnOrder({ items, totalPrice }))}
               className={
-                !cardList.length
+                !items.length
                   ? style.placeAnOrder + " " + style.active
                   : style.placeAnOrder
               }

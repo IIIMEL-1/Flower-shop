@@ -9,8 +9,6 @@ import PageList from "../../../PageList/Index.jsx";
 export default function Products() {
   const sortList = useSelector((state) => state.sortSlice.dataParse);
 
-  console.log("render-relative");
-
   const [sortBy, setSortBy] = useState("title");
   const [isActive, setIsActive] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -66,7 +64,7 @@ export default function Products() {
           [...new Array(6)].map((_, i) => <Skeleton key={i} />)
         ) : error ? (
           <div className={style.error}>
-            <p>{`${error.status} ${error.data.message}`}</p>
+            <p>{`${error.status} ${error.data ? error.data.message : ""}`}</p>
           </div>
         ) : data.items.length ? (
           data.items.map((el) => (

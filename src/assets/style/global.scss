@@ -182,6 +182,7 @@ button:disabled {
 
   &::after,
   &::before {
+    content: "";
     position: absolute;
     top: -10%;
 
@@ -190,8 +191,6 @@ button:disabled {
   }
 
   &::after {
-    content: "";
-
     background: url(/public/static/images/five_step_right.png) no-repeat right
       center / contain;
 
@@ -199,12 +198,17 @@ button:disabled {
   }
 
   &::before {
-    content: "";
-
     background: url(/public/static/images/five_step_left.png) no-repeat left
       center / contain;
 
     left: 0;
+  }
+
+  @media (max-width: 1200px) {
+    &::after,
+    &::before {
+      display: none;
+    }
   }
 }
 

@@ -7,18 +7,20 @@ import { useGetProductByIdQuery } from "../../../redux/slices/createApi";
 import Skeleton from "./Skeleton";
 import { addItem } from "../../../redux/slices/addToCartSlice";
 
+type TypeProductDescription = [
+  {
+    price: number;
+    size: string;
+    content: string[];
+  }
+];
+
 type TypeProduct = {
   id: number;
   title: string;
   image: string;
   price: number;
-  description: [
-    {
-      price: number;
-      size: string;
-      content: string[];
-    }
-  ];
+  description: TypeProductDescription;
   count: number;
 };
 
@@ -173,18 +175,17 @@ export default function Product() {
           </div>
         </div>
       </div>
-      <button
-        id={style.placeAnOrder}
-        className="sendForm"
-        onClick={() => setIsOpen(true)}
-      >
-        Оформить заказ
-      </button>
+      <div id={style.placeAnOrder}>
+        <button className="sendForm" onClick={() => setIsOpen(true)}>
+          Оформить заказ
+        </button>
+      </div>
 
       {isOpen && (
         <ModalPlaceAnOrder
           setIsOpen={setIsOpen}
           data={{
+            id: product.id,
             title: product.title,
             image: product.image,
             size: product.description[size].size,

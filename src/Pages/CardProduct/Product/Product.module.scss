@@ -29,6 +29,8 @@
       img {
         width: clamp(55px, 17vw, 75px);
         height: clamp(55px, 17vw, 75px);
+
+        border: 1px solid #6aae5500;
       }
 
       &:hover {
@@ -36,6 +38,10 @@
       }
 
       &.active {
+        img {
+          border: 2px solid #6aae55;
+        }
+
         opacity: 1;
       }
     }
@@ -171,7 +177,7 @@
 
       z-index: 5;
 
-      width: 96.8%;
+      width: calc(100% - 20px);
       height: 40px;
 
       border-radius: 20px;
@@ -179,7 +185,7 @@
       background: rgb(239, 239, 240);
       background: linear-gradient(
         0deg,
-        rgb(255, 255, 255) 0%,
+        rgb(255, 255, 255) 10%,
         rgba(255, 255, 255, 0.4) 90%
       );
     }
@@ -237,11 +243,17 @@
 }
 
 #placeAnOrder {
-  width: 350px;
-  height: 50px;
+  width: 100%;
 
-  font-size: 18px;
-  font-weight: bold;
+  button {
+    width: 350px;
+    height: 50px;
+
+    margin: 0 auto;
+
+    font-size: 18px;
+    font-weight: bold;
+  }
 }
 
 @media (max-width: 650px) {

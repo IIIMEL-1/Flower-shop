@@ -37,7 +37,7 @@ function Sort() {
 
   const { data, isLoading, error } = useGetSortDataQuery();
 
-  const sortListMemoize = useMemo(() => {
+  useMemo(() => {
     if (data) {
       return setResult(countAndMap(data, ["flower", "color", "packing"]));
     }
@@ -56,7 +56,10 @@ function Sort() {
       {isLoading ? (
         <Skeleton />
       ) : error ? (
-        <div>{`${error.status} ${error.data.message}`}</div>
+        (console.log(error),
+        (
+          <div>{`${error.status} ${error.data ? error.data.message : ""}`}</div>
+        ))
       ) : result ? (
         <section id={style.sort}>
           <div className={style.searchBlock}>

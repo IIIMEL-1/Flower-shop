@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import { useChangeDataMutation } from "../../redux/slices/createApi";
 import style from "./PlaceAnOrder.module.scss";
 import { clearCart } from "../../redux/slices/addToCartSlice";
+import React, { useEffect } from "react";
+import PlaceAnOrderItem from "./PlaceAnOrderItem/Index";
+import Modal from "../../components/Modal/Index";
+import { changeUserOrders } from "../../redux/slices/authSlice";
 
 type TypeListItems = {
+  id: number;
+  image: string;
   title: string;
   count: number;
   size: string;
@@ -12,9 +18,9 @@ type TypeListItems = {
 };
 
 export default function OrderRegistration() {
-  const items = useSelector((state) => state.addToCartSlice.items);
+  const items = useSelector((state) => state.addToCartSlice.placeAnOrder);
   const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
-  const { orders, id } = useSelector((state) => state.authSlice.userDetails);
+  const user = useSelector((state) => state.authSlice.userDetails);
 
   const dispatch = useDispatch();
 
@@ -48,16 +54,23 @@ export default function OrderRegistration() {
     orderStatus: "Оплачен",
   };
 
-  const [createOrder, { isLoading, error, isSuccess }] =
-    useChangeDataMutation();
+  const [createOrder, { isLoading, data, error }] = useChangeDataMutation();
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    createOrder({ orders: [...orders, order], id });
+    createOrder({ orders: [...user.orders, order], id: user.id });
 
     dispatch(clearCart());
   };
+
+  useEffect(() => {
+    if (data) {
+      if (data.orders) {
+        dispatch(changeUserOrders({ orders: data.orders }));
+      }
+    }
+  }, [data]);
 
   return (
     <section className="sectionBack">
@@ -70,8 +83,14 @@ export default function OrderRegistration() {
           </div>
           <h3>Оформление заказа</h3>
         </div>
+        {/* <div className={style.steps}>
+          <div className={style.step}>
 
-        {items.length ? (
+            <span className={style.stepLine}></span>
+          </div>
+          
+        </div> */}
+        <div className={style.placeAnOrderBlock}>
           <form className={style.form} onSubmit={handleFormSubmit}>
             <div className={style.deliveryMethod}>
               <h5>Способ доставки</h5>
@@ -215,19 +234,25 @@ export default function OrderRegistration() {
                 <label htmlFor="paymentOnline">Онлайн оплата — Сбербанк</label>
               </div>
             </div>
-            {!isLoading ? (
-              !isSuccess ? (
-                <button className="sendForm">Оформить заказ</button>
-              ) : (
-                <div>Заказ успешно оформлен</div>
-              )
-            ) : (
-              <div>Загрузка...</div>
-            )}
+            <div>
+              <button className="sendForm">Оформить заказ</button>
+            </div>
           </form>
-        ) : (
-          <div>В корзине отсутствуют товары!</div>
-        )}
+          <div className={style.cardList}>
+            {items.map((el: TypeListItems) => (
+              <PlaceAnOrderItem
+                key={`${el.id}_${el.size}`}
+                id={el.id}
+                title={el.title}
+                image={el.image}
+                size={el.size}
+                price={el.price}
+                count={el.count}
+              />
+            ))}
+          </div>
+        </div>
+        {isLoading && <Modal />}
       </div>
     </section>
   );

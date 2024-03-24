@@ -72,6 +72,9 @@ export default function Header() {
             <Link to={"/Reviews/TextReviews"}>отзывы</Link>
             <Link to={"/Contacts"}>контакты</Link>
           </div>
+          <div className={style.logo}>
+            <img src="/static/images/logo.svg" alt="Logo" />
+          </div>
           <div>
             <div
               className={

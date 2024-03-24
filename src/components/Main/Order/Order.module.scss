@@ -4,7 +4,7 @@
   font-family: "Bubblegum Sans", cursive;
   color: #5b4a58;
 
-  margin-top: 150px;
+  margin-top: 50px;
   text-align: center;
 
   span {
@@ -16,39 +16,37 @@
   display: flex;
   margin: 70px 0;
   justify-content: space-between;
-}
 
-.orderItem {
-  display: flex;
-  align-items: center;
-  column-gap: 30px;
+  .orderItem {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
 
-  &:not(:last-child) {
-    margin-bottom: 60px;
+    &:not(:last-child) {
+      margin-bottom: 60px;
+    }
+
+    img {
+      width: 145px;
+      height: 140px;
+    }
+
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #6aae55;
+      margin-bottom: 10px;
+    }
   }
 
-  img {
-    width: 145px;
-    height: 140px;
-  }
-
-  h4 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #6aae55;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 1145px) {
-  .orderBlock {
+  @media (max-width: 1145px) {
     flex-direction: column;
     text-align: center;
     gap: 60px;
-  }
 
-  .orderItem {
-    flex-direction: column;
-    gap: 20px;
+    .orderItem {
+      flex-direction: column;
+      gap: 20px;
+    }
   }
 }
