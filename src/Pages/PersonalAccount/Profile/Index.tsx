@@ -3,13 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import style from "./Profile.module.scss";
 import Modal from "../../../components/Modal/Index";
 import { logoutUser } from "../../../redux/slices/authSlice";
+import { useMemo } from "react";
 
 export default function Profile() {
   const dispatch = useDispatch();
 
-  const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
+  const { userDetails, error } = useSelector((state) => state.authSlice);
 
-  const { userDetails } = useSelector((state) => state.authSlice);
+  const totalPrice = useMemo(() => {
+    if (userDetails) {
+      return userDetails.orders.reduce((sum, obj) => {
+        return sum + obj.totalPrice;
+      }, 0);
+    } else {
+      return 0;
+    }
+  }, [userDetails]);
 
   const percent = Math.min(totalPrice / 1000, 100);
 
@@ -23,7 +32,6 @@ export default function Profile() {
     if (percent < 65) return 3;
     if (percent < 100) return 5;
     if (percent === 100) return 7;
-    return "";
   };
 
   return (
@@ -74,6 +82,8 @@ export default function Profile() {
                 buttonText={"Войти в аккаунт"}
                 link={"/Login"}
               />
+            ) : error ? (
+              <p>Ошибка при получении информации о пользователе :(</p>
             ) : userDetails ? (
               <>
                 <div>

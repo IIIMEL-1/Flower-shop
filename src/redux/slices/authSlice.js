@@ -4,10 +4,15 @@ export const authSlice = createSlice({
   name: "authSlice",
   initialState: {
     userDetails: null,
+    error: null,
   },
   reducers: {
     getData: (state, { payload }) => {
       state.userDetails = payload.data;
+
+      if (payload.error) {
+        state.error = payload.error;
+      }
     },
 
     changeUserOrders: (state, { payload }) => {

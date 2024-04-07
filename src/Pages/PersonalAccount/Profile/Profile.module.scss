@@ -42,7 +42,7 @@
 
         margin-bottom: 40px;
 
-        background-color: #aaaaaa;
+        background-color: #aaaaaac2;
         border-radius: 10px;
 
         span {
@@ -50,14 +50,18 @@
 
           width: 10px;
           height: 10px;
+
           background-color: rgb(63, 63, 63);
           border-radius: 100%;
 
           &::after,
           &::before {
             position: absolute;
+
             bottom: -170%;
+
             width: 105px;
+
             font-size: 12px;
             font-weight: bold;
 
@@ -67,7 +71,9 @@
           &::before {
             bottom: -40px;
             right: 12px;
+
             width: 15px;
+
             font-size: 14px;
             font-weight: bold;
           }

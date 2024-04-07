@@ -14,20 +14,22 @@ export default function Header() {
   const [menuIsActive, setMenuIsActive] = useState(false);
   const [infoIsActive, setInfoIsActive] = useState(false);
 
-  const [getDataUser] = useGetDataAccountMutation();
+  const [getDataUser, { isError }] = useGetDataAccountMutation();
+
+  console.log(isError);
 
   const locate = useLocation();
 
-  const userDataMemoize = useMemo(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await getDataUser(token);
-        dispatch(getData({ data }));
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const fetchData = async () => {
+    try {
+      const { data } = await getDataUser(token);
+      dispatch(getData({ data }));
+    } catch {
+      dispatch(getData({ isError }));
+    }
+  };
 
+  useMemo(() => {
     if (token) {
       fetchData();
     }
@@ -36,6 +38,7 @@ export default function Header() {
   useEffect(() => {
     setMenuIsActive(false);
     setInfoIsActive(false);
+
     document.body.style.overflowY = "auto";
   }, [locate.key]);
 
