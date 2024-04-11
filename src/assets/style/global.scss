@@ -285,25 +285,18 @@ input[type="radio"] {
 
       width: 20px;
       height: 20px;
-      transition: 0.2s ease-in-out;
+      transition: 0.15s ease-in-out;
     }
 
     &::before {
-      content: url(/public/static/images/point.svg);
-      opacity: 1;
-    }
-    &::after {
-      content: url(/public/static/images/pointDis.svg);
-      opacity: 1;
-    }
-  }
+      content: "";
 
-  &:not(:checked) + label {
-    &::before {
-      opacity: 0;
-    }
-    &::after {
-      opacity: 1;
+      width: 20px;
+      height: 20px;
+
+      border: 3px solid #ebebeb;
+      background-color: #bdbdbd;
+      border-radius: 50%;
     }
   }
 
@@ -311,11 +304,8 @@ input[type="radio"] {
     color: #5b4a58;
 
     &::before {
-      opacity: 1;
-    }
-
-    &::after {
-      opacity: 0;
+      border: 3px solid #d2e6cc;
+      background-color: #6aae55;
     }
   }
 }

@@ -10,9 +10,15 @@ export default function Profile() {
 
   const { userDetails, error } = useSelector((state) => state.authSlice);
 
+  console.log(userDetails);
+
+  const logOut = () => {
+    localStorage.clear();
+    dispatch(logoutUser());
+  };
   const totalPrice = useMemo(() => {
     if (userDetails) {
-      return userDetails.orders.reduce((sum, obj) => {
+      return userDetails.orders.reduce((sum: number, obj) => {
         return sum + obj.totalPrice;
       }, 0);
     } else {
@@ -20,19 +26,7 @@ export default function Profile() {
     }
   }, [userDetails]);
 
-  const percent = Math.min(totalPrice / 1000, 100);
-
-  const logOut = () => {
-    localStorage.clear();
-    dispatch(logoutUser());
-  };
-
-  const getDiscountPercentage = (percent: number) => {
-    if (percent < 25) return 0;
-    if (percent < 65) return 3;
-    if (percent < 100) return 5;
-    if (percent === 100) return 7;
-  };
+  const percent: number = Math.min(totalPrice / 1000, 100);
 
   return (
     <section id={style.profilePage}>
@@ -47,7 +41,7 @@ export default function Profile() {
       <div className={style.profileBlock}>
         <div className={style.discountBlock}>
           <div className={style.discount}>
-            Ваша скидка — <span>{getDiscountPercentage(percent)}%</span>
+            Ваша скидка — <span>{userDetails?.percent}%</span>
           </div>
           <div className={style.range}>
             <span className={style.one}></span>

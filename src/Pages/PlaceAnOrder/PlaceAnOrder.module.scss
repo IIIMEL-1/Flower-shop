@@ -1,4 +1,4 @@
-.steps {
+.progressBar {
   display: flex;
   justify-content: center;
   gap: 0 40px;
@@ -17,9 +17,8 @@
 
     display: flex;
     align-items: center;
-    justify-content: center;
 
-    width: 190px;
+    width: clamp(100px, 15vw, 190px);
     height: 100%;
 
     background-color: white;
@@ -69,10 +68,10 @@
       justify-content: center;
       align-items: center;
 
-      width: 40px;
-      height: 40px;
+      width: clamp(35px, 8vw, 40px);
+      height: clamp(35px, 8vw, 40px);
 
-      margin-left: 10px;
+      margin: 0 5px 0 clamp(7px, 0.5vw, 10px);
 
       font-size: 20px;
       color: white;
@@ -87,10 +86,28 @@
 
       text-align: center;
 
-      width: 135px;
+      width: clamp(100px, 10vw, 135px);
 
-      font-size: 15px;
+      font-size: clamp(13px, 1.5vw, 15px);
       font-weight: bold;
+    }
+
+    @media (max-width: 1040px) {
+      justify-content: center;
+
+      div {
+        display: none;
+      }
+    }
+
+    @media (max-width: 740px) {
+      div {
+        display: flex;
+      }
+
+      p {
+        display: none;
+      }
     }
   }
 }
@@ -98,7 +115,7 @@
 .placeAnOrderBlock {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
   gap: 20px;
 
   .cardList {
@@ -109,14 +126,43 @@
     width: 400px;
   }
 
+  .totalPrice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 70px;
+
+    padding: 0 10px;
+    margin-top: 20px;
+
+    background-color: white;
+    border-radius: 10px;
+
+    span {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: bold;
+
+      sup {
+        font-size: 16px;
+      }
+    }
+  }
+
   .form {
     display: flex;
     flex-direction: column;
     gap: 20px 0;
 
-    padding-bottom: 20px;
-
     width: 700px;
+
+    padding-bottom: 20px;
 
     > div {
       display: flex;
@@ -124,7 +170,7 @@
       justify-content: space-between;
 
       width: 100%;
-      height: 500px;
+      min-height: 400px;
 
       padding: 20px clamp(12px, 3vw, 25px);
 
@@ -136,19 +182,6 @@
         font-weight: bold;
 
         margin-bottom: 13px;
-      }
-
-      > div:last-child {
-        display: flex;
-        justify-content: space-between;
-
-        button {
-          width: 200px;
-          height: 50px;
-
-          font-weight: bold;
-          font-size: 18px;
-        }
       }
     }
 
@@ -250,18 +283,38 @@
     }
 
     .paymentMethod {
-      > div {
-        padding: 15px 0;
-        border-bottom: 1px solid #e0e0e0;
+      > div:last-child {
+        border-bottom: none;
 
-        &:last-child {
-          border-bottom: none;
+        button {
+          width: 100%;
+          height: 50px;
 
-          button {
-            width: 100%;
-            height: 50px;
-            font-size: 20px;
-          }
+          margin-top: 50px;
+
+          font-size: 20px;
+        }
+      }
+    }
+
+    .buttonsBlock {
+      display: flex;
+      justify-content: space-between;
+
+      margin-top: 30px;
+
+      button {
+        width: clamp(130px, 30vw, 200px);
+        height: 50px;
+
+        font-weight: bold;
+        font-size: 18px;
+
+        border: 2px solid #6aae55;
+
+        &:first-child {
+          background-color: white;
+          color: #6aae55;
         }
       }
     }

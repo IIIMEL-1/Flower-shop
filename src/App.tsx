@@ -32,6 +32,7 @@ import { Outlet, createBrowserRouter, useLocation } from "react-router-dom";
 
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import AuthFunc from "./function/AuthFunc";
 
 export default function Index() {
   const locate = useLocation();

@@ -1,39 +1,20 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./Header.module.scss";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useGetDataAccountMutation } from "../../redux/slices/createApi";
-import { getData } from "../../redux/slices/authSlice";
+import { useSelector } from "react-redux";
+import AuthFunc from "../../function/AuthFunc";
 
 export default function Header() {
-  const dispatch = useDispatch();
+  AuthFunc();
+
   const items = useSelector((state) => state.addToCartSlice.items);
+
   const totalCount = items.reduce((sum, obj) => sum + obj.count, 0);
-  const token = localStorage.getItem("token");
 
   const [menuIsActive, setMenuIsActive] = useState(false);
   const [infoIsActive, setInfoIsActive] = useState(false);
 
-  const [getDataUser, { isError }] = useGetDataAccountMutation();
-
-  console.log(isError);
-
   const locate = useLocation();
-
-  const fetchData = async () => {
-    try {
-      const { data } = await getDataUser(token);
-      dispatch(getData({ data }));
-    } catch {
-      dispatch(getData({ isError }));
-    }
-  };
-
-  useMemo(() => {
-    if (token) {
-      fetchData();
-    }
-  }, []);
 
   useEffect(() => {
     setMenuIsActive(false);

@@ -24,8 +24,10 @@ type TypeStepsList = {
 
 export default function OrderRegistration() {
   const items = useSelector((state) => state.addToCartSlice.placeAnOrder);
-  const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
+  const price = useSelector((state) => state.addToCartSlice.totalPrice);
   const user = useSelector((state) => state.authSlice.userDetails);
+
+  const totalPrice = price - (price / 100) * user.percent;
 
   const dispatch = useDispatch();
 
@@ -117,7 +119,7 @@ export default function OrderRegistration() {
           </div>
           <h3>Оформление заказа</h3>
         </div>
-        <div className={style.steps}>
+        <div className={style.progressBar}>
           {STEPS_LIST.map(({ step, name }) => (
             <div
               key={step}
@@ -141,7 +143,9 @@ export default function OrderRegistration() {
             <div>
               {currentStep === 1 ? (
                 user && localStorage.getItem("token") ? (
-                  <div>Вы уже зарегистрированы</div>
+                  <div className={style.LoginOrRegistration}>
+                    <p>Вы уже зарегистрированы</p>
+                  </div>
                 ) : (
                   <div className={style.LoginOrRegistration}>
                     <Link to={"/"} className="sendForm">
@@ -263,28 +267,35 @@ export default function OrderRegistration() {
                 currentStep === 5 && (
                   <div className={style.paymentMethod}>
                     <h5>Способ оплаты</h5>
-                    <div>
-                      <input
-                        id="paymentGet"
-                        name="payment"
-                        type="radio"
-                        defaultChecked
-                      />
-                      <label htmlFor="paymentGet">
-                        Оплата наличными во время получения (самовызов)
-                      </label>
-                    </div>
-                    <div>
-                      <input id="paymentCourier" name="payment" type="radio" />
-                      <label htmlFor="paymentCourier">
-                        Оплата наличными курьеру (только, если получатель — Вы)
-                      </label>
-                    </div>
-                    <div>
-                      <input id="paymentOnline" name="payment" type="radio" />
-                      <label htmlFor="paymentOnline">
-                        Онлайн оплата — Сбербанк
-                      </label>
+                    <div className={style.blockRadioInput}>
+                      <div>
+                        <input
+                          id="paymentGet"
+                          name="payment"
+                          type="radio"
+                          defaultChecked
+                        />
+                        <label htmlFor="paymentGet">
+                          Оплата наличными во время получения (самовызов)
+                        </label>
+                      </div>
+                      <div>
+                        <input
+                          id="paymentCourier"
+                          name="payment"
+                          type="radio"
+                        />
+                        <label htmlFor="paymentCourier">
+                          Оплата наличными курьеру (только, если получатель —
+                          Вы)
+                        </label>
+                      </div>
+                      <div>
+                        <input id="paymentOnline" name="payment" type="radio" />
+                        <label htmlFor="paymentOnline">
+                          Онлайн оплата — Сбербанк
+                        </label>
+                      </div>
                     </div>
                     <div>
                       <button onClick={handleFormSubmit} className="sendForm">
@@ -294,7 +305,7 @@ export default function OrderRegistration() {
                   </div>
                 )
               )}
-              <div>
+              <div className={style.buttonsBlock}>
                 <button
                   disabled={currentStep !== 1 ? false : true}
                   className="sendForm"
@@ -312,20 +323,30 @@ export default function OrderRegistration() {
               </div>
             </div>
           </form>
-          <div className={style.cardList}>
-            {items.map((el: TypeListItems) => (
-              <PlaceAnOrderItem
-                key={`${el.id}_${el.size}`}
-                id={el.id}
-                title={el.title}
-                image={el.image}
-                size={el.size}
-                price={el.price}
-                count={el.count}
-              />
-            ))}
+          <div>
+            <div className={style.cardList}>
+              {items.map((el: TypeListItems) => (
+                <PlaceAnOrderItem
+                  key={`${el.id}_${el.size}`}
+                  id={el.id}
+                  title={el.title}
+                  image={el.image}
+                  size={el.size}
+                  price={el.price}
+                  count={el.count}
+                />
+              ))}
+            </div>
+            <div className={style.totalPrice}>
+              <span>Итого к оплате:</span>
+              <p className={style.price}>
+                {totalPrice} руб.
+                <sup>-{user.percent}%</sup>
+              </p>
+            </div>
           </div>
         </div>
+
         {isLoading && <Modal />}
       </div>
     </section>
