@@ -10,8 +10,6 @@ export default function Profile() {
 
   const { userDetails, error } = useSelector((state) => state.authSlice);
 
-  console.log(userDetails);
-
   const logOut = () => {
     localStorage.clear();
     dispatch(logoutUser());

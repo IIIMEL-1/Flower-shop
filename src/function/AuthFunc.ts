@@ -2,34 +2,30 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useGetDataAccountMutation } from "../redux/slices/createApi";
 import { getData } from "../redux/slices/authSlice";
-import { log } from "console";
 
 export default function AuthFunc() {
   const dispatch = useDispatch();
   const userDetails = useSelector((state) => state.authSlice.userDetails);
   const token = localStorage.getItem("token");
-  const [getDataUser] = useGetDataAccountMutation();
+  const [getDataUser, { data }] = useGetDataAccountMutation();
+
+  console.log(data);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (token) {
-          const { data } = await getDataUser(token);
-          dispatch(getData({ data }));
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    if (token && !userDetails) {
+      getDataUser(token);
+    }
 
-    fetchData();
-  }, [token]);
+    if (data && !userDetails) {
+      dispatch(getData({ data }));
+    }
+  }, [token, data]);
 
   useEffect(() => {
     if (userDetails && userDetails.orders) {
       const { orders } = userDetails;
       const totalPrice = orders.reduce(
-        (sum: number, obj) => sum + obj.totalPrice,
+        (sum: number, order: { totalPrice: number }) => sum + order.totalPrice,
         0
       );
       const convertedPrice = Math.min(totalPrice / 1000, 100);

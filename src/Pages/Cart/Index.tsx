@@ -1,16 +1,12 @@
 import { placeAnOrder } from "../../redux/slices/addToCartSlice";
+import { TypeProduct } from "../Main/Catalog/Products/Index";
 import style from "./Cart.module.scss";
 import CartItem from "./CartItem/Index";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-type TypeCartItem = {
-  id: number;
-  title: string;
-  image: string;
+type TypeProductSize = {
   size: string;
-  price: number;
-  count: number;
 };
 
 export default function Cart() {
@@ -40,7 +36,7 @@ export default function Cart() {
                   </Link>
                 </div>
               ) : (
-                items.map((el: TypeCartItem) => (
+                items.map((el: TypeProduct & TypeProductSize) => (
                   <CartItem
                     key={`${el.id}_${el.size}`}
                     id={el.id}

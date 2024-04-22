@@ -2,10 +2,6 @@ import style from "./Contacts.module.scss";
 import { Link } from "react-router-dom";
 
 export default function Contacts() {
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-  };
-
   return (
     <section className="sectionBack">
       <div className="container">
@@ -22,9 +18,8 @@ export default function Contacts() {
             <div className={style.contactsInform}>
               <div>
                 <h5>Моб. номер:</h5>
-                <p>
-                  + 7 808 353 53 35 <br />+ 7 888 888 88 88
-                </p>
+                <p>+ 7 808 353 53 35</p>
+                <p>+ 7 888 888 88 88</p>
               </div>
               <div>
                 <h5>Эл. почта</h5>
@@ -39,31 +34,13 @@ export default function Contacts() {
               </div>
               <div>
                 <h5>Режим работы:</h5>
-                <p>
-                  Пн-Сб с 8:00 до 22:00 <br />
-                  Вс — выходной
-                </p>
+                <p>Пн-Сб с 8:00 до 22:00</p>
+                <p>Вс — выходной</p>
               </div>
             </div>
             <div className={style.mapBlock}>
-              <img src="static/images/Map.png" alt="" />
+              <img src="static/images/Map.png" alt="Map" />
             </div>
-          </div>
-
-          <div className={style.contactsForm}>
-            <h4>Остались вопросы? Свяжитесь с нами.</h4>
-            <form action="" onClick={handleFormSubmit}>
-              <div>
-                <div className={style.inputBlock}>
-                  <input type="text" placeholder="Имя фамилия" />
-                  <input type="email" placeholder="Эл. почта" />
-                  <input type="tel" placeholder="Моб. номер" />
-                </div>
-                <textarea placeholder="Возникший вопрос"></textarea>
-              </div>
-
-              <button className="sendForm">Отправить</button>
-            </form>
           </div>
         </div>
       </div>

@@ -1,0 +1,227 @@
+.productBlock {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  max-width: 830px;
+
+  .sortBlock {
+    > button,
+    > div {
+      background-color: var(--background-white);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: #b3adad;
+    }
+
+    .sort {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      width: 100%;
+
+      font-size: clamp(15px, 3vw, 17px);
+      font-weight: 600;
+
+      > div:last-child {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+      }
+
+      .sortList {
+        display: flex;
+      }
+
+      .currentSort {
+        display: none;
+      }
+
+      p {
+        color: var(--font-color-two);
+
+        padding: 1em 10px;
+        border-right: 1px solid var(--border-color);
+      }
+
+      :global {
+        button {
+          padding: 1em 0.5em;
+          color: rgb(0, 0, 0);
+          opacity: 0.4;
+          transition: 0.15s ease-in-out;
+          font-weight: bold;
+
+          &:focus {
+            opacity: 0.7;
+            transform: scale(1.01);
+          }
+
+          &.active {
+            color: rgba(0, 0, 0, 0.7);
+            opacity: 1;
+            transform: scale(1.02);
+            text-decoration: 2px underline;
+          }
+        }
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        button:hover {
+          opacity: 0.7;
+          transform: scale(1.01);
+        }
+      }
+    }
+
+    .filters {
+      display: none;
+    }
+
+    @media (max-width: 1160px) {
+      display: flex;
+      gap: 0 20px;
+
+      width: 100%;
+
+      .sort {
+        .sortList {
+          position: absolute;
+          right: 0;
+          top: 50px;
+
+          z-index: 5;
+
+          width: 100%;
+
+          display: flex;
+          flex-direction: column;
+
+          background-color: white;
+          border-radius: 10px;
+          border: 1px solid var(--border-color);
+
+          font-size: 17px;
+
+          transition: 0.2s ease-in-out;
+
+          transform: translateY(calc(-20% - 10px));
+
+          visibility: hidden;
+          opacity: 0;
+
+          pointer-events: none;
+
+          &.active {
+            visibility: visible;
+            transform: translateY(5px);
+            opacity: 1;
+
+            pointer-events: all;
+          }
+        }
+
+        .currentSort {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          width: 100%;
+
+          font-size: clamp(15px, 3vw, 20px);
+          color: var(--font-color);
+
+          img {
+            position: absolute;
+            right: clamp(5px, 3vw, 50px);
+          }
+        }
+      }
+
+      .filters {
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 180px;
+        min-height: 100%;
+
+        padding-left: 50px;
+
+        color: var(--font-color);
+        font-weight: bold;
+        font-size: 16px;
+
+        &::before {
+          content: url(/public/static/images/filtersIcon.svg);
+
+          position: absolute;
+          left: 10px;
+
+          width: 34px;
+          height: 34px;
+        }
+      }
+    }
+
+    @media (max-width: 600px) {
+      .filters {
+        width: 56px;
+        font-size: 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .sort {
+        flex-direction: column;
+
+        p {
+          border-right: none;
+          border-bottom: 1px solid var(--border-color);
+
+          padding: 10px;
+        }
+
+        .currentSort {
+          padding: 10px 0;
+        }
+
+        .sortList {
+          top: 80px;
+        }
+      }
+    }
+  }
+
+  #productsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+    width: 100%;
+
+    margin-top: 35px;
+
+    .error {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+
+      margin-top: 50px;
+
+      font-size: 24px;
+      font-weight: bold;
+
+      background-color: white;
+    }
+  }
+}

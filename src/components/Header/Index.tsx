@@ -32,7 +32,7 @@ export default function Header() {
               ? style.burgerMenu + " " + style.active
               : style.burgerMenu
           }
-          onClick={(el) => (
+          onClick={() => (
             setMenuIsActive(!menuIsActive),
             menuIsActive
               ? (document.body.style.overflowY = "auto")
@@ -67,24 +67,24 @@ export default function Header() {
                   : style.infoForClient
               }
             >
-              <div onClick={(el) => setInfoIsActive(!infoIsActive)}>
+              <div onClick={() => setInfoIsActive(!infoIsActive)}>
                 информация для клиента
               </div>
               <ul className={style.infoList}>
                 <li>
-                  <Link to={"/"}>Оформление заказа</Link>
+                  <Link to={"/*"}>Оформление заказа</Link>
                 </li>
                 <li>
                   <Link to={"/Questions"}>Вопросы и ответы</Link>
                 </li>
                 <li>
-                  <Link to={"/"}>Изменение или отмена заказа</Link>
+                  <Link to={"/*"}>Изменение или отмена заказа</Link>
                 </li>
                 <li>
                   <Link to={"/PaymentMethods"}>Способы доставки и оплаты</Link>
                 </li>
                 <li>
-                  <Link to={"/"}>Оферта</Link>
+                  <Link to={"/*"}>Оферта</Link>
                 </li>
               </ul>
             </div>

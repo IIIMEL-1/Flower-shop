@@ -1,7 +1,7 @@
 import "./reset.css";
 import Header from "./components/Header/Index";
 import Footer from "./components/Footer/Index";
-import Main from "./components/Main/Index";
+import Main from "./Pages/Main/Index";
 
 import PageError from "./Pages/Error/Index";
 

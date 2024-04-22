@@ -1,6 +1,5 @@
-import { Navigate, Outlet, redirect } from "react-router";
+import { Navigate, Outlet } from "react-router";
 import { Link } from "react-router-dom";
-import style from "./AdminPanel.module.scss";
 import { useSelector } from "react-redux";
 
 export default function AdminPanel() {

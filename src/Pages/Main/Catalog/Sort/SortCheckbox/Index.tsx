@@ -12,11 +12,12 @@ function SortCheckbox({ sortBy, title, sortType }) {
   return (
     <div>
       <h3>{title}</h3>
-      {sortBy.map((el, i) => (
+      {sortBy.map((el, i: number) => (
         <div key={i}>
           <input type="checkbox" name={sortType} id={el[0]} />
-          <label onClick={(e) => getDataSort(el)} htmlFor={el[0]}>
-            {`${el[0]} (${el[1]})`}
+          <label onClick={() => getDataSort(el)} htmlFor={el[0]}>
+            {el[0]}
+            <span>{` (${el[1]})`}</span>
           </label>
         </div>
       ))}

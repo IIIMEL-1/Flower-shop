@@ -14,8 +14,6 @@ export default function PasswordChange() {
 
   const [changePassword, { data, isLoading, status }] = useChangeDataMutation();
 
-  console.log(data);
-
   const handleChangePassword = (event) => {
     event.preventDefault();
 

@@ -1,13 +1,16 @@
 import Products from "./Products/Index";
 import Sort from "./Sort/Index";
 import style from "./Catalog.module.scss";
+import { useState } from "react";
 
 export default function Catalog() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section className="sectionBack" id={style.catalog}>
       <div className="container">
-        <Products />
-        <Sort />
+        <Products setIsOpen={setIsOpen} />
+        <Sort isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </section>
   );

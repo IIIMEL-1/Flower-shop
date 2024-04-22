@@ -7,23 +7,6 @@ import { useGetProductByIdQuery } from "../../../redux/slices/createApi";
 import Skeleton from "./Skeleton";
 import { addItem } from "../../../redux/slices/addToCartSlice";
 
-type TypeProductDescription = [
-  {
-    price: number;
-    size: string;
-    content: string[];
-  }
-];
-
-type TypeProduct = {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  description: TypeProductDescription;
-  count: number;
-};
-
 export default function Product() {
   const [product, setProduct] = useState<TypeProduct | null>(null);
   const [images, setImages] = useState([""]);
