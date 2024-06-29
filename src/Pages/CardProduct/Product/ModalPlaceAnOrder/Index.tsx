@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom";
 import style from "./ModalPlaceAnOrder.module.scss";
-import { placeAnOrder } from "../../../../redux/slices/addToCartSlice";
+import { placeAnOrder } from "@redux/slices/addToCartSlice";
 import { useDispatch } from "react-redux";
+import { TypeShortProduct } from "@types/shortProduct.types";
+import { IDescriptionProduct } from "@types/descriptionProduct.types";
 
-type TypeModalPlaceAnOrder = {
-  data: {
-    id: number;
-    title: string;
-    image: string;
-    price: number;
-    size: string;
-    count: number;
-    about: string[];
-  };
-};
+interface IModalPlaceAnOrder extends TypeShortProduct, IDescriptionProduct {
+  count: number;
+}
 
 export default function ModalPlaceAnOrder({
   setIsOpen,
-  data: { id, title, image, price, size, count, about },
-}: TypeModalPlaceAnOrder) {
+  id,
+  title,
+  image,
+  price,
+  size,
+  count,
+  content,
+}: IModalPlaceAnOrder) {
   const dispatch = useDispatch();
 
   const items = [{ id, image, title, count, size, price }];
@@ -37,7 +37,7 @@ export default function ModalPlaceAnOrder({
           Размер: <span>{size}</span>
         </p>
         <ul>
-          {about.map((content, i) => (
+          {content.map((content, i) => (
             <li key={i}>{content}</li>
           ))}
         </ul>

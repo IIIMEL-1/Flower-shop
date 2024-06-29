@@ -1,11 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useGetDataAccountMutation } from "../redux/slices/createApi";
-import { getData } from "../redux/slices/authSlice";
+import { useGetDataAccountMutation } from "@redux/slices/createApi";
+import { getData } from "@redux/slices/authSlice";
+import { useTypedSelector } from "@hooks/useTypedSelector";
 
 export default function AuthFunc() {
   const dispatch = useDispatch();
-  const userDetails = useSelector((state) => state.authSlice.userDetails);
+  const userDetails = useTypedSelector((state) => state.authSlice.userDetails);
   const token = localStorage.getItem("token");
   const [getDataUser, { data }] = useGetDataAccountMutation();
 
@@ -22,11 +23,13 @@ export default function AuthFunc() {
   useEffect(() => {
     if (userDetails && userDetails.orders) {
       const { orders } = userDetails;
-      const totalPrice = orders.reduce(
-        (sum: number, order: { totalPrice: number }) => sum + order.totalPrice,
-        0
+      const totalPrice: number[] = orders.map((order) => order.totalPrice);
+      const convertedPrice = Math.min(
+        totalPrice.reduce((sum, price) => sum + price, 0) / 1000,
+        100
       );
-      const convertedPrice = Math.min(totalPrice / 1000, 100);
+
+      console.log(totalPrice);
 
       let discountPercent = 0;
 

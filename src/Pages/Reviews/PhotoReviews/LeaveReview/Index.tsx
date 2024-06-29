@@ -1,11 +1,11 @@
 import style from "./LeaveReview.module.scss";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useTypedSelector } from "@hooks/useTypedSelector";
 import { Link } from "react-router-dom";
-import { useAddPhotoReviewMutation } from "../../../../redux/slices/createApi";
+import { useAddPhotoReviewMutation } from "@redux/slices/createApi";
 
 export default function LeaveReview() {
-  const userDetails = useSelector((state) => state.authSlice.userDetails);
+  const userDetails = useTypedSelector((state) => state.authSlice.userDetails);
 
   const [review, setReview] = useState("");
   const [estimation, setEstimation] = useState(5);

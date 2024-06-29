@@ -4,9 +4,9 @@ import style from "./ChangeStocks.module.scss";
 import {
   useAddStockMutation,
   useGetSortItemsMutation,
-} from "../../../redux/slices/createApi";
+} from "@redux/slices/createApi";
 
-import Card from "../../Main/Catalog/Products/Card/Index";
+import Card from "@pages//Main/Catalog/Products/Card/Index";
 
 export default function ChangeStocks() {
   const [image, setImage] = useState("");

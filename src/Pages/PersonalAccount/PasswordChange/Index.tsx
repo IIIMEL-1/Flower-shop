@@ -1,8 +1,8 @@
 import { useState } from "react";
 import style from "./PasswordChange.module.scss";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useChangeDataMutation } from "../../../redux/slices/createApi";
+import { useTypedSelector } from "@hooks/useTypedSelector";
+import { useChangeDataMutation } from "@redux/slices/createApi";
 import { log } from "console";
 
 export default function PasswordChange() {
@@ -10,7 +10,9 @@ export default function PasswordChange() {
   const [newPassword, setNewPassword] = useState("");
   const [repeatNewPassword, setRepeatNewPassword] = useState("");
 
-  const { password, id } = useSelector((state) => state.authSlice.userDetails);
+  const { password, id } = useTypedSelector(
+    (state) => state.authSlice.userDetails
+  );
 
   const [changePassword, { data, isLoading, status }] = useChangeDataMutation();
 

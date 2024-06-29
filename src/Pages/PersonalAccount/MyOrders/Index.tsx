@@ -1,6 +1,6 @@
 import style from "./MyOrders.module.scss";
 import { Link } from "react-router-dom";
-import { useGetDataAccountMutation } from "../../../redux/slices/createApi";
+import { useGetDataAccountMutation } from "@redux/slices/createApi";
 import { useMemo } from "react";
 
 export default function MyOrders() {

@@ -1,8 +1,9 @@
-import { placeAnOrder } from "../../redux/slices/addToCartSlice";
-import { TypeProduct } from "../Main/Catalog/Products/Index";
+import { useTypedSelector } from "@hooks/useTypedSelector";
+import { placeAnOrder } from "@redux/slices/addToCartSlice";
+import { TypeProduct } from "@pages/Main/Catalog/Products/Index";
 import style from "./Cart.module.scss";
 import CartItem from "./CartItem/Index";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 type TypeProductSize = {
@@ -10,8 +11,10 @@ type TypeProductSize = {
 };
 
 export default function Cart() {
-  const items = useSelector((state) => state.addToCartSlice.items);
-  const totalPrice = useSelector((state) => state.addToCartSlice.totalPrice);
+  const items = useTypedSelector((state) => state.addToCartSlice.items);
+  const totalPrice = useTypedSelector(
+    (state) => state.addToCartSlice.totalPrice
+  );
 
   const dispatch = useDispatch();
 

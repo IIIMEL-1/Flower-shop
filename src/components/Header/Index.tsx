@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import style from "./Header.module.scss";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
-import AuthFunc from "../../utils/AuthFunc";
+import AuthFunc from "@utils/AuthFunc";
+import { useTypedSelector } from "@hooks/useTypedSelector";
 
 export default function Header() {
   AuthFunc();
 
-  const items = useSelector((state) => state.addToCartSlice.items);
+  const items = useTypedSelector((state) => state.addToCartSlice.items);
 
   const totalCount = items.reduce((sum, obj) => sum + obj.count, 0);
 

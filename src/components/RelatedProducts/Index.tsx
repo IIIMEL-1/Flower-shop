@@ -2,8 +2,8 @@ import { useState } from "react";
 import style from "./RelatedProducts.module.scss";
 
 import ProductItem from "./RelatedItem/Index";
-import PageList from "../PageList/Index";
-import { useGetAdditionalQuery } from "../../redux/slices/createApi";
+import PageList from "@components/PageList/Index";
+import { useGetAdditionalQuery } from "@redux/slices/createApi";
 
 type TypeRelatedItemProps = {
   id: number;

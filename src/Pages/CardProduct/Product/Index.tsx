@@ -3,12 +3,14 @@ import ModalPlaceAnOrder from "./ModalPlaceAnOrder/Index";
 import style from "./Product.module.scss";
 import { useMemo, useState } from "react";
 import { useParams } from "react-router";
-import { useGetProductByIdQuery } from "../../../redux/slices/createApi";
+import { useGetProductByIdQuery } from "@redux/slices/createApi";
 import Skeleton from "./Skeleton";
-import { addItem } from "../../../redux/slices/addToCartSlice";
+import { addItem } from "@redux/slices/addToCartSlice";
+
+import { IProduct } from "@types/product.types";
 
 export default function Product() {
-  const [product, setProduct] = useState<TypeProduct | null>(null);
+  const [product, setProduct] = useState<IProduct | null>(null);
   const [images, setImages] = useState([""]);
   const [currentImg, setCurrentImg] = useState(0);
   const [size, setSize] = useState(0);
@@ -19,7 +21,7 @@ export default function Product() {
   const dispatch = useDispatch();
 
   const { id } = useParams();
-  const { data, error } = useGetProductByIdQuery({ id });
+  const { data } = useGetProductByIdQuery({ id });
 
   useMemo(() => {
     if (data) {
@@ -167,15 +169,13 @@ export default function Product() {
       {isOpen && (
         <ModalPlaceAnOrder
           setIsOpen={setIsOpen}
-          data={{
-            id: product.id,
-            title: product.title,
-            image: product.image,
-            size: product.description[size].size,
-            price: product.description[size].price,
-            about: product.description[size].content,
-            count,
-          }}
+          id={product.id}
+          title={product.title}
+          image={product.image}
+          size={product.description[size].size}
+          price={product.description[size].price}
+          content={product.description[size].content}
+          count={count}
         />
       )}
     </>

@@ -1,9 +1,9 @@
 import { Outlet } from "react-router";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useTypedSelector } from "@hooks/useTypedSelector";
 
 export default function Profile() {
-  const userDetails = useSelector((state) => state.authSlice.userDetails);
+  const userDetails = useTypedSelector((state) => state.authSlice.userDetails);
 
   return (
     <section className="sectionBack">

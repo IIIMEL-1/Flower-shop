@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Card from "./Card/Index.js";
 import Skeleton from "./Card/Skeleton.js";
 import style from "./Products.module.scss";
-import { useGetProductsQuery } from "../../../../redux/slices/createApi.js";
-import { useSelector } from "react-redux";
-import PageList from "../../../../components/PageList/Index.js";
+import { useGetProductsQuery } from "@redux/slices/createApi.js";
+import { useTypedSelector } from "@hooks/useTypedSelector";
+import PageList from "@components/PageList/Index.js";
 
 export type TypeProductDescription = {
   description: [
@@ -25,7 +25,7 @@ export type TypeProduct = {
 } & TypeProductDescription;
 
 export default function Products({ setIsOpen }) {
-  const sortList = useSelector((state) => state.sortSlice.dataParse);
+  const sortList = useTypedSelector((state) => state.sortSlice.dataParse);
 
   const [sortBy, setSortBy] = useState("title");
   const [isActive, setIsActive] = useState(0);

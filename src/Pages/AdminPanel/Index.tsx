@@ -1,9 +1,9 @@
 import { Navigate, Outlet } from "react-router";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useTypedSelector } from "@hooks/useTypedSelector";
 
 export default function AdminPanel() {
-  const userDetails = useSelector((state) => state.authSlice.userDetails);
+  const userDetails = useTypedSelector((state) => state.authSlice.userDetails);
 
   if (userDetails) {
     if (userDetails.admin) {

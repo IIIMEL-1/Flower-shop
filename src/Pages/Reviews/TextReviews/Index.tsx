@@ -1,8 +1,8 @@
 import style from "./TextReviews.module.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useGetReviewsQuery } from "../../../redux/slices/createApi";
-import PageList from "../../../components/PageList/Index";
+import { useGetReviewsQuery } from "@redux/slices/createApi";
+import PageList from "@components/PageList/Index";
 import TextReview from "./TextReview/Index";
 import LeaveReview from "./LeaveReview/Index";
 

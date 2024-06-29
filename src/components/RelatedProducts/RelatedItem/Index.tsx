@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "./RelatedItem.module.scss";
-import { addItem } from "../../../redux/slices/addToCartSlice";
+import { addItem } from "@redux/slices/addToCartSlice";
 import { useDispatch } from "react-redux";
 
 type TypeRelatedItemProps = {

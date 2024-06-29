@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import style from "./Login.module.scss";
-import { useAuthAndLoginMutation } from "../../redux/slices/createApi";
-import { getData } from "../../redux/slices/authSlice";
+import { useAuthAndLoginMutation } from "@redux/slices/createApi";
+import { getData } from "@redux/slices/authSlice";
 import { useDispatch } from "react-redux";
-import Modal from "../../components/Modal/Index";
+import Modal from "@components/Modal/Index";
 import Authorization from "./Authorization/Index";
 import Registration from "./Registration/Index";
 

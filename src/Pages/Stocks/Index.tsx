@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Stocks.module.scss";
 import Stock from "./Stock/Index";
-import { useGetStocksQuery } from "../../redux/slices/createApi";
+import { useGetStocksQuery } from "@redux/slices/createApi";
 
 export default function Stocks() {
   const { data, isLoading, error } = useGetStocksQuery();

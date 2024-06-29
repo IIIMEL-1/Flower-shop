@@ -14,11 +14,28 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "airbnb",
   ],
-  /*     "rules": {
-    }, */
   settings: {
     react: {
       version: "detect",
     },
+    "import/resolver": {
+      alias: {
+        map: [
+          ["@components", "./src/components"],
+          ["@pages", "./src/pages"],
+          ["@types", "./src/types"],
+          ["@config", "./src/config"],
+          ["@hooks", "./src/hooks"],
+          ["@redux", "./src/redux"],
+          ["@styles", "./src/styles"],
+          ["@utils", "./src/utils"],
+          ["@", "./src"],
+        ],
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
+  rules: {
+    // Можно добавить свои правила здесь
   },
 };

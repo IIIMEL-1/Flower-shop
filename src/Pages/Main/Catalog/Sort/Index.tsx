@@ -2,16 +2,17 @@ import style from "./Sort.module.scss";
 
 import Skeleton from "./Skeleton.js";
 import { useMemo, useState, useCallback, memo, useEffect } from "react";
-import { useGetSortDataQuery } from "../../../../redux/slices/createApi.js";
+import { useGetSortDataQuery } from "@redux/slices/createApi.js";
 import SortCheckbox from "./SortCheckbox/Index.js";
-import { useDispatch, useSelector } from "react-redux";
-import { clearData, parseData } from "../../../../redux/slices/sortSlice.js";
+import { useDispatch } from "react-redux";
+import { clearData, parseData } from "@redux/slices/sortSlice.js";
+import { useTypedSelector } from "@hooks/useTypedSelector";
 
 function Sort({ isOpen, setIsOpen }) {
   const dispatch = useDispatch();
 
-  const sortList = useSelector((state) => state.sortSlice.data);
-  const sortParse = useSelector((state) => state.sortSlice.dataParse);
+  const sortList = useTypedSelector((state) => state.sortSlice.data);
+  const sortParse = useTypedSelector((state) => state.sortSlice.dataParse);
 
   const [result, setResult] = useState(false);
   const [isReset, setIsReset] = useState(false);

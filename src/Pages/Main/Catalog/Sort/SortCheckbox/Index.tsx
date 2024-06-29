@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getSort } from "../../../../../redux/slices/sortSlice.js";
+import { getSort } from "@redux/slices/sortSlice.js";
 
 type SortCheckboxProps = {
   sortBy: [[string, number]];

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import style from "../Login.module.scss";
+import style from "@pages/Login/Login.module.scss";
 
 export default function Registration({
   handleFormSubmit,

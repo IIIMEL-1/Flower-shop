@@ -3,8 +3,8 @@ import PhotoReview from "./PhotoReview/Index";
 import LeaveReview from "./LeaveReview/Index";
 import style from "./PhotoReviews.module.scss";
 import { Link } from "react-router-dom";
-import { useGetPhotoReviewsQuery } from "../../../redux/slices/createApi";
-import PageList from "../../../components/PageList/Index";
+import { useGetPhotoReviewsQuery } from "@redux/slices/createApi";
+import PageList from "@components/PageList/Index";
 import OpenPhotoReview from "./PhotoReview/OpenPhotoReview/Index";
 
 type TypePhotoReviewProps = {

@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import style from "./Profile.module.scss";
-import Modal from "../../../components/Modal/Index";
-import { logoutUser } from "../../../redux/slices/authSlice";
+import Modal from "@components/Modal/Index";
+import { logoutUser } from "@redux/slices/authSlice";
 import { useMemo } from "react";
+import { useTypedSelector } from "@hooks/useTypedSelector";
 
 export default function Profile() {
   const dispatch = useDispatch();
 
-  const { userDetails, error } = useSelector((state) => state.authSlice);
+  const { userDetails, error } = useTypedSelector((state) => state.authSlice);
 
   const logOut = () => {
     localStorage.clear();

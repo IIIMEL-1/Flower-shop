@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { useChangeDataMutation } from "../../redux/slices/createApi";
+import { useChangeDataMutation } from "@redux/slices/createApi";
 import style from "./PlaceAnOrder.module.scss";
-import { clearCart } from "../../redux/slices/addToCartSlice";
+import { clearCart } from "@redux/slices/addToCartSlice";
 import React, { useEffect, useState } from "react";
 import PlaceAnOrderItem from "./PlaceAnOrderItem/Index";
-import Modal from "../../components/Modal/Index";
-import { changeUserOrders } from "../../redux/slices/authSlice";
+import Modal from "@components/Modal/Index";
+import { changeUserOrders } from "@redux/slices/authSlice";
 
 type TypeListItems = {
   id: number;
@@ -23,9 +23,9 @@ type TypeStepsList = {
 };
 
 export default function OrderRegistration() {
-  const items = useSelector((state) => state.addToCartSlice.placeAnOrder);
-  const price = useSelector((state) => state.addToCartSlice.totalPrice);
-  const user = useSelector((state) => state.authSlice.userDetails);
+  const items = useTypedSelector((state) => state.addToCartSlice.placeAnOrder);
+  const price = useTypedSelector((state) => state.addToCartSlice.totalPrice);
+  const user = useTypedSelector((state) => state.authSlice.userDetails);
 
   const totalPrice = price - (price / 100) * user.percent;
 

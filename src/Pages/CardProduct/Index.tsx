@@ -1,8 +1,7 @@
 import style from "./CardProduct.module.scss";
-import Skeleton from "./Product/Skeleton.js";
 import { Link } from "react-router-dom";
 
-import RelatedProducts from "/src/components/RelatedProducts/Index";
+import RelatedProducts from "@components/RelatedProducts/Index";
 import Product from "./Product/Index";
 
 export default function CardProduct() {
