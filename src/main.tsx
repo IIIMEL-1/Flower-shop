@@ -1,9 +1,8 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import { router } from "./App.tsx";
+import { router } from "./config/router";
 import { RouterProvider } from "react-router-dom";
-import "./assets/style/global.scss";
+import "./styles/main.scss";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <RouterProvider router={router} />
 );

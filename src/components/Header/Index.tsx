@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import style from "./Header.module.scss";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import AuthFunc from "../../function/AuthFunc";
+import AuthFunc from "../../utils/AuthFunc";
 
 export default function Header() {
   AuthFunc();
@@ -57,7 +57,7 @@ export default function Header() {
             <Link to={"/Contacts"}>контакты</Link>
           </div>
           <div className={style.logo}>
-            <img src="/static/images/logo.svg" alt="Logo" />
+            <img src="/images/logo.svg" alt="Logo" />
           </div>
           <div>
             <div
@@ -89,10 +89,10 @@ export default function Header() {
               </ul>
             </div>
             <Link className={style.profile} to={"/PersonalAccount/Profile"}>
-              <img src="/static/images/Profile-icon.svg" alt="profile" />
+              <img src="/images/Profile-icon.svg" alt="profile" />
             </Link>
             <Link className={style.cart} to={"/Cart"}>
-              <img src="/static/images/cart.svg" alt="profile" />
+              <img src="/images/cart.svg" alt="profile" />
               <p>{totalCount}</p>
             </Link>
           </div>

@@ -20,6 +20,7 @@ export const sortSlice = createSlice({
       state.dataParse = state.data.join("&");
     },
     clearData: (state) => {
+      state.data = [];
       state.dataParse = "";
     },
   },

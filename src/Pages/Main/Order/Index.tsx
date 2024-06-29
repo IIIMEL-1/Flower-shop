@@ -12,7 +12,7 @@ export default function Order() {
         <div className={style.orderBlock}>
           <div>
             <div className={style.orderItem}>
-              <img src="static/images/1.png" alt="шаг 1" />
+              <img src="/images/1.png" alt="шаг 1" />
               <div>
                 <h4>Выберите букет;</h4>
                 <p>
@@ -22,7 +22,7 @@ export default function Order() {
               </div>
             </div>
             <div className={style.orderItem}>
-              <img src="static/images/2.png" alt="шаг 2" />
+              <img src="/images/2.png" alt="шаг 2" />
               <div>
                 <h4>Выберите размер и дополнение;</h4>
                 <p>
@@ -39,7 +39,7 @@ export default function Order() {
           </div>
           <div>
             <div className={style.orderItem}>
-              <img src="static/images/3.png" alt="шаг 3" />
+              <img src="/images/3.png" alt="шаг 3" />
               <div>
                 <h4>Укажите данные для доставки;</h4>
                 <p>
@@ -50,7 +50,7 @@ export default function Order() {
               </div>
             </div>
             <div className={style.orderItem}>
-              <img src="static/images/4.png" alt="шаг 4" />
+              <img src="/images/4.png" alt="шаг 4" />
               <div>
                 <h4>Букет готов!</h4>
                 <p>

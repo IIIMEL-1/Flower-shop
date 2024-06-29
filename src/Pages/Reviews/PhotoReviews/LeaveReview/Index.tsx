@@ -6,7 +6,7 @@ import { useAddPhotoReviewMutation } from "../../../../redux/slices/createApi";
 
 export default function LeaveReview() {
   const userDetails = useSelector((state) => state.authSlice.userDetails);
-  
+
   const [review, setReview] = useState("");
   const [estimation, setEstimation] = useState(5);
   const [image, setImage] = useState("");
@@ -86,7 +86,7 @@ export default function LeaveReview() {
         <form onSubmit={handleSubmit}>
           <div className={style.inputBlock}>
             <label className={style.inputFile}>
-              <img src="/static/images/download.svg" alt="" />
+              <img src="/images/download.svg" alt="" />
               <img
                 className={style.previewPhoto}
                 src={imageUrl}

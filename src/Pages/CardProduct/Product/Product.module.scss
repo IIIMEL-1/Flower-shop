@@ -231,7 +231,7 @@
         font-size: clamp(16px, 4vw, 18px);
 
         &::before {
-          content: url(/public/static/images/cart-white.svg);
+          content: url(/images/cart-white.svg);
           position: absolute;
 
           top: calc(50% - 13px);

@@ -67,7 +67,7 @@ export default function Profile() {
           <form onClick={(event) => event.preventDefault()}>
             {!localStorage.getItem("token") ? (
               <Modal
-                img={"/static/images/as.webp"}
+                img={"/images/as.webp"}
                 text={
                   "Похоже вы не вошли в свой аккаунт, или ещё не зарегистрировались на нашем сайте"
                 }

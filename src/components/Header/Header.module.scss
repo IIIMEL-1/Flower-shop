@@ -140,7 +140,7 @@ header {
   }
 
   @media (max-width: 1080px) {
-    background: url(/public/static/images/logo.svg) no-repeat center center;
+    background: url(/images/logo.svg) no-repeat center center;
     background-size: clamp(60px, 10vw, 90px);
 
     .burgerMenu {

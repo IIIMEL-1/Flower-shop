@@ -86,8 +86,8 @@ export default function Registration({
             <img
               src={
                 inputType === "password"
-                  ? "/public/static/images/hidden_eye.svg"
-                  : "/public/static/images/eye_visible.svg"
+                  ? "/images/hidden_eye.svg"
+                  : "/images/eye_visible.svg"
               }
             />
           }

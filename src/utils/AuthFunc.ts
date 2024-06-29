@@ -9,8 +9,6 @@ export default function AuthFunc() {
   const token = localStorage.getItem("token");
   const [getDataUser, { data }] = useGetDataAccountMutation();
 
-  console.log(data);
-
   useEffect(() => {
     if (token && !userDetails) {
       getDataUser(token);

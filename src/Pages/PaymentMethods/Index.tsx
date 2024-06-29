@@ -5,31 +5,31 @@ export default function PaymentMethods() {
   const PAYMENT_METHODS = [
     {
       name: "МИР",
-      image: "/static/images/mir.png",
+      image: "/images/mir.png",
     },
     {
       name: "VISA International",
-      image: "/static/images/visa.png",
+      image: "/images/visa.png",
     },
     {
       name: "Mastercard Worldwide",
-      image: "/static/images/masterCard.png",
+      image: "/images/masterCard.png",
     },
     {
       name: "JCB",
-      image: "/static/images/JCB.png",
+      image: "/images/JCB.png",
     },
     {
       name: "Apple Pay",
-      image: "/static/images/applePay.png",
+      image: "/images/applePay.png",
     },
     {
       name: "Samsung Pay",
-      image: "/static/images/samsungPay.png",
+      image: "/images/samsungPay.png",
     },
     {
       name: "Google Pay",
-      image: "/static/images/googlePay.png",
+      image: "/images/googlePay.png",
     },
   ];
 

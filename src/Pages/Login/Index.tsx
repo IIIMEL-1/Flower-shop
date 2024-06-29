@@ -70,7 +70,7 @@ export default function Login() {
 
           {data ? (
             <Modal
-              img={"/static/images/party-popper.webp"}
+              img={"/images/party-popper.webp"}
               text={"Вы успешно вошли в аккаунт!"}
               buttonText={"Вернутся назад"}
               link={"/PersonalAccount/Profile"}

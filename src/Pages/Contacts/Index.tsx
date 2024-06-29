@@ -39,7 +39,7 @@ export default function Contacts() {
               </div>
             </div>
             <div className={style.mapBlock}>
-              <img src="static/images/Map.png" alt="Map" />
+              <img src="/images/Map.png" alt="Map" />
             </div>
           </div>
         </div>

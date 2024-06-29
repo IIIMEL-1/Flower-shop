@@ -79,7 +79,7 @@ export default function Products({ setIsOpen }) {
             </div>
             <div className={style.currentSort}>
               {list[isActive].title}
-              <img src="/static/images/arrow.svg" alt="" />
+              <img src="/images/arrow.svg" alt="" />
             </div>
           </div>
         </div>

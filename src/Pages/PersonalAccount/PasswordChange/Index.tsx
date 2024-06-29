@@ -34,7 +34,7 @@ export default function PasswordChange() {
         {status === "success" ? (
           <div className="opacity">
             <div className="modal">
-              <img src="/static/images/party-popper.webp" alt="" />
+              <img src="/images/party-popper.webp" alt="" />
               <p>Вы успешно сменили пароль!</p>
               <Link className="sendForm" to={"/PersonalAccount/Profile"}>
                 Вернутся назад

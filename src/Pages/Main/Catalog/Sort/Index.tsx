@@ -1,7 +1,7 @@
 import style from "./Sort.module.scss";
 
 import Skeleton from "./Skeleton.js";
-import { useMemo, useState, useCallback, memo } from "react";
+import { useMemo, useState, useCallback, memo, useEffect } from "react";
 import { useGetSortDataQuery } from "../../../../redux/slices/createApi.js";
 import SortCheckbox from "./SortCheckbox/Index.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +14,7 @@ function Sort({ isOpen, setIsOpen }) {
   const sortParse = useSelector((state) => state.sortSlice.dataParse);
 
   const [result, setResult] = useState(false);
+  const [isReset, setIsReset] = useState(false);
 
   const countAndMap = useCallback((arr, keys) => {
     const counts = keys.reduce((acc, key) => {
@@ -43,25 +44,29 @@ function Sort({ isOpen, setIsOpen }) {
 
   const applyFilters = () => {
     dispatch(parseData());
+    setIsOpen(false);
   };
 
   const resetFilters = () => {
     dispatch(clearData());
+    setIsReset(true);
   };
 
+  useEffect(() => {
+    dispatch(clearData());
+  }, []);
+
   return (
-    <>
+    <section
+      className={isOpen ? `${style.sort} ${style.active}` : `${style.sort}`}
+    >
       {isLoading ? (
         <Skeleton />
       ) : error ? (
         <div>{`${error.status} ${error.data ? error.data.message : ""}`}</div>
       ) : (
         result && (
-          <section
-            className={
-              isOpen ? `${style.sort} ${style.active}` : `${style.sort}`
-            }
-          >
+          <>
             <div className={style.closeSort}>
               <button onClick={() => setIsOpen(false)}>Фильтры</button>
             </div>
@@ -72,35 +77,44 @@ function Sort({ isOpen, setIsOpen }) {
               sortBy={result.flower}
               sortType={"flower"}
               title={"Букет с ..."}
+              isReset={isReset}
             />
             <SortCheckbox
               sortBy={result.packing}
               sortType={"packing"}
               title={"Цветы упакованы"}
+              isReset={isReset}
             />
             <SortCheckbox
               sortBy={result.color}
               sortType={"color"}
               title={"Цветовая гамма"}
+              isReset={isReset}
             />
-            {sortList.length !== 0 && (
-              <div>
-                <button className="sendForm" onClick={applyFilters}>
-                  Применить фильтры
-                </button>
-              </div>
-            )}
-            {sortParse && (
-              <div>
-                <button className="sendForm" onClick={resetFilters}>
-                  Сбросить фильтры
-                </button>
-              </div>
-            )}
-          </section>
+
+            <div>
+              <button
+                className="sendForm"
+                disabled={!!!sortList.length}
+                onClick={applyFilters}
+              >
+                Применить фильтры
+              </button>
+            </div>
+
+            <div>
+              <button
+                className="sendForm"
+                disabled={!!!sortParse}
+                onClick={resetFilters}
+              >
+                Сбросить фильтры
+              </button>
+            </div>
+          </>
         )
       )}
-    </>
+    </section>
   );
 }
 
