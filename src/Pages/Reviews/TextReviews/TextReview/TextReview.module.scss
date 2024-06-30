@@ -14,6 +14,8 @@
   }
 
   .reviewer {
+    position: relative;
+
     display: flex;
     justify-content: space-between;
 
@@ -32,6 +34,16 @@
 
         margin-right: 12px;
       }
+    }
+
+    div:last-child {
+      top: 7px;
+      right: -4px;
+      left: auto;
+      bottom: auto;
+
+      background-color: none;
+      border-radius: none;
     }
   }
 

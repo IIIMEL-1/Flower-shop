@@ -2,10 +2,14 @@ import { Link } from "react-router-dom";
 import style from "./ModalPlaceAnOrder.module.scss";
 import { placeAnOrder } from "@redux/slices/addToCartSlice";
 import { useDispatch } from "react-redux";
-import { TypeShortProduct } from "@types/shortProduct.types";
-import { IDescriptionProduct } from "@types/descriptionProduct.types";
+import { TypeShortProduct } from "@globalTypes/shortProduct.types";
+import { IDescriptionProduct } from "@globalTypes/descriptionProduct.types";
+import { IButtonModal } from "@globalTypes/buttonModal.types";
 
-interface IModalPlaceAnOrder extends TypeShortProduct, IDescriptionProduct {
+interface IModalPlaceAnOrder
+  extends TypeShortProduct,
+    IDescriptionProduct,
+    IButtonModal {
   count: number;
 }
 

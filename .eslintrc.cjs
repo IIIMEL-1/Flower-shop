@@ -23,7 +23,7 @@ module.exports = {
         map: [
           ["@components", "./src/components"],
           ["@pages", "./src/pages"],
-          ["@types", "./src/types"],
+          ["@globalTypes", "./src/types"],
           ["@config", "./src/config"],
           ["@hooks", "./src/hooks"],
           ["@redux", "./src/redux"],

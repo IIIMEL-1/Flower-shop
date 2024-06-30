@@ -6,26 +6,16 @@ import { Link } from "react-router-dom";
 import { useGetPhotoReviewsQuery } from "@redux/slices/createApi";
 import PageList from "@components/PageList/Index";
 import OpenPhotoReview from "./PhotoReview/OpenPhotoReview/Index";
-
-type TypePhotoReviewProps = {
-  id: number;
-  name: string;
-  date: string;
-  time: string;
-  city: string;
-  email: string;
-  photoUrl: string;
-  estimation: number;
-  review: string;
-};
+import { IPhotoReview } from "@globalTypes/photoReview.types";
 
 export default function PhotoReviews() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
-  const [dataPhotoReview, setDataPhotoReview] =
-    useState<TypePhotoReviewProps | null>(null);
+  const [dataPhotoReview, setDataPhotoReview] = useState<IPhotoReview | null>(
+    null
+  );
 
-  const { isLoading, error, data } = useGetPhotoReviewsQuery({ currentPage });
+  const { data, error, isLoading } = useGetPhotoReviewsQuery({ currentPage });
 
   useEffect(() => {
     if (isOpen) {
@@ -50,7 +40,7 @@ export default function PhotoReviews() {
           ) : error ? (
             <p className={style.loading}>Ошибка</p>
           ) : (
-            data.items.map((el) => (
+            data.items.map((el: IPhotoReview) => (
               <PhotoReview
                 key={el.id}
                 id={el.id}
@@ -61,7 +51,6 @@ export default function PhotoReviews() {
                 photoUrl={el.photoUrl}
                 estimation={el.estimation}
                 review={el.review}
-                email={el.email}
                 state={{ setIsOpen, setDataPhotoReview }}
               />
             ))
@@ -75,7 +64,7 @@ export default function PhotoReviews() {
             state={{ currentPage, setCurrentPage }}
           />
         </div>
-        {isOpen && (
+        {isOpen && dataPhotoReview && (
           <OpenPhotoReview setIsOpen={setIsOpen} data={dataPhotoReview} />
         )}
         <LeaveReview />

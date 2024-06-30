@@ -1,11 +1,5 @@
-export interface IPhotoReview {
-  date: string;
-  time: string;
-  name: string;
-  email: string;
-  city: string;
+import { IReview } from "./review.types";
+
+export interface IPhotoReview extends IReview {
   photoUrl: string;
-  review: string;
-  estimation: number;
-  id: number;
 }

@@ -2,15 +2,7 @@ import style from "./CartItem.module.scss";
 import { addItem, minusItem, removeItem } from "@redux/slices/addToCartSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
-type TypeCartItemProps = {
-  id: number;
-  title: string;
-  image: string;
-  size: string;
-  price: number;
-  count: number;
-};
+import { TypeCartItemProps } from "../Index";
 
 export default function CartItem({
   id,

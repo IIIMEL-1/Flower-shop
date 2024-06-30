@@ -29,8 +29,6 @@ export default function AuthFunc() {
         100
       );
 
-      console.log(totalPrice);
-
       let discountPercent = 0;
 
       if (convertedPrice < 25) discountPercent = 0;

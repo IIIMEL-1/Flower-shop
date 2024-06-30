@@ -5,6 +5,8 @@ import { useGetReviewsQuery } from "@redux/slices/createApi";
 import PageList from "@components/PageList/Index";
 import TextReview from "./TextReview/Index";
 import LeaveReview from "./LeaveReview/Index";
+import { IReview } from "@globalTypes/review.types";
+import EstimationBlock from "@components/EstimationBlock/EstimationBlock";
 
 export default function TextReviews() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,7 +27,7 @@ export default function TextReviews() {
           ) : error ? (
             <p className={style.loading}>Ошибка</p>
           ) : (
-            data.items.map((el) => (
+            data.items.map((el: IReview) => (
               <TextReview
                 key={el.id}
                 id={el.id}
@@ -35,7 +37,6 @@ export default function TextReviews() {
                 city={el.city}
                 estimation={el.estimation}
                 review={el.review}
-                email={el.email}
               />
             ))
           )}
@@ -46,7 +47,6 @@ export default function TextReviews() {
             state={{ currentPage, setCurrentPage }}
           />
         </div>
-
         <LeaveReview />
       </div>
     </section>

@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, Navigate } from "react-router-dom";
 import { useChangeDataMutation } from "@redux/slices/createApi";
 import style from "./PlaceAnOrder.module.scss";
 import { clearCart } from "@redux/slices/addToCartSlice";
@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import PlaceAnOrderItem from "./PlaceAnOrderItem/Index";
 import Modal from "@components/Modal/Index";
 import { changeUserOrders } from "@redux/slices/authSlice";
+import { useTypedSelector } from "@hooks/useTypedSelector";
 
 type TypeListItems = {
   id: number;
@@ -32,6 +33,8 @@ export default function OrderRegistration() {
   const dispatch = useDispatch();
 
   const [currentStep, setCurrentStep] = useState(1);
+
+  console.log(items.length);
 
   const STEPS_LIST: TypeStepsList[] = [
     {
@@ -297,11 +300,13 @@ export default function OrderRegistration() {
                         </label>
                       </div>
                     </div>
-                    <div>
-                      <button onClick={handleFormSubmit} className="sendForm">
-                        Оформить заказ
-                      </button>
-                    </div>
+                    {items.length >= 1 && (
+                      <div>
+                        <button onClick={handleFormSubmit} className="sendForm">
+                          Оформить заказ
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )
               )}

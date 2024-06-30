@@ -4,13 +4,7 @@ import style from "./RelatedProducts.module.scss";
 import ProductItem from "./RelatedItem/Index";
 import PageList from "@components/PageList/Index";
 import { useGetAdditionalQuery } from "@redux/slices/createApi";
-
-type TypeRelatedItemProps = {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-};
+import { TypeShortProduct } from "@globalTypes/shortProduct.types";
 
 export default function RelatedProducts() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,7 +23,7 @@ export default function RelatedProducts() {
         </div>
         <div className={style.relatedProductsList}>
           {data ? (
-            data.items.map((el: TypeRelatedItemProps) => (
+            data.items.map((el: TypeShortProduct) => (
               <ProductItem
                 key={el.id}
                 id={el.id}

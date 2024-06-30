@@ -88,7 +88,7 @@ export default function Header() {
                 </li>
               </ul>
             </div>
-            <Link className={style.profile} to={"/PersonalAccount/Profile"}>
+            <Link className={style.profile} to={localStorage.getItem("token") ? "/PersonalAccount/Profile" : "/Login"}>
               <img src="/images/Profile-icon.svg" alt="profile" />
             </Link>
             <Link className={style.cart} to={"/Cart"}>

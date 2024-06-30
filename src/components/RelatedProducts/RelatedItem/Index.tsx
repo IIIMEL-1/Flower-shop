@@ -25,7 +25,7 @@ export default function RelatedItem({
       id,
       title,
       image,
-      description: { price },
+      price,
       count,
     };
 

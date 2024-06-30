@@ -48,9 +48,8 @@ export default function MyOrders() {
                       <div key={i} className={style.flower}>
                         <div className={style.title}>
                           <p>{el.title}</p>
-                          <span>({el.size})</span>
+                          {el.size && <span>({el.size})</span>}
                         </div>
-
                         <div>
                           <span>x{el.count}</span>
                           <p>{el.price.toLocaleString()} руб.</p>

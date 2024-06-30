@@ -7,14 +7,16 @@ import SortCheckbox from "./SortCheckbox/Index.js";
 import { useDispatch } from "react-redux";
 import { clearData, parseData } from "@redux/slices/sortSlice.js";
 import { useTypedSelector } from "@hooks/useTypedSelector";
+import { IButtonModal } from "@globalTypes/buttonModal.types";
+import { ISort } from "@globalTypes/sort.types";
 
-function Sort({ isOpen, setIsOpen }) {
+function Sort({ isOpen, setIsOpen }: IButtonModal) {
   const dispatch = useDispatch();
 
   const sortList = useTypedSelector((state) => state.sortSlice.data);
   const sortParse = useTypedSelector((state) => state.sortSlice.dataParse);
 
-  const [result, setResult] = useState(false);
+  const [result, setResult] = useState<ISort | false>(false);
   const [isReset, setIsReset] = useState(false);
 
   const countAndMap = useCallback((arr, keys) => {
@@ -35,7 +37,7 @@ function Sort({ isOpen, setIsOpen }) {
     return arrays;
   }, []);
 
-  const { data, isLoading, error } = useGetSortDataQuery();
+  const { data, isLoading, error } = useGetSortDataQuery(null);
 
   useMemo(() => {
     if (data) {

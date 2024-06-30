@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import style from "./Profile.module.scss";
-import Modal from "@components/Modal/Index";
 import { logoutUser } from "@redux/slices/authSlice";
 import { useMemo } from "react";
 import { useTypedSelector } from "@hooks/useTypedSelector";
@@ -15,6 +14,7 @@ export default function Profile() {
     localStorage.clear();
     dispatch(logoutUser());
   };
+
   const totalPrice = useMemo(() => {
     if (userDetails) {
       return userDetails.orders.reduce((sum: number, obj) => {
@@ -66,16 +66,7 @@ export default function Profile() {
           </div>
 
           <form onClick={(event) => event.preventDefault()}>
-            {!localStorage.getItem("token") ? (
-              <Modal
-                img={"/images/as.webp"}
-                text={
-                  "Похоже вы не вошли в свой аккаунт, или ещё не зарегистрировались на нашем сайте"
-                }
-                buttonText={"Войти в аккаунт"}
-                link={"/Login"}
-              />
-            ) : error ? (
+            {error ? (
               <p>Ошибка при получении информации о пользователе :(</p>
             ) : userDetails ? (
               <>

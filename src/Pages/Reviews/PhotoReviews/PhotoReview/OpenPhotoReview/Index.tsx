@@ -1,15 +1,10 @@
+import { IPhotoReview } from "@globalTypes/photoReview.types";
 import style from "./OpenPhotoReview.module.scss";
+import EstimationBlock from "@components/EstimationBlock/EstimationBlock";
 
 type TypePhotoReviewProps = {
-  data: {
-    name: string;
-    date: string;
-    time: string;
-    city: string;
-    photoUrl: string;
-    estimation: number;
-    review: string;
-  };
+  setIsOpen: (state: boolean) => void;
+  data: IPhotoReview;
 };
 
 export default function OpenPhotoReview({
@@ -35,6 +30,7 @@ export default function OpenPhotoReview({
         <div className={style.reviewText}>
           <p>{review}</p>
         </div>
+        <EstimationBlock estimation={estimation} />
       </div>
     </div>
   );

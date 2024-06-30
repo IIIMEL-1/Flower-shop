@@ -7,7 +7,7 @@ import { useGetProductByIdQuery } from "@redux/slices/createApi";
 import Skeleton from "./Skeleton";
 import { addItem } from "@redux/slices/addToCartSlice";
 
-import { IProduct } from "@types/product.types";
+import { IProduct } from "@globalTypes/product.types";
 
 export default function Product() {
   const [product, setProduct] = useState<IProduct | null>(null);
@@ -16,7 +16,7 @@ export default function Product() {
   const [size, setSize] = useState(0);
   const [count, setCount] = useState(1);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 

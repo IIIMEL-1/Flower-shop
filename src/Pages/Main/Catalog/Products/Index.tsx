@@ -5,26 +5,10 @@ import style from "./Products.module.scss";
 import { useGetProductsQuery } from "@redux/slices/createApi.js";
 import { useTypedSelector } from "@hooks/useTypedSelector";
 import PageList from "@components/PageList/Index.js";
+import { TypeShortProduct } from "@globalTypes/shortProduct.types";
+import { IButtonModal } from "@globalTypes/buttonModal.types.js";
 
-export type TypeProductDescription = {
-  description: [
-    {
-      price: number;
-      size: string;
-      content: string[];
-    }
-  ];
-};
-
-export type TypeProduct = {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  count: number;
-} & TypeProductDescription;
-
-export default function Products({ setIsOpen }) {
+export default function Products({ setIsOpen }: IButtonModal) {
   const sortList = useTypedSelector((state) => state.sortSlice.dataParse);
 
   const [sortBy, setSortBy] = useState("title");
@@ -95,15 +79,14 @@ export default function Products({ setIsOpen }) {
           [...new Array(6)].map((_, i) => <Skeleton key={i} />)
         ) : error ? (
           <div className={style.error}>
-            <p>{`${error.status} ${error.data && error.data.message}`}</p>
+            <p>{`${error.status} ${error.data?.message}`}</p>
           </div>
         ) : data.items.length ? (
-          data.items.map((el: TypeProduct) => (
+          data.items.map((el: TypeShortProduct) => (
             <Card
               key={el.id}
               id={el.id}
               title={el.title}
-              description={el.description}
               image={el.image}
               price={el.price}
               mini={false}

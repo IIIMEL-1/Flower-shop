@@ -1,7 +1,12 @@
+import { TypeShortProduct } from "@globalTypes/shortProduct.types";
 import style from "./Card.module.scss";
 import { Link } from "react-router-dom";
 
-export default function Card({ id, title, image, price, mini }) {
+type TypeCardProps = TypeShortProduct & {
+  mini: boolean;
+};
+
+export default function Card({ id, title, image, price, mini }: TypeCardProps) {
   return (
     <div className={mini ? `${style.product} ${style.active}` : style.product}>
       <img src={image} alt={title} />

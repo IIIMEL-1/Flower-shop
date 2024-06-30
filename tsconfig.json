@@ -22,7 +22,7 @@
       "@config/*": ["src/config/*"],
       "@hooks/*": ["src/hooks/*"],
       "@redux/*": ["src/redux/*"],
-      "@types/*": ["src/types/*"],
+      "@globalTypes/*": ["src/types/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
       "@": ["src/*"]

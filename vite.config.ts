@@ -9,7 +9,7 @@ export default defineConfig({
     alias: {
       "@components": resolve(__dirname, "src/components"),
       "@pages": resolve(__dirname, "src/pages"),
-      "@types": resolve(__dirname, "src/types"),
+      "@globalTypes": resolve(__dirname, "src/types"),
       "@config": resolve(__dirname, "src/config"),
       "@hooks": resolve(__dirname, "src/hooks"),
       "@redux": resolve(__dirname, "src/redux"),

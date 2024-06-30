@@ -1,9 +1,13 @@
-import { Outlet } from "react-router";
+import { Navigate, Outlet } from "react-router";
 import { Link } from "react-router-dom";
 import { useTypedSelector } from "@hooks/useTypedSelector";
 
 export default function Profile() {
   const userDetails = useTypedSelector((state) => state.authSlice.userDetails);
+
+  if (!userDetails) {
+    return <Navigate to="/Login" />;
+  }
 
   return (
     <section className="sectionBack">
