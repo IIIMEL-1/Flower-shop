@@ -2,36 +2,35 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "../App";
 
-import Main from "@pages/Main/Main";
-
-import PageError from "@pages/Error/Error";
+import Main from "@pages/Main/Main.tsx";
+import PageError from "@pages/Error/Error.tsx";
 
 // ProfilePage
-import PageProfile from "@pages/PersonalAccount/Profile/Profile";
-import PageMyOrders from "@pages/PersonalAccount/MyOrders/MyOrders";
-import PagePasswordChange from "@pages/PersonalAccount/PasswordChange/PasswordChange";
-import PagePersonalAccount from "@pages/PersonalAccount/PersonalAccount";
+import PageProfile from "@pages/PersonalAccount/Profile/Profile.tsx";
+import PageMyOrders from "@pages/PersonalAccount/MyOrders/MyOrders.tsx";
+import PagePasswordChange from "@pages/PersonalAccount/PasswordChange/PasswordChange.tsx";
+import PagePersonalAccount from "@pages/PersonalAccount/PersonalAccount.tsx";
 
 // ReviewsPage
-import PageReviews from "@pages/Reviews/Reviews";
-import PageTextReviews from "@pages/Reviews/TextReviews/TextReviews";
-import PagePhotoReviews from "@pages/Reviews/PhotoReviews/PhotoReviews";
+import PageReviews from "@pages/Reviews/Reviews.tsx";
+import PageTextReviews from "@pages/Reviews/TextReviews/TextReviews.tsx";
+import PagePhotoReviews from "@pages/Reviews/PhotoReviews/PhotoReviews.tsx";
 
 // AdminPanelPage
-import PageAdminPanel from "@pages/AdminPanel/AdminPanel";
-import PageChangeItems from "@pages/AdminPanel/ChangeItems/ChangeItems";
-import PageChangeAdditional from "@pages/AdminPanel/ChangeAdditional/ChangeAdditional";
-import PageChangeStocks from "@pages/AdminPanel/ChangeStocks/ChangeStocks";
+import PageAdminPanel from "@pages/AdminPanel/AdminPanel.tsx";
+import PageChangeItems from "@pages/AdminPanel/ChangeItems/ChangeItems.tsx";
+import PageChangeAdditional from "@pages/AdminPanel/ChangeAdditional/ChangeAdditional.tsx";
+import PageChangeStocks from "@pages/AdminPanel/ChangeStocks/ChangeStocks.tsx";
 
 // OthersPage
-import PageCart from "@pages/Cart/Cart";
-import PagePlaceAnOrder from "@pages/PlaceAnOrder/PlaceAnOrder";
-import PageQuestion from "@pages/Questions/Questions";
-import PagePaymentMethods from "@pages/PaymentMethods/PaymentMethods";
-import PageLogin from "@pages/Login/Login";
-import PageContacts from "@pages/Contacts/Contacts";
-import PageCardProduct from "@pages/CardProduct/CardProduct";
-import PageStocks from "@pages/Stocks/Stocks";
+import PageCart from "@pages/Cart/Cart.tsx";
+import PagePlaceAnOrder from "@pages/PlaceAnOrder/PlaceAnOrder.tsx";
+import PageQuestion from "@pages/Questions/Questions.tsx";
+import PagePaymentMethods from "@pages/PaymentMethods/PaymentMethods.tsx";
+import PageLogin from "@pages/Login/Login.tsx";
+import PageContacts from "@pages/Contacts/Contacts.tsx";
+import PageCardProduct from "@pages/CardProduct/CardProduct.tsx";
+import PageStocks from "@pages/Stocks/Stocks.tsx";
 
 export const router = createBrowserRouter([
   {
