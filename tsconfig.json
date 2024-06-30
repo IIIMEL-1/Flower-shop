@@ -25,8 +25,7 @@
       "@globalTypes/*": ["src/types/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"]
-    },
-    "allowImportingTsExtensions": true
+    }
   },
   "include": ["src", "src/@types"]
 }
