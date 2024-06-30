@@ -6,7 +6,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 
-export default function Index() {
+export default function App() {
   const locate = useLocation();
 
   window.scrollTo(0, 0);

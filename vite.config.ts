@@ -15,7 +15,6 @@ export default defineConfig({
       "@redux": resolve(__dirname, "src/redux"),
       "@styles": resolve(__dirname, "src/styles"),
       "@utils": resolve(__dirname, "src/utils"),
-      "@": resolve(__dirname, "src/"),
     },
   },
   css: {

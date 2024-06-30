@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import App from "../App";
+
 import Main from "@pages/Main/Index";
 
-import PageError from "@pages/Error/Index";
+import PageError from "@pages/Error/Error";
 
 // ProfilePage
 import PageProfile from "@pages/PersonalAccount/Profile/Index";
@@ -30,11 +32,10 @@ import PageLogin from "@pages/Login/Index";
 import PageContacts from "@pages/Contacts/Index";
 import PageCardProduct from "@pages/CardProduct/Index";
 import PageStocks from "@pages/Stocks/Index";
-import Index from "@/App";
 
 export const router = createBrowserRouter([
   {
-    element: <Index />,
+    element: <App />,
     children: [
       { path: "/", element: <Main /> },
       {
