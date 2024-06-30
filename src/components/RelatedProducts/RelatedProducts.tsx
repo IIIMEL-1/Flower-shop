@@ -1,8 +1,8 @@
 import { useState } from "react";
 import style from "./RelatedProducts.module.scss";
 
-import ProductItem from "./RelatedItem/Index";
-import PageList from "@components/PageList/Index";
+import ProductItem from "./RelatedItem/RelatedItem";
+import PageList from "@components/PageList/PageList";
 import { useGetAdditionalQuery } from "@redux/slices/createApi";
 import { TypeShortProduct } from "@globalTypes/shortProduct.types";
 
