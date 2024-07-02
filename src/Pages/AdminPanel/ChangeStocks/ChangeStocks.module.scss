@@ -13,7 +13,7 @@
 
     border-radius: 10px;
 
-    background-color: var(--background-white);
+    background-color: $white-color;
 
     h2 {
       font-size: 18px;
@@ -89,7 +89,7 @@
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
 
-            background-color: #6aae55;
+            background-color: $accent-color;
           }
         }
 
@@ -126,7 +126,7 @@
             padding: 10px 15px;
 
             border-radius: 5px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid $border-secondary-color;
           }
 
           .documentsList {
@@ -148,14 +148,14 @@
             visibility: hidden;
             opacity: 0;
 
-            background-color: var(--background-white);
+            background-color: $white-color;
 
             > a {
-              background-color: #6aae55;
+              background-color: $accent-color;
               border-radius: inherit;
               border: inherit;
 
-              color: white;
+              color: $white-color;
               text-align: center;
             }
 

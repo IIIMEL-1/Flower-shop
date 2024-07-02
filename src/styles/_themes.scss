@@ -1,0 +1,30 @@
+// themes.scss
+.light-theme {
+  --accent-color: #{$accent-color};
+  --white-color: #{$white-color};
+  --border-color: #{$border-color};
+  --border-secondary-color: #{$border-secondary-color};
+  --border-menu-color: #{$border-menu-color};
+  --font-color: #{$font-color};
+  --font-secondary-color: #{$font-secondary-color};
+  --font-review-color: #{$font-review-color};
+  --section-color: #{$section-color};
+  --footer-color: #{$footer-color};
+  --footer-secondary-color: #{$footer-secondary-color};
+  --footer-color-h: #{$footer-color-h};
+}
+
+.dark-theme {
+  --accent-color: #{$dark-accent-color};
+  --white-color: #{$dark-white-color};
+  --border-color: #{$dark-border-color};
+  --border-secondary-color: #{$dark-border-secondary-color};
+  --border-menu-color: #{$dark-border-menu-color};
+  --font-color: #{$dark-font-color};
+  --font-secondary-color: #{$dark-font-secondary-color};
+  --font-review-color: #{$dark-font-review-color};
+  --section-color: #{$dark-section-color};
+  --footer-color: #{$dark-footer-color};
+  --footer-secondary-color: #{$dark-footer-secondary-color};
+  --footer-color-h: #{$dark-footer-color-h};
+}

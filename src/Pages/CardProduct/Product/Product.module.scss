@@ -6,7 +6,7 @@
   img {
     object-fit: cover;
 
-    background-color: #5b4a58;
+    background-color: $font-color;
     border-radius: 10px;
   }
 
@@ -30,7 +30,7 @@
         width: clamp(55px, 17vw, 75px);
         height: clamp(55px, 17vw, 75px);
 
-        border: 1px solid #6aae5500;
+        border: 1px solid $accent-color;
       }
 
       &:hover {
@@ -39,7 +39,7 @@
 
       &.active {
         img {
-          border: 2px solid #6aae55;
+          border: 2px solid $accent-color;
         }
 
         opacity: 1;
@@ -59,7 +59,7 @@
   > p {
     font-size: clamp(20px, 5vw, 24px);
     font-weight: bold;
-    color: #5b4a58;
+    color: $font-color;
   }
 
   .sizeBlock {
@@ -90,7 +90,7 @@
 
           border: 1px solid #f0f0f0;
           border-radius: 10px;
-          background-color: white;
+          background-color: $white-color;
 
           &::before,
           &::after {
@@ -104,7 +104,7 @@
 
         &:checked {
           + label {
-            border: 1px solid #6aae55;
+            border: 1px solid $accent-color;
           }
         }
       }
@@ -121,7 +121,7 @@
 
     padding: 20px 15px 10px 25px;
 
-    background: #fff;
+    background: $white-color;
     border-radius: 10px;
     border: 1px solid #f0f0f0;
 
@@ -132,7 +132,7 @@
 
       height: 100%;
 
-      color: #5b4a58;
+      color: $font-color;
       font-size: clamp(16px, 3vw, 18px);
       line-height: 150%;
       font-weight: 400;
@@ -150,7 +150,7 @@
           width: 6px;
           height: 6px;
 
-          color: #6aae55;
+          color: $accent-color;
           border-radius: 50%;
         }
       }
@@ -203,7 +203,7 @@
       padding: 0 clamp(15px, 3vw, 25px);
 
       border-radius: 10px;
-      background-color: var(--background-white);
+      background-color: $white-color;
       border: 1px solid #f0f0f0;
     }
 

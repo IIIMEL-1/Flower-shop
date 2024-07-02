@@ -11,16 +11,16 @@
 
   z-index: 1;
 
-  background-color: var(--background-white);
+  background-color: $white-color;
   border-radius: 10px;
-  border: 1px solid var(--border-color);
+  border: 1px solid $border-color;
 
   > div {
     padding: 20px;
   }
 
   img {
-    background-color: var(--background-section);
+    background-color: $section-color;
     border-radius: 10px;
     min-width: 100%;
     min-height: 240px;
@@ -31,7 +31,7 @@
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-weight: 600;
-    color: var(--font-color);
+    color: $font-color;
   }
 
   .about {
@@ -64,7 +64,7 @@
 
     p:nth-child(1) {
       font-size: 14px;
-      color: var(--font-color-two);
+      color: $font-secondary-color;
       font-weight: 500;
     }
 
@@ -75,33 +75,11 @@
     }
   }
 
-  .addToCart {
-    position: relative;
-
-    display: flex;
-    justify-content: center;
-
-    transition: 0.2s ease-in-out;
-    background-color: #6aae55;
-    border-radius: 10px;
-    padding: 9px 0;
-
-    width: 100%;
-    color: #ffffff;
-    font-weight: 600;
+  a {
     font-size: 16px;
+    font-weight: 600;
 
-    &:hover {
-      opacity: 0.85;
-      transition: 0.3s ease-in-out;
-      transform: translateY(0px) scale(1.04);
-    }
-
-    &:active {
-      transition: 0s;
-      background-color: #4a8837;
-      transform: translateY(0px) scale(1.02);
-    }
+    border-radius: 10px;
   }
 
   &.active {

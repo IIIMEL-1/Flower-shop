@@ -17,13 +17,13 @@
 
       text-align: center;
 
-      color: #5b4a58;
+      color: $font-color;
       text-align: center;
       font-size: 18px;
       font-weight: bold;
 
       span {
-        color: #6aae55;
+        color: $accent-color;
       }
     }
   }

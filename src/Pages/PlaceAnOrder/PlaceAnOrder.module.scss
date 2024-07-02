@@ -21,7 +21,7 @@
     width: clamp(100px, 15vw, 190px);
     height: 100%;
 
-    background-color: white;
+    background-color: $white-color;
     border-radius: 10px;
 
     user-select: none;
@@ -29,14 +29,14 @@
     transition: 0.1s ease-in-out;
 
     &.active {
-      background-color: #6aae55;
+      background-color: $accent-color;
 
-      color: white;
+      color: $white-color;
 
       div {
-        background-color: white;
+        background-color: $white-color;
 
-        color: #6aae55;
+        color: $accent-color;
       }
     }
 
@@ -74,7 +74,7 @@
       margin: 0 5px 0 clamp(7px, 0.5vw, 10px);
 
       font-size: 20px;
-      color: white;
+      color: $white-color;
 
       border-radius: 50%;
       background-color: #d5d5d5da;
@@ -137,7 +137,7 @@
     padding: 0 10px;
     margin-top: 20px;
 
-    background-color: white;
+    background-color: $white-color;
     border-radius: 10px;
 
     span {
@@ -174,7 +174,7 @@
 
       padding: 20px clamp(12px, 3vw, 25px);
 
-      background-color: white;
+      background-color: $white-color;
       border-radius: 10px;
 
       h5 {
@@ -199,7 +199,7 @@
 
           padding: 15px 0 15px 30px;
 
-          border-bottom: 1px solid #e0e0e0;
+          border-bottom: 1px solid $border-secondary-color;
         }
       }
     }
@@ -249,7 +249,7 @@
         display: flex;
         justify-content: space-between;
 
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid $border-secondary-color;
         padding: 15px 0;
 
         &:last-child {
@@ -314,11 +314,11 @@
         font-weight: bold;
         font-size: 18px;
 
-        border: 2px solid #6aae55;
+        border: 2px solid $accent-color;
 
         &:first-child {
-          background-color: white;
-          color: #6aae55;
+          background-color: $white-color;
+          color: $accent-color;
         }
       }
     }

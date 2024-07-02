@@ -5,8 +5,8 @@
   height: 170px;
 
   border-radius: 10px;
-  border: 1px solid var(--border-color);
-  background-color: var(--background-white);
+  border: 1px solid $border-color;
+  background-color: $white-color;
 
   img {
     min-width: 168px;

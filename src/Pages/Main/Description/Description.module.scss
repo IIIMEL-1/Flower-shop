@@ -1,12 +1,12 @@
 #description {
   padding: 50px 0;
 
-  background-color: var(--background-section);
+  background-color: $section-color;
 
   .descriptionBlock {
     p {
       font-family: "Montserrat", sans-serif !important;
-      color: var(--font-color-two);
+      color: $font-secondary-color;
       font-size: clamp(16px, 3vw, 19px);
       line-height: 30.5px;
       font-weight: 600;

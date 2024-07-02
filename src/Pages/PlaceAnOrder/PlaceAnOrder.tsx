@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useChangeDataMutation } from "@redux/slices/createApi";
 import style from "./PlaceAnOrder.module.scss";
 import { clearCart } from "@redux/slices/addToCartSlice";
@@ -8,20 +8,40 @@ import PlaceAnOrderItem from "./PlaceAnOrderItem/PlaceAnOrderItem";
 import Modal from "@components/Modal/Modal";
 import { changeUserOrders } from "@redux/slices/authSlice";
 import { useTypedSelector } from "@hooks/useTypedSelector";
+import { TypeShortProduct } from "@globalTypes/shortProduct.types";
 
-type TypeListItems = {
-  id: number;
-  image: string;
-  title: string;
+type TypeListItems = TypeShortProduct & {
   count: number;
   size: string;
-  price: number;
 };
 
 type TypeStepsList = {
   step: number;
   name: string;
 };
+
+const STEPS_LIST: TypeStepsList[] = [
+  {
+    step: 1,
+    name: "Вход или регистрация",
+  },
+  {
+    step: 2,
+    name: "Дата и время",
+  },
+  {
+    step: 3,
+    name: "Доставка",
+  },
+  {
+    step: 4,
+    name: "Контакты получателя",
+  },
+  {
+    step: 5,
+    name: "Способ оплаты",
+  },
+];
 
 export default function OrderRegistration() {
   const items = useTypedSelector((state) => state.addToCartSlice.placeAnOrder);
@@ -35,29 +55,6 @@ export default function OrderRegistration() {
   const [currentStep, setCurrentStep] = useState(1);
 
   console.log(items.length);
-
-  const STEPS_LIST: TypeStepsList[] = [
-    {
-      step: 1,
-      name: "Вход или регистрация",
-    },
-    {
-      step: 2,
-      name: "Дата и время",
-    },
-    {
-      step: 3,
-      name: "Доставка",
-    },
-    {
-      step: 4,
-      name: "Контакты получателя",
-    },
-    {
-      step: 5,
-      name: "Способ оплаты",
-    },
-  ];
 
   const currentDate = new Date()
     .toLocaleDateString("en-US", { timeZone: "Asia/Bangkok" })

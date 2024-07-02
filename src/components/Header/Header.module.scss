@@ -10,9 +10,9 @@ header {
   width: 100vw;
   height: var(--nav-menu-height);
 
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid $border-secondary-color;
 
-  background-color: var(--background-white) !important;
+  background-color: $white-color !important;
 
   .burgerMenu {
     position: absolute;
@@ -76,13 +76,13 @@ header {
 
           width: 320px;
 
-          border: 1px solid #e0e0e0;
-          background-color: white;
+          border: 1px solid $border-secondary-color;
+          background-color: $white-color;
 
           transition: 0.15s ease-in-out;
 
           li {
-            border-top: 1px solid #5b4a582e;
+            border-top: 1px solid #f6f6f62e;
 
             &:first-child {
               border-top: none;
@@ -169,7 +169,7 @@ header {
       transition: 0.2s ease-in-out;
       transform: translateX(-100%);
 
-      background-color: var(--background-white);
+      background-color: $white-color;
 
       .logo {
         display: none;
@@ -186,7 +186,7 @@ header {
           width: 100% !important;
           padding: 20px;
 
-          border-top: 1px solid #5b4a5850;
+          border-top: 1px solid $border-menu-color;
         }
 
         a {
@@ -203,13 +203,13 @@ header {
           width: inherit;
           padding: 20px !important;
 
-          background-color: white;
+          background-color: $white-color;
         }
 
         .infoList {
           width: 100% !important;
 
-          border: 1px solid #5b4a5850 !important;
+          border: 1px solid $border-menu-color !important;
 
           li {
             a {
@@ -237,11 +237,11 @@ header {
       }
 
       .cart {
-        border-bottom: 1px solid #5b4a5850;
+        border-bottom: 1px solid $border-menu-color;
       }
 
       .profile {
-        border-top: 1px solid #5b4a5850;
+        border-top: 1px solid $border-menu-color;
 
         img {
           display: none;

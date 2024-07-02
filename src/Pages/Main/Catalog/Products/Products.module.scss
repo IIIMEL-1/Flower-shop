@@ -8,8 +8,8 @@
   .sortBlock {
     > button,
     > div {
-      background-color: var(--background-white);
-      border: 1px solid var(--border-color);
+      background-color: $white-color;
+      border: 1px solid $border-color;
       border-radius: 10px;
       color: #b3adad;
     }
@@ -40,10 +40,10 @@
       }
 
       p {
-        color: var(--font-color-two);
+        color: $font-secondary-color;
 
         padding: 1em 10px;
-        border-right: 1px solid var(--border-color);
+        border-right: 1px solid $border-color;
       }
 
       :global {
@@ -99,9 +99,9 @@
           display: flex;
           flex-direction: column;
 
-          background-color: white;
+          background-color: $white-color;
           border-radius: 10px;
-          border: 1px solid var(--border-color);
+          border: 1px solid $border-color;
 
           font-size: 17px;
 
@@ -181,7 +181,7 @@
 
         p {
           border-right: none;
-          border-bottom: 1px solid var(--border-color);
+          border-bottom: 1px solid $border-color;
 
           padding: 10px;
         }
@@ -221,7 +221,7 @@
       font-size: 24px;
       font-weight: bold;
 
-      background-color: white;
+      background-color: $white-color;
     }
   }
 }

@@ -29,7 +29,7 @@
     }
 
     &::-webkit-scrollbar {
-      background-color: #5b4a58;
+      background-color: $font-color;
       width: 15px;
     }
 
@@ -38,7 +38,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: #5b4a58ec;
+      background-color: $font-color;
       border-radius: 6px;
     }
 
@@ -51,7 +51,7 @@
 
       font-weight: bold;
 
-      background-color: var(--background-white);
+      background-color: $white-color;
       border-radius: 10px;
     }
 
@@ -92,7 +92,7 @@
 
           padding-bottom: 5px;
           margin-bottom: 10px;
-          border-bottom: 2px solid var(--font-color-two);
+          border-bottom: 2px solid $font-secondary-color;
 
           .title {
             display: flex;
@@ -103,7 +103,7 @@
 
             margin-right: 10px;
             padding-right: 10px;
-            border-right: 2px solid var(--font-color-two);
+            border-right: 2px solid $font-secondary-color;
           }
 
           &:last-child {
@@ -147,7 +147,7 @@
         flex-direction: column;
 
         > div {
-          border-bottom: 2px solid var(--font-color-two);
+          border-bottom: 2px solid $font-secondary-color;
           margin-bottom: 10px;
 
           &:last-child {

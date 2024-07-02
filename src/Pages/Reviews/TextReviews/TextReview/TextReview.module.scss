@@ -2,10 +2,7 @@
   padding-bottom: 20px;
   margin-bottom: 20px;
 
-  /* max-height: 200px;
-  overflow: hidden; */
-
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid $border-secondary-color;
 
   > div {
     display: flex;
@@ -25,10 +22,10 @@
       p {
         font-size: clamp(15px, 2.5vw, 18px);
         font-weight: bold;
-        color: #6aae55;
+        color: $accent-color;
       }
       span {
-        color: var(--font-color-two);
+        color: $font-secondary-color;
         font-size: clamp(13px, 2vw, 16px);
         font-weight: 400;
 
@@ -49,7 +46,7 @@
 
   .reviewText {
     p {
-      color: #7e6579;
+      color: $font-review-color;
       font-size: clamp(15px, 2.5vw, 18px);
       font-weight: bold;
     }

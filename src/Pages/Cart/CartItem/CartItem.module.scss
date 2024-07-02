@@ -1,7 +1,7 @@
 .cartItem {
   position: relative;
 
-  background: var(--background-white);
+  background: $white-color;
   border-radius: 10px;
   padding: clamp(10px, 3vw, 25px);
 
@@ -16,12 +16,12 @@
     align-items: center;
 
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid $border-color;
 
     img {
       width: clamp(90px, 25vw, 130px);
       height: clamp(90px, 25vw, 130px);
-      border: 1px solid var(--border-color);
+      border: 1px solid $border-color;
       border-radius: 10px;
       background: #c4c4c4;
     }
@@ -108,7 +108,7 @@
         width: 33px;
         height: 33px;
 
-        background-color: #e0e0e0;
+        background-color: $border-secondary-color;
         border-radius: 4px;
 
         font-size: 22px;
@@ -133,8 +133,8 @@
       }
 
       .plus {
-        background-color: #6aae55;
-        color: white;
+        background-color: $accent-color;
+        color: $white-color;
       }
     }
 
@@ -143,7 +143,7 @@
 
       span {
         font-size: 14px;
-        color: var(--font-color-two);
+        color: $font-secondary-color;
       }
 
       p {

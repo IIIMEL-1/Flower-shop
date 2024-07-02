@@ -19,7 +19,7 @@ export default function Card({ id, title, image, price, mini }: TypeCardProps) {
             <p>Стоимость:</p>
             <p>{price.toLocaleString()} руб.</p>
           </div>
-          <Link to={`/flower/${id}`} className={style.addToCart}>
+          <Link to={`/flower/${id}`} className="sendForm">
             Перейти к товару
           </Link>
         </div>

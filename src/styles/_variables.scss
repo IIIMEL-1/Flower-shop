@@ -1,3 +1,50 @@
-// colors
+// - colors
+$accent-color: #6aae55; /* / */
+$white-color: #ffffff; /* / */
 
-// font-size
+/// - border colors
+$border-color: rgb(118 171 102 / 35%);
+$border-secondary-color: #e0e0e0; /* / */
+$border-menu-color: #5b4a5850; /* / */
+
+/// - font colors
+$font-color: #5b4a58; /* / */
+$font-secondary-color: #828282; /* / */
+$font-review-color: #7e6579; /* / */
+
+/// - header colors
+
+/// - main colors
+$section-color: #efeff0; /* / */
+
+/// - footer colors
+$footer-color: #44444d; /* / */
+$footer-secondary-color: #2c262b; /* / */
+
+// - hover colors
+
+$footer-color-h: #675864; /* / */
+
+// Dark Theme Variables
+$dark-accent-color: #88c057;
+$dark-white-color: #333333;
+
+$dark-border-color: rgba(118, 171, 102, 0.35);
+$dark-border-secondary-color: #505050;
+$dark-border-menu-color: #5b4a5850;
+
+$dark-font-color: #e0e0e0;
+$dark-font-secondary-color: #b0b0b0;
+$dark-font-review-color: #c5c5c5;
+
+$dark-section-color: #1e1e1e;
+
+$dark-footer-color: #333333;
+$dark-footer-secondary-color: #1e1e1e;
+
+$dark-footer-color-h: #575757;
+
+// - font-size
+
+// - size
+$nav-menu-height: clamp(60px, 10vw, 90px);
