@@ -1,0 +1,8 @@
+.productCard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(20px, 7vw, 50px) 50px;
+
+  padding-bottom: 40px;
+}

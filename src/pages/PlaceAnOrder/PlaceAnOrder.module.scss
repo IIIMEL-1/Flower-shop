@@ -1,0 +1,340 @@
+.progressBar {
+  display: flex;
+  justify-content: center;
+  gap: 0 40px;
+
+  width: 100%;
+  height: 60px;
+
+  overflow: hidden;
+
+  margin-bottom: 30px;
+
+  .step {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+
+    width: clamp(100px, 15vw, 190px);
+    height: 100%;
+
+    background-color: var(--white-color);
+    border-radius: 10px;
+
+    user-select: none;
+
+    transition: 0.1s ease-in-out;
+
+    &.active {
+      background-color: var(--accent-color);
+
+      color: var(--white-color);
+
+      div {
+        background-color: var(--white-color);
+
+        color: var(--accent-color);
+      }
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      right: -14px;
+
+      z-index: -5;
+
+      width: 50px;
+      height: 50px;
+
+      transform: rotate(45deg);
+
+      background-color: inherit;
+      border-radius: inherit;
+    }
+
+    &:last-child {
+      &::after {
+        content: none;
+      }
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: clamp(35px, 8vw, 40px);
+      height: clamp(35px, 8vw, 40px);
+
+      margin: 0 5px 0 clamp(7px, 0.5vw, 10px);
+
+      font-size: 20px;
+      color: var(--white-color);
+
+      border-radius: 50%;
+      background-color: #d5d5d5da;
+    }
+
+    p {
+      display: flex;
+      justify-content: center;
+
+      text-align: center;
+
+      width: clamp(100px, 10vw, 135px);
+
+      font-size: clamp(13px, 1.5vw, 15px);
+      font-weight: bold;
+    }
+
+    @media (max-width: 1040px) {
+      justify-content: center;
+
+      div {
+        display: none;
+      }
+    }
+
+    @media (max-width: 740px) {
+      div {
+        display: flex;
+      }
+
+      p {
+        display: none;
+      }
+    }
+  }
+}
+
+.placeAnOrderBlock {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .cardList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+
+    width: 400px;
+  }
+
+  .totalPrice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 70px;
+
+    padding: 0 10px;
+    margin-top: 20px;
+
+    background-color: var(--white-color);
+    border-radius: 10px;
+
+    span {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: bold;
+
+      sup {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+
+    width: 700px;
+
+    padding-bottom: 20px;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      width: 100%;
+      min-height: 400px;
+
+      padding: 20px clamp(12px, 3vw, 25px);
+
+      background-color: var(--white-color);
+      border-radius: 10px;
+
+      h5 {
+        font-size: 18px;
+        font-weight: bold;
+
+        margin-bottom: 13px;
+      }
+    }
+
+    .blockRadioInput {
+      display: flex;
+      flex-direction: column;
+
+      > div {
+        display: flex;
+
+        width: 100%;
+
+        label {
+          width: 100%;
+
+          padding: 15px 0 15px 30px;
+
+          border-bottom: 1px solid $border-secondary-color;
+        }
+      }
+    }
+
+    .blockInput {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .inputItem,
+      .textareaItem {
+        display: flex;
+        flex-direction: column;
+        gap: 11px 0;
+
+        p {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .LoginOrRegistration {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px 0;
+
+      a {
+        width: 100%;
+        height: 50px;
+
+        font-size: 20px;
+      }
+
+      p {
+        text-transform: uppercase;
+        text-align: center;
+
+        font-size: 22px;
+        font-weight: bold;
+      }
+    }
+
+    .dateAndTime {
+      > div {
+        display: flex;
+        justify-content: space-between;
+
+        border-bottom: 1px solid $border-secondary-color;
+        padding: 15px 0;
+
+        &:last-child {
+          margin-left: clamp(10px, 2vw, 25px);
+          border-bottom: none;
+        }
+      }
+    }
+
+    .recipient {
+      .blockRadioInput {
+        margin-bottom: 20px;
+      }
+
+      .inputItem {
+        width: 300px;
+      }
+
+      .textareaItem {
+        width: 100%;
+
+        textarea {
+          display: flex;
+
+          width: 100%;
+          height: 90px !important;
+        }
+      }
+    }
+
+    .yourContacts {
+      .inputItem {
+        width: 200px;
+      }
+    }
+
+    .paymentMethod {
+      > div:last-child {
+        border-bottom: none;
+
+        button {
+          width: 100%;
+          height: 50px;
+
+          margin-top: 50px;
+
+          font-size: 20px;
+        }
+      }
+    }
+
+    .buttonsBlock {
+      display: flex;
+      justify-content: space-between;
+
+      margin-top: 30px;
+
+      button {
+        width: clamp(130px, 30vw, 200px);
+        height: 50px;
+
+        font-weight: bold;
+        font-size: 18px;
+
+        border: 2px solid $accent-color;
+
+        &:first-child {
+          background-color: var(--white-color);
+          color: var(--accent-color);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 740px) {
+    .blockInput {
+      flex-direction: column;
+
+      .inputItem {
+        width: 100% !important;
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

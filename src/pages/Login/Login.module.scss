@@ -1,0 +1,110 @@
+.loginBlock {
+  max-width: 500px;
+  max-height: 100%;
+
+  margin: 0 auto;
+
+  border-radius: 10px;
+  background-color: var(--white-color);
+
+  #password {
+    position: relative;
+
+    input {
+      padding-right: 45px;
+    }
+
+    span {
+      position: absolute;
+
+      cursor: pointer;
+
+      width: 30px;
+      height: 30px;
+
+      right: 15px;
+      top: 50%;
+
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  button {
+    width: 100%;
+
+    font-size: clamp(14px, 3.5vw, 20px);
+    font-weight: bold;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(15px, 3vw, 25px) 0;
+
+    padding: 30px;
+
+    .error {
+      font-size: 17px;
+      text-align: center;
+      color: rgba(255, 0, 0, 0.7);
+    }
+
+    h3 {
+      font-size: clamp(15px, 3vw, 18px);
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      height: clamp(40px, 10vw, 50px);
+
+      margin-top: 10px;
+    }
+
+    > button {
+      height: 50px;
+
+      margin-top: 20px;
+    }
+  }
+
+  .loginOrRegistration {
+    display: flex;
+
+    height: clamp(60px, 15vw, 80px);
+
+    > button {
+      padding: 0 8px;
+
+      opacity: 0.6;
+
+      border: 1px solid rgb(184, 184, 184, 0.4);
+      background-color: var(--border-secondary-color);
+
+      transition: 0.2s ease-in-out;
+
+      &:first-child {
+        border-top-left-radius: 10px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 10px;
+      }
+
+      &.active {
+        pointer-events: none;
+        opacity: 1;
+
+        background-color: var(--white-color);
+        border: 1px solid rgb(184, 184, 184, 0);
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      button:hover {
+        opacity: 1;
+        background-color: $border-secondary-color !important;
+      }
+    }
+  }
+}
