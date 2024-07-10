@@ -6,11 +6,11 @@
 
   margin-top: var(--nav-menu-height);
 
+  background: url(/images/Background.png) no-repeat center top fixed;
+
   &.dark {
     background: url(/images/background-dark.jpg) no-repeat center bottom fixed;
   }
-
-  background: url(/images/Background.png) no-repeat center top fixed;
 
   .logo {
     font-size: clamp(18px, 5.4vw, 35px);

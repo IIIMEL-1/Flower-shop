@@ -6,7 +6,7 @@ import {
   useGetSortItemsMutation,
 } from "@redux/slices/createApi";
 
-import Card from "@pages/Main/Catalog/Products/Card/Card";
+import Card from "src/Pages/Main/Catalog/Products/Card/Card";
 
 export default function ChangeStocks() {
   const [image, setImage] = useState("");

@@ -38,11 +38,11 @@
       }
 
       &.active {
+        opacity: 1;
+
         img {
           border: 2px solid $accent-color;
         }
-
-        opacity: 1;
       }
     }
   }
