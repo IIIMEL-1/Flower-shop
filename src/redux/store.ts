@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import addToCartSlice from "./slices/addToCartSlice";
 import authSlice from "./slices/authSlice";
 import sortSlice from "./slices/sortSlice";
+import themeSlice from "./slices/themeSlice";
 
 import api from "./slices/createApi";
 
@@ -11,6 +12,7 @@ export const store = configureStore({
     addToCartSlice,
     authSlice,
     sortSlice,
+    themeSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),

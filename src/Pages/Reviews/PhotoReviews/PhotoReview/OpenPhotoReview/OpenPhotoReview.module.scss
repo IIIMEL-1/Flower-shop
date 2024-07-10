@@ -32,7 +32,7 @@
     max-height: 90vh;
 
     border-radius: 10px;
-    background-color: $white-color;
+    background-color: var(--white-color);
 
     padding: clamp(10px, 3vw, 25px);
 
@@ -102,10 +102,10 @@
       p {
         font-size: clamp(15px, 2.5vw, 18px);
         font-weight: bold;
-        color: $accent-color;
+        color: var(--accent-color);
       }
       span {
-        color: $font-secondary-color;
+        color: var(--font-secondary-color);
         font-size: clamp(13px, 2vw, 16px);
         font-weight: 400;
 
@@ -117,7 +117,7 @@
       overflow-y: auto;
 
       p {
-        color: $font-review-color;
+        color: var(--font-review-color);
         font-size: clamp(15px, 2.5vw, 18px);
         font-weight: bold;
       }

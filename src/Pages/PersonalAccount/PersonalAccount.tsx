@@ -1,6 +1,7 @@
 import { Navigate, Outlet } from "react-router";
 import { Link } from "react-router-dom";
 import { useTypedSelector } from "@hooks/useTypedSelector";
+import ThemeToggleButton from "@components/ThemeToggleButton/ThemeToggleButton";
 
 export default function Profile() {
   const userDetails = useTypedSelector((state) => state.authSlice.userDetails);
@@ -25,6 +26,7 @@ export default function Profile() {
               {userDetails && userDetails.admin && (
                 <Link to={"/Admin/ChangeItems"}>Админ панель</Link>
               )}
+              <ThemeToggleButton />
             </div>
           </div>
           <Outlet />

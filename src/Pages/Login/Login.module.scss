@@ -5,7 +5,7 @@
   margin: 0 auto;
 
   border-radius: 10px;
-  background-color: $white-color;
+  background-color: var(--white-color);
 
   #password {
     position: relative;
@@ -79,7 +79,7 @@
       opacity: 0.6;
 
       border: 1px solid rgb(184, 184, 184, 0.4);
-      background-color: $border-secondary-color;
+      background-color: var(--border-secondary-color);
 
       transition: 0.2s ease-in-out;
 
@@ -95,7 +95,7 @@
         pointer-events: none;
         opacity: 1;
 
-        background-color: $white-color;
+        background-color: var(--white-color);
         border: 1px solid rgb(184, 184, 184, 0);
       }
     }

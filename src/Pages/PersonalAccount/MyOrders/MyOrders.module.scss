@@ -29,7 +29,7 @@
     }
 
     &::-webkit-scrollbar {
-      background-color: $font-color;
+      background-color: var(--font-color);
       width: 15px;
     }
 
@@ -38,7 +38,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: $font-color;
+      background-color: var(--font-color);
       border-radius: 6px;
     }
 
@@ -51,7 +51,7 @@
 
       font-weight: bold;
 
-      background-color: $white-color;
+      background-color: var(--white-color);
       border-radius: 10px;
     }
 

@@ -13,7 +13,7 @@
 
     border-radius: 10px;
 
-    background-color: $white-color;
+    background-color: var(--white-color);
 
     h2 {
       font-size: 18px;
@@ -89,7 +89,7 @@
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
 
-            background-color: $accent-color;
+            background-color: var(--accent-color);
           }
         }
 
@@ -148,14 +148,14 @@
             visibility: hidden;
             opacity: 0;
 
-            background-color: $white-color;
+            background-color: var(--white-color);
 
             > a {
-              background-color: $accent-color;
+              background-color: var(--accent-color);
               border-radius: inherit;
               border: inherit;
 
-              color: $white-color;
+              color: var(--white-color);
               text-align: center;
             }
 

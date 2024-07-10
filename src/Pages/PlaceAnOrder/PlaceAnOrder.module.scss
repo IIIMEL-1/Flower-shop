@@ -21,7 +21,7 @@
     width: clamp(100px, 15vw, 190px);
     height: 100%;
 
-    background-color: $white-color;
+    background-color: var(--white-color);
     border-radius: 10px;
 
     user-select: none;
@@ -29,14 +29,14 @@
     transition: 0.1s ease-in-out;
 
     &.active {
-      background-color: $accent-color;
+      background-color: var(--accent-color);
 
-      color: $white-color;
+      color: var(--white-color);
 
       div {
-        background-color: $white-color;
+        background-color: var(--white-color);
 
-        color: $accent-color;
+        color: var(--accent-color);
       }
     }
 
@@ -74,7 +74,7 @@
       margin: 0 5px 0 clamp(7px, 0.5vw, 10px);
 
       font-size: 20px;
-      color: $white-color;
+      color: var(--white-color);
 
       border-radius: 50%;
       background-color: #d5d5d5da;
@@ -137,7 +137,7 @@
     padding: 0 10px;
     margin-top: 20px;
 
-    background-color: $white-color;
+    background-color: var(--white-color);
     border-radius: 10px;
 
     span {
@@ -174,7 +174,7 @@
 
       padding: 20px clamp(12px, 3vw, 25px);
 
-      background-color: $white-color;
+      background-color: var(--white-color);
       border-radius: 10px;
 
       h5 {
@@ -317,8 +317,8 @@
         border: 2px solid $accent-color;
 
         &:first-child {
-          background-color: $white-color;
-          color: $accent-color;
+          background-color: var(--white-color);
+          color: var(--accent-color);
         }
       }
     }

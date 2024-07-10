@@ -2,9 +2,9 @@ import style from "./Advantages.module.scss";
 
 export default function Advantages() {
   return (
-    <section id="advantages">
+    <section id={style.advantages}>
       <div className="container">
-        <div className={style.advantages}>
+        <div className={style.advantagesBlock}>
           <div>
             <img src="/images/delivery.webp" alt="#!" />
             <p>

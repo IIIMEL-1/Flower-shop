@@ -6,17 +6,21 @@
 
   margin-top: var(--nav-menu-height);
 
+  &.dark {
+    background: url(/images/background-dark.jpg) no-repeat center bottom fixed;
+  }
+
   background: url(/images/Background.png) no-repeat center top fixed;
 
   .logo {
     font-size: clamp(18px, 5.4vw, 35px);
     font-family: "Bubblegum Sans", cursive;
-    color: $font-color;
+    color: var(--font-color);
     text-align: center;
     margin-bottom: 33px;
 
     span {
-      color: $accent-color;
+      color: var(--accent-color);
     }
 
     p:nth-child(2) {
@@ -31,7 +35,7 @@
     flex-direction: column;
 
     button {
-      background-color: $accent-color;
+      background-color: var(--accent-color);
       padding: 13px 60px;
       border-radius: 10px;
       box-shadow: 0 9px 0 hsl(106, 34%, 38%);

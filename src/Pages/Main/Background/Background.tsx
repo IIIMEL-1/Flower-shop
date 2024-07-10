@@ -1,8 +1,18 @@
+import themeSlice from "@redux/slices/themeSlice";
 import style from "./Background.module.scss";
+import { useTypedSelector } from "@hooks/useTypedSelector";
 
 export default function Background() {
+  const theme = useTypedSelector((state) => state.themeSlice.theme);
+
   return (
-    <section className={style.background}>
+    <section
+      className={
+        !theme || theme === "light"
+          ? `${style.background}`
+          : `${style.background} + ${style.dark}`
+      }
+    >
       <div className="container">
         <div className={style.logo}>
           <p>
@@ -10,7 +20,6 @@ export default function Background() {
           </p>
           <p>ВЛАДИВОСТОК</p>
         </div>
-        {/* <button>КАТАЛОГ</button> */}
       </div>
     </section>
   );

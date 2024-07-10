@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useChangeDataMutation } from "@redux/slices/createApi";
 import style from "./PlaceAnOrder.module.scss";
 import { clearCart } from "@redux/slices/addToCartSlice";
@@ -101,6 +101,7 @@ export default function OrderRegistration() {
       if (data.orders) {
         dispatch(changeUserOrders({ orders: data.orders }));
       }
+      <Navigate to={"/PersonalAccount/Profile"} />;
     }
 
     if (user && localStorage.getItem("token")) {

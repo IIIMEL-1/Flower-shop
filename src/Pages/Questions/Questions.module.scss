@@ -1,6 +1,6 @@
 .QuestionsList {
   padding-bottom: 40px;
-  color: $font-color;
+  color: var(--font-color);
 
   > div {
     display: flex;
@@ -18,7 +18,7 @@
       transition: 0.15s ease-in-out;
 
       &:hover {
-        color: $accent-color;
+        color: var(--accent-color);
       }
     }
 
@@ -26,7 +26,7 @@
       font-size: 18px;
 
       border-radius: 10px;
-      background-color: $white-color;
+      background-color: var(--white-color);
 
       > div {
         padding: 20px 30px;

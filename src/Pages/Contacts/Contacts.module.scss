@@ -23,7 +23,7 @@
       width: 265px;
 
       border-radius: 10px;
-      background-color: $white-color;
+      background-color: var(--white-color);
 
       > div {
         padding: 20px;
@@ -37,7 +37,7 @@
       h5 {
         font-size: clamp(14px, 3vw, 16px);
         line-height: 120%;
-        color: $font-secondary-color;
+        color: var(--font-secondary-color);
 
         margin-bottom: 5px;
       }
@@ -45,14 +45,14 @@
       p {
         font-size: clamp(15px, 3.5vw, 17px);
         font-weight: bold;
-        color: $font-color;
+        color: var(--font-color);
       }
     }
 
     .mapBlock {
       img {
         height: clamp(270px, 70vw, 400px);
-        background-color: $white-color;
+        background-color: var(--white-color);
         border-radius: 10px;
 
         object-fit: none;
@@ -69,7 +69,7 @@
 
     padding: clamp(10px, 3vw, 30px);
 
-    background-color: $white-color;
+    background-color: var(--white-color);
     border-radius: 10px;
 
     font-size: clamp(14px, 4vw, 18px);

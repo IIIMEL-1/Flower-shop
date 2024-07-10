@@ -17,7 +17,7 @@
     border-radius: 10px;
     border: 1px solid $border-secondary-color;
 
-    background-color: $white-color;
+    background-color: var(--white-color);
   }
 
   &:hover .cardInner {
@@ -59,12 +59,12 @@
       p {
         font-size: clamp(15px, 2.5vw, 18px);
         font-weight: bold;
-        color: $accent-color;
+        color: var(--accent-color);
 
         margin-bottom: 7px;
       }
       span {
-        color: $font-secondary-color;
+        color: var(--font-secondary-color);
         font-size: clamp(13px, 2vw, 16px);
         font-weight: 400;
 
@@ -76,7 +76,7 @@
       margin-top: 10px;
 
       p {
-        color: $font-review-color;
+        color: var(--font-review-color);
         font-size: clamp(15px, 2.5vw, 18px);
         font-weight: bold;
       }

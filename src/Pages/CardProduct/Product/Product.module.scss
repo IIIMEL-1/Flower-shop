@@ -6,7 +6,7 @@
   img {
     object-fit: cover;
 
-    background-color: $font-color;
+    background-color: var(--font-color);
     border-radius: 10px;
   }
 
@@ -59,7 +59,7 @@
   > p {
     font-size: clamp(20px, 5vw, 24px);
     font-weight: bold;
-    color: $font-color;
+    color: var(--font-color);
   }
 
   .sizeBlock {
@@ -90,7 +90,7 @@
 
           border: 1px solid #f0f0f0;
           border-radius: 10px;
-          background-color: $white-color;
+          background-color: var(--white-color);
 
           &::before,
           &::after {
@@ -132,7 +132,7 @@
 
       height: 100%;
 
-      color: $font-color;
+      color: var(--font-color);
       font-size: clamp(16px, 3vw, 18px);
       line-height: 150%;
       font-weight: 400;
@@ -150,7 +150,7 @@
           width: 6px;
           height: 6px;
 
-          color: $accent-color;
+          color: var(--accent-color);
           border-radius: 50%;
         }
       }
@@ -203,7 +203,7 @@
       padding: 0 clamp(15px, 3vw, 25px);
 
       border-radius: 10px;
-      background-color: $white-color;
+      background-color: var(--white-color);
       border: 1px solid #f0f0f0;
     }
 

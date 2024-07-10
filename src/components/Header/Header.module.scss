@@ -10,9 +10,18 @@ header {
   width: 100vw;
   height: var(--nav-menu-height);
 
-  border-bottom: 1px solid $border-secondary-color;
+  border-bottom: 1px solid var(--border-secondary-color);
 
-  background-color: $white-color !important;
+  background-color: var(--white-color) !important;
+
+  svg {
+    rect {
+      stroke: var(--font-color);
+    }
+    path {
+      fill: var(--font-color);
+    }
+  }
 
   .burgerMenu {
     position: absolute;
@@ -27,6 +36,10 @@ header {
 
     .logo {
       width: 85px;
+
+      img {
+        object-fit: contain;
+      }
     }
 
     > div {
@@ -76,8 +89,8 @@ header {
 
           width: 320px;
 
-          border: 1px solid $border-secondary-color;
-          background-color: $white-color;
+          border: 1px solid var(--border-secondary-color);
+          background-color: var(--white-color);
 
           transition: 0.15s ease-in-out;
 
@@ -169,7 +182,7 @@ header {
       transition: 0.2s ease-in-out;
       transform: translateX(-100%);
 
-      background-color: $white-color;
+      background-color: var(--white-color);
 
       .logo {
         display: none;
@@ -186,7 +199,7 @@ header {
           width: 100% !important;
           padding: 20px;
 
-          border-top: 1px solid $border-menu-color;
+          border-top: 1px solid var(--border-menu-color);
         }
 
         a {
@@ -203,13 +216,13 @@ header {
           width: inherit;
           padding: 20px !important;
 
-          background-color: $white-color;
+          background-color: var(--white-color);
         }
 
         .infoList {
           width: 100% !important;
 
-          border: 1px solid $border-menu-color !important;
+          border: 1px solid var(--border-menu-color) !important;
 
           li {
             a {
@@ -237,13 +250,13 @@ header {
       }
 
       .cart {
-        border-bottom: 1px solid $border-menu-color;
+        border-bottom: 1px solid var(--border-menu-color);
       }
 
       .profile {
-        border-top: 1px solid $border-menu-color;
+        border-top: 1px solid var(--border-menu-color);
 
-        img {
+        svg {
           display: none;
         }
 

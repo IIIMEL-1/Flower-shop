@@ -25,14 +25,14 @@
 
       color: #307c19;
       border: 3px solid #4cae2f;
-      background-color: $white-color;
+      background-color: var(--white-color);
       transform: scale(1.1);
     }
 
     &:hover {
       opacity: 1;
       transform: scale(1.05);
-      background-color: $white-color;
+      background-color: var(--white-color);
     }
   }
 
@@ -45,6 +45,6 @@
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    background-color: $white-color;
+    background-color: var(--white-color);
   }
 }

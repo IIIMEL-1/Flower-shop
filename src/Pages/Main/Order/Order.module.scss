@@ -2,13 +2,12 @@
   text-transform: uppercase;
   font-size: 24px;
   font-family: "Bubblegum Sans", cursive;
-  color: $font-color;
+  color: var(--font-color);
 
-  margin-top: 50px;
   text-align: center;
 
   span {
-    color: $accent-color;
+    color: var(--accent-color);
   }
 }
 
@@ -34,7 +33,7 @@
     h4 {
       font-size: 18px;
       font-weight: 600;
-      color: $accent-color;
+      color: var(--accent-color);
       margin-bottom: 10px;
     }
   }
