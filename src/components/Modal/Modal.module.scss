@@ -25,10 +25,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-    &:not(.loading) {
-      justify-content: center;
-    }
-
     z-index: 99;
 
     width: clamp(300px, 90vw, 500px);
@@ -43,6 +39,10 @@
     text-align: center;
     font-size: clamp(16px, 3vw, 22px);
     font-weight: bold;
+
+    &:not(.loading) {
+      justify-content: center;
+    }
 
     img {
       width: clamp(150px, 50vw, 250px);
