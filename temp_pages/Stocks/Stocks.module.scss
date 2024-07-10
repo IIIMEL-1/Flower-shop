@@ -1,0 +1,35 @@
+.stocksList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+
+  padding-bottom: 60px;
+
+  .error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 360px;
+    height: 380px;
+
+    border-radius: 10px;
+    background-color: var(--white-color);
+
+    > p {
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    a {
+      text-transform: uppercase;
+      font-size: 15px;
+      font-weight: bold;
+
+      margin-top: 40px;
+    }
+  }
+}

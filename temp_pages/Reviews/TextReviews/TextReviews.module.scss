@@ -1,0 +1,29 @@
+#textReviewsPage {
+  .textReviewsBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+
+    > div {
+      background-color: var(--white-color);
+      border-radius: 10px;
+      padding: clamp(10px, 3vw, 30px);
+    }
+
+    .loading {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+
+      padding: 70px 0;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .reviewer {
+      flex-direction: column;
+      align-items: start !important;
+      gap: 10px;
+    }
+  }
+}
